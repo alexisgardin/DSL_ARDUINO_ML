@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated arduinoml -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="fr.unice.polytech.dsl.arduinoml.presentation.ArduinomlModelWizardID"
+            name="%_UI_ArduinomlModelWizard_label"
+            class="fr.unice.polytech.dsl.arduinoml.presentation.ArduinomlModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ArduinomlModelFile.gif">
+         <description>%_UI_ArduinomlModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated arduinoml -->
+      <editor
+            id="fr.unice.polytech.dsl.arduinoml.presentation.ArduinomlEditorID"
+            name="%_UI_ArduinomlEditor_label"
+            icon="icons/full/obj16/ArduinomlModelFile.gif"
+            extensions="arduinoml"
+            class="fr.unice.polytech.dsl.arduinoml.presentation.ArduinomlEditor"
+            contributorClass="fr.unice.polytech.dsl.arduinoml.presentation.ArduinomlActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

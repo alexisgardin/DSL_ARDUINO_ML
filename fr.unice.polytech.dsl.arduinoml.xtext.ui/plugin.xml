@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension
+		point="org.eclipse.ui.editors">
+		<editor
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+			default="true"
+			extensions="aml"
+			id="fr.unice.polytech.dsl.arduinoml.AML"
+			name="AML Editor">
+		</editor>
+	</extension>
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+			commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+			<activeWhen>
+				<reference
+					definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+		<handler
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+			commandId="fr.unice.polytech.dsl.arduinoml.AML.validate">
+		<activeWhen>
+			<reference
+					definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened">
+			</reference>
+		</activeWhen>
+		</handler>
+		<!-- copy qualified name -->
+		<handler
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
+			<activeWhen>
+				<reference definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened" />
+			</activeWhen>
+		</handler>
+		<handler
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
+			<activeWhen>
+				<and>
+					<reference definitionId="fr.unice.polytech.dsl.arduinoml.AML.XtextEditor.opened" />
+					<iterate>
+						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
+					</iterate>
+				</and>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension point="org.eclipse.core.expressions.definitions">
+		<definition id="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened">
+			<and>
+				<reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+				<with variable="activeEditor">
+					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
+						value="fr.unice.polytech.dsl.arduinoml.AML"
+						forcePluginActivation="true"/>
+				</with>
+			</and>
+		</definition>
+		<definition id="fr.unice.polytech.dsl.arduinoml.AML.XtextEditor.opened">
+			<and>
+				<reference definitionId="isXtextEditorActive"/>
+				<with variable="activeEditor">
+					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
+						value="fr.unice.polytech.dsl.arduinoml.AML"
+						forcePluginActivation="true"/>
+				</with>
+			</and>
+		</definition>
+	</extension>
+	<extension
+			point="org.eclipse.ui.preferencePages">
+		<page
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="fr.unice.polytech.dsl.arduinoml.AML"
+			name="AML">
+			<keywordReference id="fr.unice.polytech.dsl.arduinoml.ui.keyword_AML"/>
+		</page>
+		<page
+			category="fr.unice.polytech.dsl.arduinoml.AML"
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+			id="fr.unice.polytech.dsl.arduinoml.AML.coloring"
+			name="Syntax Coloring">
+			<keywordReference id="fr.unice.polytech.dsl.arduinoml.ui.keyword_AML"/>
+		</page>
+		<page
+			category="fr.unice.polytech.dsl.arduinoml.AML"
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+			id="fr.unice.polytech.dsl.arduinoml.AML.templates"
+			name="Templates">
+			<keywordReference id="fr.unice.polytech.dsl.arduinoml.ui.keyword_AML"/>
+		</page>
+	</extension>
+	<extension
+			point="org.eclipse.ui.propertyPages">
+		<page
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="fr.unice.polytech.dsl.arduinoml.AML"
+			name="AML">
+			<keywordReference id="fr.unice.polytech.dsl.arduinoml.ui.keyword_AML"/>
+			<enabledWhen>
+				<adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+			<filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+		</page>
+	</extension>
+	<extension
+		point="org.eclipse.ui.keywords">
+		<keyword
+			id="fr.unice.polytech.dsl.arduinoml.ui.keyword_AML"
+			label="AML"/>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+	<command
+			description="Trigger expensive validation"
+			id="fr.unice.polytech.dsl.arduinoml.AML.validate"
+			name="Validate">
+	</command>
+	<!-- copy qualified name -->
+	<command
+			id="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+			categoryId="org.eclipse.ui.category.edit"
+			description="Copy the qualified name for the selected element"
+			name="Copy Qualified Name">
+	</command>
+	<command
+			id="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
+			categoryId="org.eclipse.ui.category.edit"
+			description="Copy the qualified name for the selected element"
+			name="Copy Qualified Name">
+	</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.edit">
+			 <command
+				 commandId="fr.unice.polytech.dsl.arduinoml.AML.validate"
+				 style="push"
+				 tooltip="Trigger expensive validation">
+			<visibleWhen checkEnabled="false">
+				<reference
+					definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened">
+				</reference>
+			</visibleWhen>
+		</command>
+		</menuContribution>
+		<!-- copy qualified name -->
+		<menuContribution locationURI="popup:#TextEditorContext?after=copy">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+				style="push" tooltip="Copy Qualified Name">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened" />
+				</visibleWhen>
+			</command>
+		</menuContribution>
+		<menuContribution locationURI="menu:edit?after=copy">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+				style="push" tooltip="Copy Qualified Name">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened" />
+				</visibleWhen>
+			</command>
+		</menuContribution>
+		<menuContribution locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
+				style="push" tooltip="Copy Qualified Name">
+				<visibleWhen checkEnabled="false">
+					<and>
+						<reference definitionId="fr.unice.polytech.dsl.arduinoml.AML.XtextEditor.opened" />
+						<iterate>
+							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
+						</iterate>
+					</and>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened">
+					</reference>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+		<handler
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+			commandId="org.eclipse.xtext.ui.editor.FindReferences">
+			<activeWhen>
+				<reference
+					definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type
+			base-type="org.eclipse.core.runtime.text"
+			file-extensions="aml"
+			id="fr.unice.polytech.dsl.arduinoml.AML.contenttype"
+			name="AML File"
+			priority="normal">
+		</content-type>
+	</extension>
+	<!-- adding resource factories -->
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="aml">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+		<resourceServiceProvider
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+			uriExtension="aml">
+		</resourceServiceProvider>
+	</extension>
+	<!-- marker definitions for fr.unice.polytech.dsl.arduinoml.AML -->
+	<extension
+			id="aml.check.fast"
+			name="AML Problem"
+			point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.xtext.ui.check.fast"/>
+		<persistent value="true"/>
+	</extension>
+	<extension
+			id="aml.check.normal"
+			name="AML Problem"
+			point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.xtext.ui.check.normal"/>
+		<persistent value="true"/>
+	</extension>
+	<extension
+			id="aml.check.expensive"
+			name="AML Problem"
+			point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.xtext.ui.check.expensive"/>
+		<persistent value="true"/>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page
+			category="fr.unice.polytech.dsl.arduinoml.AML"
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage"
+			id="fr.unice.polytech.dsl.arduinoml.AML.validator.preferencePage"
+			name="Errors/Warnings">
+			<keywordReference id="fr.unice.polytech.dsl.arduinoml.ui.keyword_AML"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.xtext.builder.participant">
+		<participant
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+			fileExtensions="aml"/>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page
+			category="fr.unice.polytech.dsl.arduinoml.AML"
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="fr.unice.polytech.dsl.arduinoml.AML.compiler.preferencePage"
+			name="Compiler">
+			<keywordReference id="fr.unice.polytech.dsl.arduinoml.ui.keyword_AML"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.ui.propertyPages">
+		<page
+			category="fr.unice.polytech.dsl.arduinoml.AML"
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="fr.unice.polytech.dsl.arduinoml.AML.compiler.propertyPage"
+			name="Compiler">
+			<keywordReference id="fr.unice.polytech.dsl.arduinoml.ui.keyword_AML"/>
+			<enabledWhen>
+				<adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+			<filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?after=xtext.ui.openDeclaration">
+			<command
+				commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand"
+				id="fr.unice.polytech.dsl.arduinoml.AML.OpenGeneratedCode"
+				style="push">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened" />
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+		<handler
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
+			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
+			<activeWhen>
+				<reference definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened" />
+			</activeWhen>
+		</handler>
+	</extension>
+	<!-- Quick Outline -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
+			<activeWhen>
+				<reference
+					definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Open the quick outline."
+			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+			name="Quick Outline">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+				style="push"
+				tooltip="Open Quick Outline">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<!-- quickfix marker resolution generator for fr.unice.polytech.dsl.arduinoml.AML -->
+	<extension
+			point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="fr.unice.polytech.dsl.arduinoml.xtext.ui.aml.check.fast">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+		<markerResolutionGenerator
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="fr.unice.polytech.dsl.arduinoml.xtext.ui.aml.check.normal">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+		<markerResolutionGenerator
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="fr.unice.polytech.dsl.arduinoml.xtext.ui.aml.check.expensive">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+	</extension>
+	<!-- Rename Refactoring -->
+	<extension point="org.eclipse.ui.handlers">
+		<handler 
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
+			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
+			<activeWhen>
+				<reference
+					definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.edit">
+			<command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
+				style="push">
+				<visibleWhen checkEnabled="false">
+					<reference
+						definitionId="fr.unice.polytech.dsl.arduinoml.AML.Editor.opened">
+					</reference>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page
+			category="fr.unice.polytech.dsl.arduinoml.AML"
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+			id="fr.unice.polytech.dsl.arduinoml.AML.refactoring"
+			name="Refactoring">
+			<keywordReference id="fr.unice.polytech.dsl.arduinoml.ui.keyword_AML"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.compare.contentViewers">
+		<viewer id="fr.unice.polytech.dsl.arduinoml.AML.compare.contentViewers"
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="aml">
+		</viewer>
+		<contentTypeBinding
+			contentTypeId="fr.unice.polytech.dsl.arduinoml.AML.contenttype"
+			contentViewerId="fr.unice.polytech.dsl.arduinoml.AML.compare.contentViewers" />
+	</extension>
+	<extension point="org.eclipse.compare.contentMergeViewers">
+		<viewer id="fr.unice.polytech.dsl.arduinoml.AML.compare.contentMergeViewers"
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="aml" label="AML Compare">
+		</viewer>
+		<contentTypeBinding
+			contentTypeId="fr.unice.polytech.dsl.arduinoml.AML.contenttype"
+			contentMergeViewerId="fr.unice.polytech.dsl.arduinoml.AML.compare.contentMergeViewers" />
+	</extension>
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider id="fr.unice.polytech.dsl.arduinoml.AML.editors.documentProviders"
+			class="fr.unice.polytech.dsl.arduinoml.ui.AMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+			extensions="aml">
+		</provider>
+	</extension>
+	<extension point="org.eclipse.team.core.fileTypes">
+		<fileTypes
+			extension="aml"
+			type="text">
+		</fileTypes>
+	</extension>
+</plugin>
