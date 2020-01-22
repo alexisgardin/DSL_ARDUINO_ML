@@ -7,6 +7,11 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.emf.ecore.util.EcoreUtil
+import org.eclipse.emf.ecore.EObject
+import fr.unice.polytech.dsl.arduinoml.App
+import fr.unice.polytech.dsl.arduinoml.impl.AppImpl
+import fr.unice.polytech.dsl.arduinoml.homemade.ArduinoMLSwitchPrinter
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +21,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class AMLGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		var appObject = resource.allContents.findFirst[obj | obj.class == typeof(AppImpl)]
+		fsa.generateFile('generated.ino', new ArduinoMLSwitchPrinter().doSwitch(appObject));
 	}
 }
