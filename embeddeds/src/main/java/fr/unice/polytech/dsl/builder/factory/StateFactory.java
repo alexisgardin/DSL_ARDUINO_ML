@@ -1,4 +1,4 @@
-package fr.unice.polytech.dsl.builder;
+package fr.unice.polytech.dsl.builder.factory;
 
 import fr.unice.polytech.dsl.kernel.behavioral.State;
 

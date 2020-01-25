@@ -6,7 +6,7 @@ import fr.unice.polytech.dsl.kernel.structural.Actuator;
 import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
 
 public class Action implements Visitable {
-
+	private String name;
 	private SIGNAL value;
 	private Actuator actuator;
 
@@ -25,6 +25,14 @@ public class Action implements Visitable {
 
 	public void setActuator(Actuator actuator) {
 		this.actuator = actuator;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override

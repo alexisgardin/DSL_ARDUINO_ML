@@ -1,15 +1,14 @@
-package fr.unice.polytech.dsl.builder;
+package fr.unice.polytech.dsl.setup;
 
+import fr.unice.polytech.dsl.builder.Arduino;
 import fr.unice.polytech.dsl.exception.builder.PinAlreadyUsedException;
-import fr.unice.polytech.dsl.kernel.behavioral.State;
 import fr.unice.polytech.dsl.kernel.structural.Brick;
 
-import java.util.Arrays;
+import static fr.unice.polytech.dsl.builder.factory.StateFactory.state;
 
 public class Setup {
 
     public Setup(Brick brick) {
-
         Arduino.getInstance().bricks().add(brick);
     }
 
@@ -22,8 +21,10 @@ public class Setup {
     }
 
 
-    public void createState(String ... state) {
-
-        return Arduino.getInstance().states().addAll(new State());
+    public Arduino createState(String ... states) {
+        for (String s : states) {
+            Arduino.getInstance().states().add(state(s));
+        }
+        return Arduino.getInstance();
     }
 }
