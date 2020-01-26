@@ -22,6 +22,6 @@ class AMLGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		var appObject = resource.allContents.findFirst[obj | obj.class == typeof(AppImpl)]
-		fsa.generateFile('generated.ino', new ArduinoMLSwitchPrinter().doSwitch(appObject));
+		fsa.generateFile('generated-basic-scenario.ino', new ArduinoMLSwitchPrinter().doSwitch(appObject));
 	}
 }
