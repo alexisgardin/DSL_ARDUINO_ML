@@ -1,42 +1,24 @@
 package fr.unice.polytech.dsl.kernel.behavioral;
 
 import fr.unice.polytech.dsl.kernel.generator.Visitable;
-import fr.unice.polytech.dsl.kernel.generator.Visitor;
-import fr.unice.polytech.dsl.kernel.structural.*;
+import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
+import fr.unice.polytech.dsl.kernel.structural.Sensor;
 
-public class Transition implements Visitable {
+public abstract class Transition implements Visitable {
 
-	private State next;
-	private Sensor sensor;
-	private SIGNAL value;
+    protected State next;
 
 
-	public State getNext() {
-		return next;
-	}
+    public State getNext() {
+        return next;
+    }
 
-	public void setNext(State next) {
-		this.next = next;
-	}
+    public void setNext(State next) {
+        this.next = next;
+    }
 
-	public Sensor getSensor() {
-		return sensor;
-	}
+    public abstract void addSensor(Sensor sensor);
+	public abstract void addSignal(SIGNAL signal);
 
-	public void setSensor(Sensor sensor) {
-		this.sensor = sensor;
-	}
-
-	public SIGNAL getValue() {
-		return value;
-	}
-
-	public void setValue(SIGNAL value) {
-		this.value = value;
-	}
-
-	@Override
-	public void accept(Visitor visitor) {
-		visitor.visit(this);
-	}
+    public abstract boolean isMultiple();
 }

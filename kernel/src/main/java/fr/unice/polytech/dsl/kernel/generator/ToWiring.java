@@ -4,6 +4,8 @@ import fr.unice.polytech.dsl.kernel.App;
 import fr.unice.polytech.dsl.kernel.behavioral.*;
 import fr.unice.polytech.dsl.kernel.structural.*;
 
+import java.util.List;
+
 /**
  * Quick and dirty visitor to support the generation of Wiring code
  */
@@ -17,6 +19,14 @@ public class ToWiring extends Visitor<StringBuffer> {
 
 	private void w(String s) {
 		result.append(String.format("%s\n",s));
+	}
+
+	/**
+	 * Write simple, without \n
+	 * @param s
+	 */
+	private void ws(String s) {
+		result.append(String.format("%s",s));
 	}
 
 	@Override
@@ -71,9 +81,18 @@ public class ToWiring extends Visitor<StringBuffer> {
 	}
 
 	@Override
-	public void visit(Transition transition) {
-		w(String.format("  if( digitalRead(%d) == %s && guard ) {",
-				transition.getSensor().getPin(),transition.getValue()));
+	public void visit(MultipleTriggerTransition transition) {
+		ws("	if( ");
+		if(transition.isValid()){
+			for (int i = 0; i < transition.getSensors().size(); i++) {
+				ws(String.format("digitalRead(%d) == %s",
+						transition.getSensors().get(i).getPin(),transition.getSignals().get(i)));
+				if(i!=transition.getSensors().size()-1){
+					ws(" && ");
+				}
+			}
+		}
+		w(" && guard ) {");
 		w("    time = millis();");
 		w(String.format("    state_%s();",transition.getNext().getName()));
 		w("  } else {");
