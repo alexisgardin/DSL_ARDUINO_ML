@@ -2,35 +2,40 @@ package fr.unice.polytech.dsl.kernel.generator;
 
 import fr.unice.polytech.dsl.kernel.App;
 import fr.unice.polytech.dsl.kernel.behavioral.*;
-import fr.unice.polytech.dsl.kernel.structural.*;
+import fr.unice.polytech.dsl.kernel.structural.Actuator;
+import fr.unice.polytech.dsl.kernel.structural.Sensor;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Visitor<T> {
 
-	public abstract void visit(App app);
+    /***********************
+     ** Helper mechanisms **
+     ***********************/
 
-	public abstract void visit(State state);
-	public abstract void visit(MultipleTriggerTransition transition);
-	public abstract void visit(Action action);
+    protected Map<String, Object> context = new HashMap<>();
+    protected T result;
 
-	public abstract void visit(Actuator actuator);
-	public abstract void visit(Sensor sensor);
+    public abstract void visit(App app);
 
+    public abstract void visit(State state);
 
+    public abstract void visit(Transition transition);
 
-	/***********************
-	 ** Helper mechanisms **
-	 ***********************/
+    public abstract void visit(Action action);
 
-	protected Map<String,Object> context = new HashMap<>();
+    public abstract void visit(Actuator actuator);
 
-	protected T result;
+    public abstract void visit(Sensor sensor);
 
-	public T getResult() {
-		return result;
-	}
+    public abstract void visit(MultipleElementCondition multipleElementCondition);
+
+    public abstract void visit(SingleElementCondition singleElementCondition);
+
+    public T getResult() {
+        return result;
+    }
 
 }
 

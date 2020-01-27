@@ -4,139 +4,171 @@ import fr.unice.polytech.dsl.kernel.App;
 import fr.unice.polytech.dsl.kernel.behavioral.*;
 import fr.unice.polytech.dsl.kernel.generator.ToWiring;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
-import fr.unice.polytech.dsl.kernel.structural.*;
+import fr.unice.polytech.dsl.kernel.structural.Actuator;
+import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
+import fr.unice.polytech.dsl.kernel.structural.Sensor;
 
 import java.util.Arrays;
 
 public class Switch {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		// Declaring elementary bricks
-		Sensor button = new Sensor();
-		button.setName("button");
-		button.setPin(9);
+        //basic_case();
+        two_buttons_basic_case();
+    }
 
-		Actuator led = new Actuator();
-		led.setName("LED");
-		led.setPin(12);
+    private static void basic_case() {
 
-		// Declaring states
-		State on = new State();
-		on.setName("on");
+        // Declaring elementary bricks
+        Sensor button = new Sensor();
+        button.setName("button");
+        button.setPin(9);
 
-		State off = new State();
-		off.setName("off");
+        Actuator led = new Actuator();
+        led.setName("LED");
+        led.setPin(12);
 
-		// Creating actions
-		Action switchTheLightOn = new Action();
-		switchTheLightOn.setActuator(led);
-		switchTheLightOn.setValue(SIGNAL.HIGH);
+        // Declaring states
+        State on = new State();
+        on.setName("on");
 
-		Action switchTheLightOff = new Action();
-		switchTheLightOff.setActuator(led);
-		switchTheLightOff.setValue(SIGNAL.LOW);
+        State off = new State();
+        off.setName("off");
 
-		// Binding actions to states
-		on.setActions(Arrays.asList(switchTheLightOn));
-		off.setActions(Arrays.asList(switchTheLightOff));
+        // Creating actions
+        Action switchTheLightOn = new Action();
+        switchTheLightOn.setActuator(led);
+        switchTheLightOn.setValue(SIGNAL.HIGH);
 
-		// Creating transitions
-		Transition on2off = new MultipleTriggerTransition();
-		on2off.setNext(off);
-		on2off.addSensor(button);
-		on2off.addSignal(SIGNAL.HIGH);
+        Action switchTheLightOff = new Action();
+        switchTheLightOff.setActuator(led);
+        switchTheLightOff.setValue(SIGNAL.LOW);
 
-		Transition off2on = new MultipleTriggerTransition();
-		off2on.setNext(on);
-		off2on.addSensor(button);
-		off2on.addSignal(SIGNAL.HIGH);
+        // Binding actions to states
+        on.setActions(Arrays.asList(switchTheLightOn));
+        off.setActions(Arrays.asList(switchTheLightOff));
 
-		// Binding transitions to states
-		on.setTransition(on2off);
-		off.setTransition(off2on);
+        // Creating transitions
+        SingleElementCondition conditionOn2Off = new SingleElementCondition();
+        conditionOn2Off.setSensor(button);
+        conditionOn2Off.setSignal(SIGNAL.HIGH);
 
-		// Building the App
-		App theSwitch = new App();
-		theSwitch.setName("Switch!");
-		theSwitch.setBricks(Arrays.asList(button, led ));
-		theSwitch.setStates(Arrays.asList(on, off));
-		theSwitch.setInitial(off);
-
-		// Generating Code
-		Visitor codeGenerator = new ToWiring();
-		theSwitch.accept(codeGenerator);
-
-		// Printing the generated code on the console
-		System.out.println(codeGenerator.getResult());
-		//demoMultipleTrigger();
-	}
+        Transition on2off = new Transition();
+        on2off.setNext(off);
+        on2off.setCondition(conditionOn2Off);
 
 
-	public static void demoMultipleTrigger(){
-		// Declaring elementary bricks
-		Sensor button = new Sensor();
-		button.setName("button");
-		button.setPin(9);
-		Sensor button2 = new Sensor();
-		button2.setName("button2");
-		button2.setPin(10);
+        SingleElementCondition conditionOff2On = new SingleElementCondition();
+        conditionOff2On.setSensor(button);
+        conditionOff2On.setSignal(SIGNAL.HIGH);
 
-		Actuator led = new Actuator();
-		led.setName("LED");
-		led.setPin(12);
+        Transition off2on = new Transition();
+        off2on.setNext(on);
+        off2on.setCondition(conditionOff2On);
 
-		// Declaring states
-		State on = new State();
-		on.setName("on");
+        // Binding transitions to states
+        on.setTransition(on2off);
+        off.setTransition(off2on);
 
-		State off = new State();
-		off.setName("off");
+        // Building the App
+        App theSwitch = new App();
+        theSwitch.setName("Switch!");
+        theSwitch.setBricks(Arrays.asList(button, led));
+        theSwitch.setStates(Arrays.asList(on, off));
+        theSwitch.setInitial(off);
 
-		// Creating actions
-		Action switchTheLightOn = new Action();
-		switchTheLightOn.setActuator(led);
-		switchTheLightOn.setValue(SIGNAL.HIGH);
+        // Generating Code
+        Visitor codeGenerator = new ToWiring();
+        theSwitch.accept(codeGenerator);
 
-		Action switchTheLightOff = new Action();
-		switchTheLightOff.setActuator(led);
-		switchTheLightOff.setValue(SIGNAL.LOW);
+        // Printing the generated code on the console
+        System.out.println(codeGenerator.getResult());
+    }
 
-		// Binding actions to states
-		on.setActions(Arrays.asList(switchTheLightOn));
-		off.setActions(Arrays.asList(switchTheLightOff));
+    private static void two_buttons_basic_case() {
+        // Declaring elementary bricks
+        Sensor button = new Sensor();
+        button.setName("button");
+        button.setPin(9);
 
-		// Creating transitions
-		Transition on2off = new MultipleTriggerTransition();
-		on2off.setNext(off);
-		on2off.addSensor(button);
-		on2off.addSensor(button2);
-		on2off.addSignal(SIGNAL.LOW);
-		on2off.addSignal(SIGNAL.LOW);
+        Sensor button1 = new Sensor();
+        button1.setName("button1");
+        button1.setPin(10);
 
-		Transition off2on = new MultipleTriggerTransition();
-		off2on.setNext(on);
-		off2on.addSensor(button);
-		off2on.addSensor(button2);
-		off2on.addSignal(SIGNAL.HIGH);
-		off2on.addSignal(SIGNAL.HIGH);
+        Actuator led = new Actuator();
+        led.setName("LED");
+        led.setPin(12);
 
-		// Binding transitions to states
-		on.setTransition(on2off);
-		off.setTransition(off2on);
+        // Declaring states
+        State on = new State();
+        on.setName("on");
 
-		// Building the App
-		App theSwitch = new App();
-		theSwitch.setName("Switch!");
-		theSwitch.setBricks(Arrays.asList(button, led ));
-		theSwitch.setStates(Arrays.asList(on, off));
-		theSwitch.setInitial(off);
+        State off = new State();
+        off.setName("off");
 
-		// Generating Code
-		Visitor codeGenerator = new ToWiring();
-		theSwitch.accept(codeGenerator);
+        // Creating actions
+        Action switchTheLightOn = new Action();
+        switchTheLightOn.setActuator(led);
+        switchTheLightOn.setValue(SIGNAL.HIGH);
 
-		// Printing the generated code on the console
-		System.out.println(codeGenerator.getResult());
-	}
+        Action switchTheLightOff = new Action();
+        switchTheLightOff.setActuator(led);
+        switchTheLightOff.setValue(SIGNAL.LOW);
+
+        // Binding actions to states
+        on.setActions(Arrays.asList(switchTheLightOn));
+        off.setActions(Arrays.asList(switchTheLightOff));
+
+        // Creating transitions
+        SingleElementCondition sub_condition111 = new SingleElementCondition();
+        sub_condition111.setSensor(button1);
+        sub_condition111.setSignal(SIGNAL.HIGH);
+
+        SingleElementCondition sub_condition112 = new SingleElementCondition();
+        sub_condition112.setSensor(button);
+        sub_condition112.setSignal(SIGNAL.LOW);
+
+        MultipleElementCondition sub_condition11 = new MultipleElementCondition();
+        sub_condition11.setConditionList(Arrays.asList(sub_condition111, sub_condition112));
+        sub_condition11.setOperator(Operator.OR);
+
+        SingleElementCondition sub_condition12 = new SingleElementCondition();
+        sub_condition12.setSensor(button);
+        sub_condition12.setSignal(SIGNAL.HIGH);
+
+        MultipleElementCondition conditionOn2Off = new MultipleElementCondition();
+        conditionOn2Off.setConditionList(Arrays.asList(sub_condition11, sub_condition12));
+        conditionOn2Off.setOperator(Operator.AND);
+
+        Transition on2off = new Transition();
+        on2off.setNext(off);
+        on2off.setCondition(conditionOn2Off);
+
+        SingleElementCondition conditionOff2On = new SingleElementCondition();
+        conditionOff2On.setSensor(button);
+        conditionOff2On.setSignal(SIGNAL.HIGH);
+
+        Transition off2on = new Transition();
+        off2on.setNext(on);
+        off2on.setCondition(conditionOff2On);
+
+        // Binding transitions to states
+        on.setTransition(on2off);
+        off.setTransition(off2on);
+
+        // Building the App
+        App theSwitch = new App();
+        theSwitch.setName("Switch!");
+        theSwitch.setBricks(Arrays.asList(button, button1, led));
+        theSwitch.setStates(Arrays.asList(on, off));
+        theSwitch.setInitial(off);
+
+        // Generating Code
+        Visitor codeGenerator = new ToWiring();
+        theSwitch.accept(codeGenerator);
+
+        // Printing the generated code on the console
+        System.out.println(codeGenerator.getResult());
+    }
 }

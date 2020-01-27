@@ -33,53 +33,46 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAppKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cSensorsKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cSensorsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cBricksAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cBricksSensorParserRuleCall_4_0 = (RuleCall)cBricksAssignment_4.eContents().get(0);
 		private final Assignment cBricksAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cBricksSensorParserRuleCall_5_0 = (RuleCall)cBricksAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cBricksAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cBricksSensorParserRuleCall_6_1_0 = (RuleCall)cBricksAssignment_6_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cActuatorsKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cLeftSquareBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cBricksAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cBricksActuatorParserRuleCall_10_0 = (RuleCall)cBricksAssignment_10.eContents().get(0);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cCommaKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Assignment cBricksAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
-		private final RuleCall cBricksActuatorParserRuleCall_11_1_0 = (RuleCall)cBricksAssignment_11_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Keyword cStatesKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Keyword cLeftSquareBracketKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final Assignment cStatesAssignment_15 = (Assignment)cGroup.eContents().get(15);
-		private final RuleCall cStatesStateParserRuleCall_15_0 = (RuleCall)cStatesAssignment_15.eContents().get(0);
-		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
-		private final Keyword cCommaKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
-		private final Assignment cStatesAssignment_16_1 = (Assignment)cGroup_16.eContents().get(1);
-		private final RuleCall cStatesStateParserRuleCall_16_1_0 = (RuleCall)cStatesAssignment_16_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_17 = (Keyword)cGroup.eContents().get(17);
-		private final Keyword cInitialKeyword_18 = (Keyword)cGroup.eContents().get(18);
-		private final Assignment cInitialAssignment_19 = (Assignment)cGroup.eContents().get(19);
-		private final CrossReference cInitialStateCrossReference_19_0 = (CrossReference)cInitialAssignment_19.eContents().get(0);
-		private final RuleCall cInitialStateEStringParserRuleCall_19_0_1 = (RuleCall)cInitialStateCrossReference_19_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_20 = (Keyword)cGroup.eContents().get(20);
+		private final Keyword cActuatorsKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cBricksAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cBricksActuatorParserRuleCall_8_0 = (RuleCall)cBricksAssignment_8.eContents().get(0);
+		private final Assignment cBricksAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cBricksActuatorParserRuleCall_9_0 = (RuleCall)cBricksAssignment_9.eContents().get(0);
+		private final Keyword cStatesKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cColonKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Assignment cStatesAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cStatesStateParserRuleCall_12_0 = (RuleCall)cStatesAssignment_12.eContents().get(0);
+		private final Assignment cStatesAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cStatesStateParserRuleCall_13_0 = (RuleCall)cStatesAssignment_13.eContents().get(0);
+		private final Keyword cInitialKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Assignment cInitialAssignment_15 = (Assignment)cGroup.eContents().get(15);
+		private final CrossReference cInitialStateCrossReference_15_0 = (CrossReference)cInitialAssignment_15.eContents().get(0);
+		private final RuleCall cInitialStateEStringParserRuleCall_15_0_1 = (RuleCall)cInitialStateCrossReference_15_0.eContents().get(1);
 		
 		//App:
 		//	'App'
 		//	name=EString
-		//	'{'
-		//	'sensors' '[' bricks+=Sensor (',' bricks+=Sensor)* ']'
-		//	'actuators' '[' bricks+=Actuator (',' bricks+=Actuator)* ']'
-		//	'states' '[' states+=State (',' states+=State)* ']'
-		//	'initial' initial=[State|EString]
-		//	'}';
+		//	'sensors' ':'
+		//	bricks+=Sensor
+		//	bricks+=Sensor*
+		//	'actuators' ':'
+		//	bricks+=Actuator
+		//	bricks+=Actuator*
+		//	'states' ':'
+		//	states+=State
+		//	states+=State*
+		//	'initial' initial=[State|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'App' name=EString '{' 'sensors' '[' bricks+=Sensor (',' bricks+=Sensor)* ']' 'actuators' '[' bricks+=Actuator (','
-		//bricks+=Actuator)* ']' 'states' '[' states+=State (',' states+=State)* ']' 'initial' initial=[State|EString] '}'
+		//'App' name=EString 'sensors' ':' bricks+=Sensor bricks+=Sensor* 'actuators' ':' bricks+=Actuator bricks+=Actuator*
+		//'states' ':' states+=State states+=State* 'initial' initial=[State|EString]
 		public Group getGroup() { return cGroup; }
 		
 		//'App'
@@ -91,140 +84,239 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
 		//'sensors'
-		public Keyword getSensorsKeyword_3() { return cSensorsKeyword_3; }
+		public Keyword getSensorsKeyword_2() { return cSensorsKeyword_2; }
 		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_4() { return cLeftSquareBracketKeyword_4; }
+		//':'
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
 		//bricks+=Sensor
+		public Assignment getBricksAssignment_4() { return cBricksAssignment_4; }
+		
+		//Sensor
+		public RuleCall getBricksSensorParserRuleCall_4_0() { return cBricksSensorParserRuleCall_4_0; }
+		
+		//bricks+=Sensor*
 		public Assignment getBricksAssignment_5() { return cBricksAssignment_5; }
 		
 		//Sensor
 		public RuleCall getBricksSensorParserRuleCall_5_0() { return cBricksSensorParserRuleCall_5_0; }
 		
-		//(',' bricks+=Sensor)*
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//','
-		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
-		
-		//bricks+=Sensor
-		public Assignment getBricksAssignment_6_1() { return cBricksAssignment_6_1; }
-		
-		//Sensor
-		public RuleCall getBricksSensorParserRuleCall_6_1_0() { return cBricksSensorParserRuleCall_6_1_0; }
-		
-		//']'
-		public Keyword getRightSquareBracketKeyword_7() { return cRightSquareBracketKeyword_7; }
-		
 		//'actuators'
-		public Keyword getActuatorsKeyword_8() { return cActuatorsKeyword_8; }
+		public Keyword getActuatorsKeyword_6() { return cActuatorsKeyword_6; }
 		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_9() { return cLeftSquareBracketKeyword_9; }
-		
-		//bricks+=Actuator
-		public Assignment getBricksAssignment_10() { return cBricksAssignment_10; }
-		
-		//Actuator
-		public RuleCall getBricksActuatorParserRuleCall_10_0() { return cBricksActuatorParserRuleCall_10_0; }
-		
-		//(',' bricks+=Actuator)*
-		public Group getGroup_11() { return cGroup_11; }
-		
-		//','
-		public Keyword getCommaKeyword_11_0() { return cCommaKeyword_11_0; }
+		//':'
+		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
 		
 		//bricks+=Actuator
-		public Assignment getBricksAssignment_11_1() { return cBricksAssignment_11_1; }
+		public Assignment getBricksAssignment_8() { return cBricksAssignment_8; }
 		
 		//Actuator
-		public RuleCall getBricksActuatorParserRuleCall_11_1_0() { return cBricksActuatorParserRuleCall_11_1_0; }
+		public RuleCall getBricksActuatorParserRuleCall_8_0() { return cBricksActuatorParserRuleCall_8_0; }
 		
-		//']'
-		public Keyword getRightSquareBracketKeyword_12() { return cRightSquareBracketKeyword_12; }
+		//bricks+=Actuator*
+		public Assignment getBricksAssignment_9() { return cBricksAssignment_9; }
+		
+		//Actuator
+		public RuleCall getBricksActuatorParserRuleCall_9_0() { return cBricksActuatorParserRuleCall_9_0; }
 		
 		//'states'
-		public Keyword getStatesKeyword_13() { return cStatesKeyword_13; }
+		public Keyword getStatesKeyword_10() { return cStatesKeyword_10; }
 		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_14() { return cLeftSquareBracketKeyword_14; }
-		
-		//states+=State
-		public Assignment getStatesAssignment_15() { return cStatesAssignment_15; }
-		
-		//State
-		public RuleCall getStatesStateParserRuleCall_15_0() { return cStatesStateParserRuleCall_15_0; }
-		
-		//(',' states+=State)*
-		public Group getGroup_16() { return cGroup_16; }
-		
-		//','
-		public Keyword getCommaKeyword_16_0() { return cCommaKeyword_16_0; }
+		//':'
+		public Keyword getColonKeyword_11() { return cColonKeyword_11; }
 		
 		//states+=State
-		public Assignment getStatesAssignment_16_1() { return cStatesAssignment_16_1; }
+		public Assignment getStatesAssignment_12() { return cStatesAssignment_12; }
 		
 		//State
-		public RuleCall getStatesStateParserRuleCall_16_1_0() { return cStatesStateParserRuleCall_16_1_0; }
+		public RuleCall getStatesStateParserRuleCall_12_0() { return cStatesStateParserRuleCall_12_0; }
 		
-		//']'
-		public Keyword getRightSquareBracketKeyword_17() { return cRightSquareBracketKeyword_17; }
+		//states+=State*
+		public Assignment getStatesAssignment_13() { return cStatesAssignment_13; }
+		
+		//State
+		public RuleCall getStatesStateParserRuleCall_13_0() { return cStatesStateParserRuleCall_13_0; }
 		
 		//'initial'
-		public Keyword getInitialKeyword_18() { return cInitialKeyword_18; }
+		public Keyword getInitialKeyword_14() { return cInitialKeyword_14; }
 		
 		//initial=[State|EString]
-		public Assignment getInitialAssignment_19() { return cInitialAssignment_19; }
+		public Assignment getInitialAssignment_15() { return cInitialAssignment_15; }
 		
 		//[State|EString]
-		public CrossReference getInitialStateCrossReference_19_0() { return cInitialStateCrossReference_19_0; }
+		public CrossReference getInitialStateCrossReference_15_0() { return cInitialStateCrossReference_15_0; }
 		
 		//EString
-		public RuleCall getInitialStateEStringParserRuleCall_19_0_1() { return cInitialStateEStringParserRuleCall_19_0_1; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_20() { return cRightCurlyBracketKeyword_20; }
+		public RuleCall getInitialStateEStringParserRuleCall_15_0_1() { return cInitialStateEStringParserRuleCall_15_0_1; }
 	}
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.State");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cStateKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cActionsKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cActionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cActionsActionParserRuleCall_5_0 = (RuleCall)cActionsAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cActionsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cActionsActionParserRuleCall_6_1_0 = (RuleCall)cActionsAssignment_6_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cTransitionKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cTransitionAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cTransitionTransitionParserRuleCall_9_0 = (RuleCall)cTransitionAssignment_9.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameEStringParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cActionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cActionsActionParserRuleCall_2_0 = (RuleCall)cActionsAssignment_2.eContents().get(0);
+		private final Assignment cActionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cActionsActionParserRuleCall_3_0 = (RuleCall)cActionsAssignment_3.eContents().get(0);
+		private final Assignment cTransitionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTransitionTransitionParserRuleCall_4_0 = (RuleCall)cTransitionAssignment_4.eContents().get(0);
 		
 		//State:
-		//	'State'
-		//	name=EString
-		//	'{'
-		//	'actions' '[' actions+=Action (',' actions+=Action)* ']'
-		//	'transition' transition=Transition
-		//	'}';
+		//	name=EString ':'
+		//	actions+=Action
+		//	actions+=Action*
+		//	transition=Transition;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'State' name=EString '{' 'actions' '[' actions+=Action (',' actions+=Action)* ']' 'transition' transition=Transition '}'
+		//name=EString ':' actions+=Action actions+=Action* transition=Transition
 		public Group getGroup() { return cGroup; }
 		
-		//'State'
-		public Keyword getStateKeyword_0() { return cStateKeyword_0; }
+		//name=EString
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_0_0() { return cNameEStringParserRuleCall_0_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//actions+=Action
+		public Assignment getActionsAssignment_2() { return cActionsAssignment_2; }
+		
+		//Action
+		public RuleCall getActionsActionParserRuleCall_2_0() { return cActionsActionParserRuleCall_2_0; }
+		
+		//actions+=Action*
+		public Assignment getActionsAssignment_3() { return cActionsAssignment_3; }
+		
+		//Action
+		public RuleCall getActionsActionParserRuleCall_3_0() { return cActionsActionParserRuleCall_3_0; }
+		
+		//transition=Transition
+		public Assignment getTransitionAssignment_4() { return cTransitionAssignment_4; }
+		
+		//Transition
+		public RuleCall getTransitionTransitionParserRuleCall_4_0() { return cTransitionTransitionParserRuleCall_4_0; }
+	}
+	public class ActionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.Action");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cActionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cActuatorAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final CrossReference cActuatorActuatorCrossReference_1_0_0 = (CrossReference)cActuatorAssignment_1_0.eContents().get(0);
+		private final RuleCall cActuatorActuatorEStringParserRuleCall_1_0_0_1 = (RuleCall)cActuatorActuatorCrossReference_1_0_0.eContents().get(1);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cValueAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cValueSIGNALEnumRuleCall_1_2_0 = (RuleCall)cValueAssignment_1_2.eContents().get(0);
+		
+		//Action:
+		//	{Action} (actuator=[Actuator|EString] '->' value=SIGNAL);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Action} (actuator=[Actuator|EString] '->' value=SIGNAL)
+		public Group getGroup() { return cGroup; }
+		
+		//{Action}
+		public Action getActionAction_0() { return cActionAction_0; }
+		
+		//actuator=[Actuator|EString] '->' value=SIGNAL
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//actuator=[Actuator|EString]
+		public Assignment getActuatorAssignment_1_0() { return cActuatorAssignment_1_0; }
+		
+		//[Actuator|EString]
+		public CrossReference getActuatorActuatorCrossReference_1_0_0() { return cActuatorActuatorCrossReference_1_0_0; }
+		
+		//EString
+		public RuleCall getActuatorActuatorEStringParserRuleCall_1_0_0_1() { return cActuatorActuatorEStringParserRuleCall_1_0_0_1; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_1_1() { return cHyphenMinusGreaterThanSignKeyword_1_1; }
+		
+		//value=SIGNAL
+		public Assignment getValueAssignment_1_2() { return cValueAssignment_1_2; }
+		
+		//SIGNAL
+		public RuleCall getValueSIGNALEnumRuleCall_1_2_0() { return cValueSIGNALEnumRuleCall_1_2_0; }
+	}
+	public class TransitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.Transition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cIfKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSensorAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cSensorSensorCrossReference_1_0 = (CrossReference)cSensorAssignment_1.eContents().get(0);
+		private final RuleCall cSensorSensorEStringParserRuleCall_1_0_1 = (RuleCall)cSensorSensorCrossReference_1_0.eContents().get(1);
+		private final Keyword cIsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueSIGNALEnumRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cNextAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cNextStateCrossReference_5_0 = (CrossReference)cNextAssignment_5.eContents().get(0);
+		private final RuleCall cNextStateEStringParserRuleCall_5_0_1 = (RuleCall)cNextStateCrossReference_5_0.eContents().get(1);
+		
+		//Transition:
+		//	'if' sensor=[Sensor|EString] 'is' value=SIGNAL '->' next=[State|EString];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'if' sensor=[Sensor|EString] 'is' value=SIGNAL '->' next=[State|EString]
+		public Group getGroup() { return cGroup; }
+		
+		//'if'
+		public Keyword getIfKeyword_0() { return cIfKeyword_0; }
+		
+		//sensor=[Sensor|EString]
+		public Assignment getSensorAssignment_1() { return cSensorAssignment_1; }
+		
+		//[Sensor|EString]
+		public CrossReference getSensorSensorCrossReference_1_0() { return cSensorSensorCrossReference_1_0; }
+		
+		//EString
+		public RuleCall getSensorSensorEStringParserRuleCall_1_0_1() { return cSensorSensorEStringParserRuleCall_1_0_1; }
+		
+		//'is'
+		public Keyword getIsKeyword_2() { return cIsKeyword_2; }
+		
+		//value=SIGNAL
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		
+		//SIGNAL
+		public RuleCall getValueSIGNALEnumRuleCall_3_0() { return cValueSIGNALEnumRuleCall_3_0; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_4() { return cHyphenMinusGreaterThanSignKeyword_4; }
+		
+		//next=[State|EString]
+		public Assignment getNextAssignment_5() { return cNextAssignment_5; }
+		
+		//[State|EString]
+		public CrossReference getNextStateCrossReference_5_0() { return cNextStateCrossReference_5_0; }
+		
+		//EString
+		public RuleCall getNextStateEStringParserRuleCall_5_0_1() { return cNextStateEStringParserRuleCall_5_0_1; }
+	}
+	public class SensorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.Sensor");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cSensorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPinAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPinEIntParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
+		
+		//Sensor:
+		//	{Sensor} name=EString '->' pin=EInt;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Sensor} name=EString '->' pin=EInt
+		public Group getGroup() { return cGroup; }
+		
+		//{Sensor}
+		public Action getSensorAction_0() { return cSensorAction_0; }
 		
 		//name=EString
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -232,289 +324,49 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//'actions'
-		public Keyword getActionsKeyword_3() { return cActionsKeyword_3; }
-		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_4() { return cLeftSquareBracketKeyword_4; }
-		
-		//actions+=Action
-		public Assignment getActionsAssignment_5() { return cActionsAssignment_5; }
-		
-		//Action
-		public RuleCall getActionsActionParserRuleCall_5_0() { return cActionsActionParserRuleCall_5_0; }
-		
-		//(',' actions+=Action)*
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//','
-		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
-		
-		//actions+=Action
-		public Assignment getActionsAssignment_6_1() { return cActionsAssignment_6_1; }
-		
-		//Action
-		public RuleCall getActionsActionParserRuleCall_6_1_0() { return cActionsActionParserRuleCall_6_1_0; }
-		
-		//']'
-		public Keyword getRightSquareBracketKeyword_7() { return cRightSquareBracketKeyword_7; }
-		
-		//'transition'
-		public Keyword getTransitionKeyword_8() { return cTransitionKeyword_8; }
-		
-		//transition=Transition
-		public Assignment getTransitionAssignment_9() { return cTransitionAssignment_9; }
-		
-		//Transition
-		public RuleCall getTransitionTransitionParserRuleCall_9_0() { return cTransitionTransitionParserRuleCall_9_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
-	}
-	public class ActionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.Action");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cActionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cValueKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cValueSIGNALEnumRuleCall_2_1_0 = (RuleCall)cValueAssignment_2_1.eContents().get(0);
-		private final Keyword cActuatorKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cActuatorAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cActuatorActuatorCrossReference_4_0 = (CrossReference)cActuatorAssignment_4.eContents().get(0);
-		private final RuleCall cActuatorActuatorEStringParserRuleCall_4_0_1 = (RuleCall)cActuatorActuatorCrossReference_4_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		//Action:
-		//	'Action'
-		//	'{' ('value' value=SIGNAL)?
-		//	'actuator' actuator=[Actuator|EString]
-		//	'}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Action' '{' ('value' value=SIGNAL)? 'actuator' actuator=[Actuator|EString] '}'
-		public Group getGroup() { return cGroup; }
-		
-		//'Action'
-		public Keyword getActionKeyword_0() { return cActionKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//('value' value=SIGNAL)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'value'
-		public Keyword getValueKeyword_2_0() { return cValueKeyword_2_0; }
-		
-		//value=SIGNAL
-		public Assignment getValueAssignment_2_1() { return cValueAssignment_2_1; }
-		
-		//SIGNAL
-		public RuleCall getValueSIGNALEnumRuleCall_2_1_0() { return cValueSIGNALEnumRuleCall_2_1_0; }
-		
-		//'actuator'
-		public Keyword getActuatorKeyword_3() { return cActuatorKeyword_3; }
-		
-		//actuator=[Actuator|EString]
-		public Assignment getActuatorAssignment_4() { return cActuatorAssignment_4; }
-		
-		//[Actuator|EString]
-		public CrossReference getActuatorActuatorCrossReference_4_0() { return cActuatorActuatorCrossReference_4_0; }
-		
-		//EString
-		public RuleCall getActuatorActuatorEStringParserRuleCall_4_0_1() { return cActuatorActuatorEStringParserRuleCall_4_0_1; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-	public class TransitionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.Transition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cTransitionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cTransitionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cValueKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cValueSIGNALEnumRuleCall_3_1_0 = (RuleCall)cValueAssignment_3_1.eContents().get(0);
-		private final Keyword cSensorKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cSensorAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final CrossReference cSensorSensorCrossReference_5_0 = (CrossReference)cSensorAssignment_5.eContents().get(0);
-		private final RuleCall cSensorSensorEStringParserRuleCall_5_0_1 = (RuleCall)cSensorSensorCrossReference_5_0.eContents().get(1);
-		private final Keyword cNextKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cNextAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final CrossReference cNextStateCrossReference_7_0 = (CrossReference)cNextAssignment_7.eContents().get(0);
-		private final RuleCall cNextStateEStringParserRuleCall_7_0_1 = (RuleCall)cNextStateCrossReference_7_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		
-		//Transition:
-		//	{Transition}
-		//	'Transition'
-		//	'{' ('value' value=SIGNAL)?
-		//	'sensor' sensor=[Sensor|EString]
-		//	'next' next=[State|EString]
-		//	'}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{Transition} 'Transition' '{' ('value' value=SIGNAL)? 'sensor' sensor=[Sensor|EString] 'next' next=[State|EString] '}'
-		public Group getGroup() { return cGroup; }
-		
-		//{Transition}
-		public Action getTransitionAction_0() { return cTransitionAction_0; }
-		
-		//'Transition'
-		public Keyword getTransitionKeyword_1() { return cTransitionKeyword_1; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//('value' value=SIGNAL)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'value'
-		public Keyword getValueKeyword_3_0() { return cValueKeyword_3_0; }
-		
-		//value=SIGNAL
-		public Assignment getValueAssignment_3_1() { return cValueAssignment_3_1; }
-		
-		//SIGNAL
-		public RuleCall getValueSIGNALEnumRuleCall_3_1_0() { return cValueSIGNALEnumRuleCall_3_1_0; }
-		
-		//'sensor'
-		public Keyword getSensorKeyword_4() { return cSensorKeyword_4; }
-		
-		//sensor=[Sensor|EString]
-		public Assignment getSensorAssignment_5() { return cSensorAssignment_5; }
-		
-		//[Sensor|EString]
-		public CrossReference getSensorSensorCrossReference_5_0() { return cSensorSensorCrossReference_5_0; }
-		
-		//EString
-		public RuleCall getSensorSensorEStringParserRuleCall_5_0_1() { return cSensorSensorEStringParserRuleCall_5_0_1; }
-		
-		//'next'
-		public Keyword getNextKeyword_6() { return cNextKeyword_6; }
-		
-		//next=[State|EString]
-		public Assignment getNextAssignment_7() { return cNextAssignment_7; }
-		
-		//[State|EString]
-		public CrossReference getNextStateCrossReference_7_0() { return cNextStateCrossReference_7_0; }
-		
-		//EString
-		public RuleCall getNextStateEStringParserRuleCall_7_0_1() { return cNextStateEStringParserRuleCall_7_0_1; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
-	}
-	public class SensorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.Sensor");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSensorAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSensorKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cPinKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cPinAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cPinEIntParserRuleCall_5_0 = (RuleCall)cPinAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		
-		//Sensor:
-		//	{Sensor}
-		//	'Sensor'
-		//	name=EString
-		//	'{'
-		//	'pin' pin=EInt
-		//	'}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{Sensor} 'Sensor' name=EString '{' 'pin' pin=EInt '}'
-		public Group getGroup() { return cGroup; }
-		
-		//{Sensor}
-		public Action getSensorAction_0() { return cSensorAction_0; }
-		
-		//'Sensor'
-		public Keyword getSensorKeyword_1() { return cSensorKeyword_1; }
-		
-		//name=EString
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
-		
-		//'pin'
-		public Keyword getPinKeyword_4() { return cPinKeyword_4; }
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
 		
 		//pin=EInt
-		public Assignment getPinAssignment_5() { return cPinAssignment_5; }
+		public Assignment getPinAssignment_3() { return cPinAssignment_3; }
 		
 		//EInt
-		public RuleCall getPinEIntParserRuleCall_5_0() { return cPinEIntParserRuleCall_5_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public RuleCall getPinEIntParserRuleCall_3_0() { return cPinEIntParserRuleCall_3_0; }
 	}
 	public class ActuatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.Actuator");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cActuatorAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cActuatorKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cPinKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cPinAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cPinEIntParserRuleCall_5_0 = (RuleCall)cPinAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPinAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPinEIntParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
 		
 		//Actuator:
-		//	{Actuator}
-		//	'Actuator'
-		//	name=EString
-		//	'{'
-		//	'pin' pin=EInt
-		//	'}';
+		//	{Actuator} name=EString '->' pin=EInt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Actuator} 'Actuator' name=EString '{' 'pin' pin=EInt '}'
+		//{Actuator} name=EString '->' pin=EInt
 		public Group getGroup() { return cGroup; }
 		
 		//{Actuator}
 		public Action getActuatorAction_0() { return cActuatorAction_0; }
 		
-		//'Actuator'
-		public Keyword getActuatorKeyword_1() { return cActuatorKeyword_1; }
-		
 		//name=EString
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//EString
-		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
-		
-		//'pin'
-		public Keyword getPinKeyword_4() { return cPinKeyword_4; }
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
 		
 		//pin=EInt
-		public Assignment getPinAssignment_5() { return cPinAssignment_5; }
+		public Assignment getPinAssignment_3() { return cPinAssignment_3; }
 		
 		//EInt
-		public RuleCall getPinEIntParserRuleCall_5_0() { return cPinEIntParserRuleCall_5_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public RuleCall getPinEIntParserRuleCall_3_0() { return cPinEIntParserRuleCall_3_0; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.EString");
@@ -643,12 +495,16 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	//App:
 	//	'App'
 	//	name=EString
-	//	'{'
-	//	'sensors' '[' bricks+=Sensor (',' bricks+=Sensor)* ']'
-	//	'actuators' '[' bricks+=Actuator (',' bricks+=Actuator)* ']'
-	//	'states' '[' states+=State (',' states+=State)* ']'
-	//	'initial' initial=[State|EString]
-	//	'}';
+	//	'sensors' ':'
+	//	bricks+=Sensor
+	//	bricks+=Sensor*
+	//	'actuators' ':'
+	//	bricks+=Actuator
+	//	bricks+=Actuator*
+	//	'states' ':'
+	//	states+=State
+	//	states+=State*
+	//	'initial' initial=[State|EString];
 	public AppElements getAppAccess() {
 		return pApp;
 	}
@@ -658,12 +514,10 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//State:
-	//	'State'
-	//	name=EString
-	//	'{'
-	//	'actions' '[' actions+=Action (',' actions+=Action)* ']'
-	//	'transition' transition=Transition
-	//	'}';
+	//	name=EString ':'
+	//	actions+=Action
+	//	actions+=Action*
+	//	transition=Transition;
 	public StateElements getStateAccess() {
 		return pState;
 	}
@@ -673,10 +527,7 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Action:
-	//	'Action'
-	//	'{' ('value' value=SIGNAL)?
-	//	'actuator' actuator=[Actuator|EString]
-	//	'}';
+	//	{Action} (actuator=[Actuator|EString] '->' value=SIGNAL);
 	public ActionElements getActionAccess() {
 		return pAction;
 	}
@@ -696,12 +547,7 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Transition:
-	//	{Transition}
-	//	'Transition'
-	//	'{' ('value' value=SIGNAL)?
-	//	'sensor' sensor=[Sensor|EString]
-	//	'next' next=[State|EString]
-	//	'}';
+	//	'if' sensor=[Sensor|EString] 'is' value=SIGNAL '->' next=[State|EString];
 	public TransitionElements getTransitionAccess() {
 		return pTransition;
 	}
@@ -711,12 +557,7 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Sensor:
-	//	{Sensor}
-	//	'Sensor'
-	//	name=EString
-	//	'{'
-	//	'pin' pin=EInt
-	//	'}';
+	//	{Sensor} name=EString '->' pin=EInt;
 	public SensorElements getSensorAccess() {
 		return pSensor;
 	}
@@ -726,12 +567,7 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Actuator:
-	//	{Actuator}
-	//	'Actuator'
-	//	name=EString
-	//	'{'
-	//	'pin' pin=EInt
-	//	'}';
+	//	{Actuator} name=EString '->' pin=EInt;
 	public ActuatorElements getActuatorAccess() {
 		return pActuator;
 	}

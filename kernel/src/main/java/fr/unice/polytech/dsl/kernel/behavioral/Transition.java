@@ -1,13 +1,12 @@
 package fr.unice.polytech.dsl.kernel.behavioral;
 
 import fr.unice.polytech.dsl.kernel.generator.Visitable;
-import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
-import fr.unice.polytech.dsl.kernel.structural.Sensor;
+import fr.unice.polytech.dsl.kernel.generator.Visitor;
 
-public abstract class Transition implements Visitable {
+public class Transition implements Visitable {
 
-    protected State next;
-
+    private State next;
+    private Condition condition;
 
     public State getNext() {
         return next;
@@ -17,8 +16,16 @@ public abstract class Transition implements Visitable {
         this.next = next;
     }
 
-    public abstract void addSensor(Sensor sensor);
-	public abstract void addSignal(SIGNAL signal);
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 
-    public abstract boolean isMultiple();
+    public Condition getCondition() {
+        return condition;
+    }
+
+    public void setCondition(Condition condition) {
+        this.condition = condition;
+    }
 }
