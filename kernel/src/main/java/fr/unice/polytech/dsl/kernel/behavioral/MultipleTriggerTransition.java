@@ -37,7 +37,6 @@ public class MultipleTriggerTransition extends Transition {
         addSignal(signal);
     }
 
-    @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
@@ -47,11 +46,9 @@ public class MultipleTriggerTransition extends Transition {
         this.sensors.add(sensor);
     }
 
-    @Override
     public void addSignal(SIGNAL signal) {
         this.signals.add(signal);
     }
-
     //WE HAVE THE SAME AMOUNT OF SIGNAL AND SENSORS
     public boolean isValid() {
         if (sensors.size() != signals.size())
