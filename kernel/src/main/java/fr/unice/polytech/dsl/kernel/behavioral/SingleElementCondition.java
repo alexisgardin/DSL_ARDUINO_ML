@@ -29,4 +29,9 @@ public class SingleElementCondition extends Condition {
     public void setSignal(SIGNAL signal) {
         this.signal = signal;
     }
+
+    @Override
+    public boolean isSingle() {
+        return true;
+    }
 }

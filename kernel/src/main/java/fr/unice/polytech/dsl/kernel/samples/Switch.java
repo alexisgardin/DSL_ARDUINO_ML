@@ -9,6 +9,7 @@ import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
 import fr.unice.polytech.dsl.kernel.structural.Sensor;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Switch {
 
@@ -131,7 +132,7 @@ public class Switch {
 
         MultipleElementCondition sub_condition11 = new MultipleElementCondition();
         sub_condition11.setConditionList(Arrays.asList(sub_condition111, sub_condition112));
-        sub_condition11.setOperator(Operator.OR);
+        sub_condition11.addOperator(Operator.OR);
 
         SingleElementCondition sub_condition12 = new SingleElementCondition();
         sub_condition12.setSensor(button);
@@ -139,7 +140,7 @@ public class Switch {
 
         MultipleElementCondition conditionOn2Off = new MultipleElementCondition();
         conditionOn2Off.setConditionList(Arrays.asList(sub_condition11, sub_condition12));
-        conditionOn2Off.setOperator(Operator.AND);
+        conditionOn2Off.addOperator(Operator.AND);
 
         Transition on2off = new Transition();
         on2off.setNext(off);

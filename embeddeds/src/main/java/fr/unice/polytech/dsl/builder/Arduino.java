@@ -1,19 +1,21 @@
 package fr.unice.polytech.dsl.builder;
 
+import fr.unice.polytech.dsl.exception.BrickNotFoundException;
 import fr.unice.polytech.dsl.exception.StateNotFoundException;
 import fr.unice.polytech.dsl.kernel.App;
 import fr.unice.polytech.dsl.kernel.behavioral.Action;
 import fr.unice.polytech.dsl.kernel.behavioral.State;
 import fr.unice.polytech.dsl.kernel.generator.ToWiring;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
+import fr.unice.polytech.dsl.kernel.structural.Actuator;
 import fr.unice.polytech.dsl.kernel.structural.Brick;
 import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
+import fr.unice.polytech.dsl.kernel.structural.Sensor;
 import fr.unice.polytech.dsl.setup.Setup;
 import fr.unice.polytech.dsl.setup.SetupAction;
 import fr.unice.polytech.dsl.setup.SetupTransition;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -66,14 +68,6 @@ public class Arduino {
         return SetupAction.createAction(nameOfAction, pin, signal);
     }
 
-    public SetupTransition.SetState onSensor(final String button) {
-        return new SetupTransition.OnSensor().onSensor(button);
-    }
-
-
-    public SetupTransition.SetState onSensors(final String ... sensors) {
-        return new SetupTransition.OnSensor().onMultipleSensor(sensors);
-    }
 
     public void run(final String initialState) {
         // Building the App
@@ -88,5 +82,21 @@ public class Arduino {
 
         // Printing the generated code on the console
         System.out.println(codeGenerator.getResult());
+    }
+
+    public State getState(String state) {
+        return states.stream().filter(v -> v.getName().equals(state)).findFirst().orElseThrow(StateNotFoundException::new);
+    }
+
+    public Sensor getSensor(String sensor) {
+        return (Sensor) brickList.stream().filter(v -> v.getName().equals(sensor)).findFirst().orElseThrow(BrickNotFoundException::new);
+    }
+
+    public Actuator getActuator(String actuator) {
+        return (Actuator) brickList.stream().filter(v -> v.getName().equals(actuator)).findFirst().orElseThrow(BrickNotFoundException::new);
+    }
+
+    public SetupTransition.SetSignal whenSensor(String button1) {
+        return new SetupTransition().whenSensor(button1);
     }
 }

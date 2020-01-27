@@ -67,14 +67,15 @@ public class ToWiring extends Visitor<StringBuffer> {
 
     @Override
     public void visit(MultipleElementCondition multipleElementCondition) {
-        boolean isFinite = !multipleElementCondition.getConditionList().stream().filter(condition -> condition instanceof MultipleElementCondition).findAny().isPresent();
+        boolean isFinite = multipleElementCondition.getRecursion() != 0;
         if (isFinite)
             ws(String.format("("));
+        multipleElementCondition.increaseRecursion();
         int n = multipleElementCondition.getConditionList().size();
         for (int i = 0; i < n; i++) {
             multipleElementCondition.getConditionList().get(i).accept(this);
             if (i != n - 1)
-                ws(String.format(" %s ", multipleElementCondition.getOperator().getJavaEquivalent()));
+                ws(String.format(" %s ", multipleElementCondition.getOperator(i).getJavaEquivalent()));
         }
         if (isFinite)
             ws(String.format(")"));
@@ -82,7 +83,7 @@ public class ToWiring extends Visitor<StringBuffer> {
 
     @Override
     public void visit(SingleElementCondition singleElementCondition) {
-        ws(String.format(" digitalRead(%d) == %s ", singleElementCondition.getSensor().getPin(), singleElementCondition.getSignal()));
+        ws(String.format("digitalRead(%d) == %s", singleElementCondition.getSensor().getPin(), singleElementCondition.getSignal()));
     }
 
     @Override
@@ -105,6 +106,8 @@ public class ToWiring extends Visitor<StringBuffer> {
     public void visit(Transition transition) {
         ws(String.format("  if( "));
         transition.getCondition().accept(this);
+
+        transition.getCondition().reset();
         w(String.format(" ) {"));
         w("    time = millis();");
         w(String.format("    state_%s();", transition.getNext().getName()));
