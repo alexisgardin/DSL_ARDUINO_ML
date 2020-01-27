@@ -66,8 +66,13 @@ public class Arduino {
         return SetupAction.createAction(nameOfAction, pin, signal);
     }
 
-    public SetupTransition.SetState onSensor(String button) {
+    public SetupTransition.SetState onSensor(final String button) {
         return new SetupTransition.OnSensor().onSensor(button);
+    }
+
+
+    public SetupTransition.SetState onSensors(final String ... sensors) {
+        return new SetupTransition.OnSensor().onMultipleSensor(sensors);
     }
 
     public void run(final String initialState) {
