@@ -1,5 +1,6 @@
 package fr.unice.polytech.dsl.kernel.behavioral;
 
+import fr.unice.polytech.dsl.kernel.behavioral.condition.Condition;
 import fr.unice.polytech.dsl.kernel.generator.Visitable;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
 

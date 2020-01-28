@@ -2,6 +2,9 @@ package fr.unice.polytech.dsl.kernel.generator;
 
 import fr.unice.polytech.dsl.kernel.App;
 import fr.unice.polytech.dsl.kernel.behavioral.*;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.MultipleElementCondition;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.SingleElementCondition;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.ValueElementCondition;
 import fr.unice.polytech.dsl.kernel.structural.Actuator;
 import fr.unice.polytech.dsl.kernel.structural.Brick;
 import fr.unice.polytech.dsl.kernel.structural.Sensor;
@@ -84,6 +87,13 @@ public class ToWiring extends Visitor<StringBuffer> {
     @Override
     public void visit(SingleElementCondition singleElementCondition) {
         ws(String.format("digitalRead(%d) == %s", singleElementCondition.getSensor().getPin(), singleElementCondition.getSignal()));
+    }
+
+    @Override
+    public void visit(ValueElementCondition valueElementCondition) {
+
+        ws(String.format("digitalRead(%d) %s", valueElementCondition.getSensor().getPin(), valueElementCondition.toString()));
+
     }
 
     @Override

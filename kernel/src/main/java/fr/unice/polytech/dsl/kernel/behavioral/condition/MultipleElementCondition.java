@@ -1,5 +1,6 @@
-package fr.unice.polytech.dsl.kernel.behavioral;
+package fr.unice.polytech.dsl.kernel.behavioral.condition;
 
+import fr.unice.polytech.dsl.kernel.behavioral.Operator;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
 
 import java.util.ArrayList;

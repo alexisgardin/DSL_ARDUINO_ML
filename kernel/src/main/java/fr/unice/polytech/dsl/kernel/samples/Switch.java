@@ -2,6 +2,7 @@ package fr.unice.polytech.dsl.kernel.samples;
 
 import fr.unice.polytech.dsl.kernel.App;
 import fr.unice.polytech.dsl.kernel.behavioral.*;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.*;
 import fr.unice.polytech.dsl.kernel.generator.ToWiring;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
 import fr.unice.polytech.dsl.kernel.structural.Actuator;
@@ -9,7 +10,6 @@ import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
 import fr.unice.polytech.dsl.kernel.structural.Sensor;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Switch {
 
@@ -97,6 +97,10 @@ public class Switch {
         button1.setName("button1");
         button1.setPin(10);
 
+        Sensor temp = new Sensor();
+        temp.setName("temp");
+        temp.setPin(15);
+
         Actuator led = new Actuator();
         led.setName("LED");
         led.setPin(12);
@@ -139,16 +143,30 @@ public class Switch {
         sub_condition12.setSignal(SIGNAL.HIGH);
 
         MultipleElementCondition conditionOn2Off = new MultipleElementCondition();
-        conditionOn2Off.setConditionList(Arrays.asList(sub_condition11, sub_condition12));
+        for (Condition condition : Arrays.asList(sub_condition11, sub_condition12)) {
+            conditionOn2Off.addCondition(condition);
+        }
         conditionOn2Off.addOperator(Operator.AND);
 
         Transition on2off = new Transition();
         on2off.setNext(off);
         on2off.setCondition(conditionOn2Off);
 
+
+
         SingleElementCondition conditionOff2On = new SingleElementCondition();
         conditionOff2On.setSensor(button);
         conditionOff2On.setSignal(SIGNAL.HIGH);
+
+        /**
+         * SET ANALOGIQUE VALUE
+         */
+        ValueElementCondition<Double> conditionTemp = new ValueElementCondition<>();
+        conditionTemp.setSensor(temp);
+        conditionTemp.setComparator(Comparator.INFERIOR);
+        conditionTemp.setValue(56d);
+        conditionOn2Off.getConditionList().add(conditionTemp);
+        conditionOn2Off.addOperator(Operator.AND);
 
         Transition off2on = new Transition();
         off2on.setNext(on);

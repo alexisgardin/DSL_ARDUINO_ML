@@ -2,6 +2,9 @@ package fr.unice.polytech.dsl.kernel.generator;
 
 import fr.unice.polytech.dsl.kernel.App;
 import fr.unice.polytech.dsl.kernel.behavioral.*;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.MultipleElementCondition;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.SingleElementCondition;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.ValueElementCondition;
 import fr.unice.polytech.dsl.kernel.structural.Actuator;
 import fr.unice.polytech.dsl.kernel.structural.Sensor;
 
@@ -32,6 +35,7 @@ public abstract class Visitor<T> {
     public abstract void visit(MultipleElementCondition multipleElementCondition);
 
     public abstract void visit(SingleElementCondition singleElementCondition);
+    public abstract void visit(ValueElementCondition valueElementCondition);
 
     public T getResult() {
         return result;

@@ -1,4 +1,4 @@
-package fr.unice.polytech.dsl.kernel.behavioral;
+package fr.unice.polytech.dsl.kernel.behavioral.condition;
 
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
 import fr.unice.polytech.dsl.kernel.structural.SIGNAL;

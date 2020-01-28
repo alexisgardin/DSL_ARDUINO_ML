@@ -3,6 +3,8 @@ package fr.unice.polytech.dsl.setup;
 import fr.unice.polytech.dsl.builder.Arduino;
 import fr.unice.polytech.dsl.exception.StateNotFoundException;
 import fr.unice.polytech.dsl.kernel.behavioral.*;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.MultipleElementCondition;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.SingleElementCondition;
 import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
 import fr.unice.polytech.dsl.kernel.structural.Sensor;
 
