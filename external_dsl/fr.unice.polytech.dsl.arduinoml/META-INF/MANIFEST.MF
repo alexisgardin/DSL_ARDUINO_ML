@@ -5,7 +5,7 @@ Bundle-SymbolicName: fr.unice.polytech.dsl.arduinoml;singleton:=true
 Automatic-Module-Name: fr.unice.polytech.dsl.arduinoml
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .,
- lib/kernel-jvm-1.0.jar
+ lib/kernel-1.0-SNAPSHOT.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
