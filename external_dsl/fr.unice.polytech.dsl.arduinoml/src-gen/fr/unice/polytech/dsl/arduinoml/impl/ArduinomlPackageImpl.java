@@ -8,8 +8,11 @@ import fr.unice.polytech.dsl.arduinoml.App;
 import fr.unice.polytech.dsl.arduinoml.ArduinomlFactory;
 import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
 import fr.unice.polytech.dsl.arduinoml.Brick;
+import fr.unice.polytech.dsl.arduinoml.Condition;
+import fr.unice.polytech.dsl.arduinoml.MultipleElementCondition;
 import fr.unice.polytech.dsl.arduinoml.NamedElement;
 import fr.unice.polytech.dsl.arduinoml.Sensor;
+import fr.unice.polytech.dsl.arduinoml.SingleElementCondition;
 import fr.unice.polytech.dsl.arduinoml.State;
 import fr.unice.polytech.dsl.arduinoml.Transition;
 
@@ -89,7 +92,35 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass conditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass singleElementConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass multipleElementConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum signalEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum operatorEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -295,17 +326,8 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTransition_Value() {
-		return (EAttribute) transitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getTransition_Next() {
-		return (EReference) transitionEClass.getEStructuralFeatures().get(1);
+		return (EReference) transitionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -313,8 +335,8 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTransition_Sensor() {
-		return (EReference) transitionEClass.getEStructuralFeatures().get(2);
+	public EReference getTransition_Condition() {
+		return (EReference) transitionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -340,8 +362,80 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCondition() {
+		return conditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSingleElementCondition() {
+		return singleElementConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSingleElementCondition_Sensor() {
+		return (EReference) singleElementConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSingleElementCondition_Value() {
+		return (EAttribute) singleElementConditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMultipleElementCondition() {
+		return multipleElementConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMultipleElementCondition_Conditions() {
+		return (EReference) multipleElementConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMultipleElementCondition_Operators() {
+		return (EAttribute) multipleElementConditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getSIGNAL() {
 		return signalEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getOPERATOR() {
+		return operatorEEnum;
 	}
 
 	/**
@@ -393,16 +487,26 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 		createEReference(actionEClass, ACTION__ACTUATOR);
 
 		transitionEClass = createEClass(TRANSITION);
-		createEAttribute(transitionEClass, TRANSITION__VALUE);
 		createEReference(transitionEClass, TRANSITION__NEXT);
-		createEReference(transitionEClass, TRANSITION__SENSOR);
+		createEReference(transitionEClass, TRANSITION__CONDITION);
 
 		sensorEClass = createEClass(SENSOR);
 
 		actuatorEClass = createEClass(ACTUATOR);
 
+		conditionEClass = createEClass(CONDITION);
+
+		singleElementConditionEClass = createEClass(SINGLE_ELEMENT_CONDITION);
+		createEReference(singleElementConditionEClass, SINGLE_ELEMENT_CONDITION__SENSOR);
+		createEAttribute(singleElementConditionEClass, SINGLE_ELEMENT_CONDITION__VALUE);
+
+		multipleElementConditionEClass = createEClass(MULTIPLE_ELEMENT_CONDITION);
+		createEReference(multipleElementConditionEClass, MULTIPLE_ELEMENT_CONDITION__CONDITIONS);
+		createEAttribute(multipleElementConditionEClass, MULTIPLE_ELEMENT_CONDITION__OPERATORS);
+
 		// Create enums
 		signalEEnum = createEEnum(SIGNAL);
+		operatorEEnum = createEEnum(OPERATOR);
 	}
 
 	/**
@@ -439,6 +543,8 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 		brickEClass.getESuperTypes().add(this.getNamedElement());
 		sensorEClass.getESuperTypes().add(this.getBrick());
 		actuatorEClass.getESuperTypes().add(this.getBrick());
+		singleElementConditionEClass.getESuperTypes().add(this.getCondition());
+		multipleElementConditionEClass.getESuperTypes().add(this.getCondition());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
@@ -478,24 +584,47 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTransition_Value(), this.getSIGNAL(), "value", null, 0, 1, Transition.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransition_Next(), this.getState(), null, "next", null, 1, 1, Transition.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getTransition_Sensor(), this.getSensor(), null, "sensor", null, 1, 1, Transition.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransition_Condition(), this.getMultipleElementCondition(), null, "condition", null, 1, 1,
+				Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sensorEClass, Sensor.class, "Sensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(actuatorEClass, Actuator.class, "Actuator", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(singleElementConditionEClass, SingleElementCondition.class, "SingleElementCondition", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSingleElementCondition_Sensor(), this.getSensor(), null, "sensor", null, 1, 1,
+				SingleElementCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSingleElementCondition_Value(), this.getSIGNAL(), "value", null, 0, 1,
+				SingleElementCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(multipleElementConditionEClass, MultipleElementCondition.class, "MultipleElementCondition",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMultipleElementCondition_Conditions(), this.getSingleElementCondition(), null, "conditions",
+				null, 1, -1, MultipleElementCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMultipleElementCondition_Operators(), this.getOPERATOR(), "operators", null, 0, -1,
+				MultipleElementCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(signalEEnum, fr.unice.polytech.dsl.arduinoml.SIGNAL.class, "SIGNAL");
 		addEEnumLiteral(signalEEnum, fr.unice.polytech.dsl.arduinoml.SIGNAL.HIGH);
 		addEEnumLiteral(signalEEnum, fr.unice.polytech.dsl.arduinoml.SIGNAL.LOW);
+
+		initEEnum(operatorEEnum, fr.unice.polytech.dsl.arduinoml.OPERATOR.class, "OPERATOR");
+		addEEnumLiteral(operatorEEnum, fr.unice.polytech.dsl.arduinoml.OPERATOR.AND);
+		addEEnumLiteral(operatorEEnum, fr.unice.polytech.dsl.arduinoml.OPERATOR.OR);
 
 		// Create resource
 		createResource(eNS_URI);

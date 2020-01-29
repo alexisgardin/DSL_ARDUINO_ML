@@ -4,41 +4,33 @@ package fr.unice.polytech.dsl.arduinoml.provider;
 
 import fr.unice.polytech.dsl.arduinoml.ArduinomlFactory;
 import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
-import fr.unice.polytech.dsl.arduinoml.Transition;
+import fr.unice.polytech.dsl.arduinoml.MultipleElementCondition;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.unice.polytech.dsl.arduinoml.Transition} object.
+ * This is the item provider adapter for a {@link fr.unice.polytech.dsl.arduinoml.MultipleElementCondition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TransitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class MultipleElementConditionItemProvider extends ConditionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TransitionItemProvider(AdapterFactory adapterFactory) {
+	public MultipleElementConditionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -53,24 +45,41 @@ public class TransitionItemProvider extends ItemProviderAdapter implements IEdit
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNextPropertyDescriptor(object);
+			addConditionsPropertyDescriptor(object);
+			addOperatorsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Next feature.
+	 * This adds a property descriptor for the Conditions feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNextPropertyDescriptor(Object object) {
+	protected void addConditionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MultipleElementCondition_conditions_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_MultipleElementCondition_conditions_feature",
+						"_UI_MultipleElementCondition_type"),
+				ArduinomlPackage.Literals.MULTIPLE_ELEMENT_CONDITION__CONDITIONS, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Operators feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOperatorsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Transition_next_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Transition_next_feature",
-								"_UI_Transition_type"),
-						ArduinomlPackage.Literals.TRANSITION__NEXT, true, false, true, null, null, null));
+						getResourceLocator(), getString("_UI_MultipleElementCondition_operators_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_MultipleElementCondition_operators_feature", "_UI_MultipleElementCondition_type"),
+						ArduinomlPackage.Literals.MULTIPLE_ELEMENT_CONDITION__OPERATORS, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -85,7 +94,7 @@ public class TransitionItemProvider extends ItemProviderAdapter implements IEdit
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ArduinomlPackage.Literals.TRANSITION__CONDITION);
+			childrenFeatures.add(ArduinomlPackage.Literals.MULTIPLE_ELEMENT_CONDITION__CONDITIONS);
 		}
 		return childrenFeatures;
 	}
@@ -104,14 +113,14 @@ public class TransitionItemProvider extends ItemProviderAdapter implements IEdit
 	}
 
 	/**
-	 * This returns Transition.gif.
+	 * This returns MultipleElementCondition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Transition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MultipleElementCondition"));
 	}
 
 	/**
@@ -132,7 +141,7 @@ public class TransitionItemProvider extends ItemProviderAdapter implements IEdit
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Transition_type");
+		return getString("_UI_MultipleElementCondition_type");
 	}
 
 	/**
@@ -146,8 +155,11 @@ public class TransitionItemProvider extends ItemProviderAdapter implements IEdit
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Transition.class)) {
-		case ArduinomlPackage.TRANSITION__CONDITION:
+		switch (notification.getFeatureID(MultipleElementCondition.class)) {
+		case ArduinomlPackage.MULTIPLE_ELEMENT_CONDITION__OPERATORS:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		case ArduinomlPackage.MULTIPLE_ELEMENT_CONDITION__CONDITIONS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -165,19 +177,8 @@ public class TransitionItemProvider extends ItemProviderAdapter implements IEdit
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(ArduinomlPackage.Literals.TRANSITION__CONDITION,
-				ArduinomlFactory.eINSTANCE.createMultipleElementCondition()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ArduinomlEditPlugin.INSTANCE;
+		newChildDescriptors.add(createChildParameter(ArduinomlPackage.Literals.MULTIPLE_ELEMENT_CONDITION__CONDITIONS,
+				ArduinomlFactory.eINSTANCE.createSingleElementCondition()));
 	}
 
 }

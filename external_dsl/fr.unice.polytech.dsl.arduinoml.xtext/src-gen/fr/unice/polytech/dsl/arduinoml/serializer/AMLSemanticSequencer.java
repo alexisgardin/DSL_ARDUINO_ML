@@ -7,7 +7,9 @@ import com.google.inject.Inject;
 import fr.unice.polytech.dsl.arduinoml.Actuator;
 import fr.unice.polytech.dsl.arduinoml.App;
 import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
+import fr.unice.polytech.dsl.arduinoml.MultipleElementCondition;
 import fr.unice.polytech.dsl.arduinoml.Sensor;
+import fr.unice.polytech.dsl.arduinoml.SingleElementCondition;
 import fr.unice.polytech.dsl.arduinoml.State;
 import fr.unice.polytech.dsl.arduinoml.Transition;
 import fr.unice.polytech.dsl.arduinoml.services.AMLGrammarAccess;
@@ -45,8 +47,14 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case ArduinomlPackage.APP:
 				sequence_App(context, (App) semanticObject); 
 				return; 
+			case ArduinomlPackage.MULTIPLE_ELEMENT_CONDITION:
+				sequence_MultipleElementCondition(context, (MultipleElementCondition) semanticObject); 
+				return; 
 			case ArduinomlPackage.SENSOR:
 				sequence_Sensor(context, (Sensor) semanticObject); 
+				return; 
+			case ArduinomlPackage.SINGLE_ELEMENT_CONDITION:
+				sequence_SingleElementCondition(context, (SingleElementCondition) semanticObject); 
 				return; 
 			case ArduinomlPackage.STATE:
 				sequence_State(context, (State) semanticObject); 
@@ -124,6 +132,18 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     MultipleElementCondition returns MultipleElementCondition
+	 *
+	 * Constraint:
+	 *     (conditions+=SingleElementCondition (operators+=OPERATOR conditions+=SingleElementCondition)*)
+	 */
+	protected void sequence_MultipleElementCondition(ISerializationContext context, MultipleElementCondition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Sensor returns Sensor
 	 *
 	 * Constraint:
@@ -145,6 +165,27 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     SingleElementCondition returns SingleElementCondition
+	 *
+	 * Constraint:
+	 *     (sensor=[Sensor|EString] value=SIGNAL)
+	 */
+	protected void sequence_SingleElementCondition(ISerializationContext context, SingleElementCondition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.SINGLE_ELEMENT_CONDITION__SENSOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.SINGLE_ELEMENT_CONDITION__SENSOR));
+			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.SINGLE_ELEMENT_CONDITION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.SINGLE_ELEMENT_CONDITION__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSingleElementConditionAccess().getSensorSensorEStringParserRuleCall_1_0_1(), semanticObject.eGet(ArduinomlPackage.Literals.SINGLE_ELEMENT_CONDITION__SENSOR, false));
+		feeder.accept(grammarAccess.getSingleElementConditionAccess().getValueSIGNALEnumRuleCall_3_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     State returns State
 	 *
 	 * Constraint:
@@ -160,21 +201,18 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Transition returns Transition
 	 *
 	 * Constraint:
-	 *     (sensor=[Sensor|EString] value=SIGNAL next=[State|EString])
+	 *     (condition=MultipleElementCondition next=[State|EString])
 	 */
 	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.TRANSITION__SENSOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.TRANSITION__SENSOR));
-			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.TRANSITION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.TRANSITION__VALUE));
+			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.TRANSITION__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.TRANSITION__CONDITION));
 			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.TRANSITION__NEXT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.TRANSITION__NEXT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTransitionAccess().getSensorSensorEStringParserRuleCall_1_0_1(), semanticObject.eGet(ArduinomlPackage.Literals.TRANSITION__SENSOR, false));
-		feeder.accept(grammarAccess.getTransitionAccess().getValueSIGNALEnumRuleCall_3_0(), semanticObject.getValue());
-		feeder.accept(grammarAccess.getTransitionAccess().getNextStateEStringParserRuleCall_5_0_1(), semanticObject.eGet(ArduinomlPackage.Literals.TRANSITION__NEXT, false));
+		feeder.accept(grammarAccess.getTransitionAccess().getConditionMultipleElementConditionParserRuleCall_2_0(), semanticObject.getCondition());
+		feeder.accept(grammarAccess.getTransitionAccess().getNextStateEStringParserRuleCall_4_0_1(), semanticObject.eGet(ArduinomlPackage.Literals.TRANSITION__NEXT, false));
 		feeder.finish();
 	}
 	

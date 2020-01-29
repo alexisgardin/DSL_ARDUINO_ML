@@ -8,8 +8,8 @@ import org.eclipse.emf.ecore.EObject;
 import fr.unice.polytech.dsl.arduinoml.*;
 import fr.unice.polytech.dsl.arduinoml.App;
 import fr.unice.polytech.dsl.arduinoml.util.ArduinomlSwitch;
-import io.github.mosser.arduinoml.kernel.generator.ToWiring;
-import io.github.mosser.arduinoml.kernel.generator.Visitor;
+import fr.unice.polytech.dsl.kernel.generator.ToWiring;
+import fr.unice.polytech.dsl.kernel.generator.Visitor;
 
 public class ArduinoMLSwitchPrinter extends ArduinomlSwitch<String> {
 
@@ -28,7 +28,7 @@ public class ArduinoMLSwitchPrinter extends ArduinomlSwitch<String> {
 	
 	public String caseApp(App object) {
 		System.out.println("The app name is : " + object.getName());
-		io.github.mosser.arduinoml.kernel.App kernelApp = new io.github.mosser.arduinoml.kernel.App();
+		fr.unice.polytech.dsl.kernel.App kernelApp = new fr.unice.polytech.dsl.kernel.App();
 		kernelApp.setName(object.getName());
 		kernelApp.setBricks(
 				object.getBricks()

@@ -33,11 +33,15 @@ public class AMLParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, AMLGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getSIGNALAccess().getAlternatives(), "rule__SIGNAL__Alternatives");
+			builder.put(grammarAccess.getOPERATORAccess().getAlternatives(), "rule__OPERATOR__Alternatives");
 			builder.put(grammarAccess.getAppAccess().getGroup(), "rule__App__Group__0");
 			builder.put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
 			builder.put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
 			builder.put(grammarAccess.getActionAccess().getGroup_1(), "rule__Action__Group_1__0");
 			builder.put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
+			builder.put(grammarAccess.getMultipleElementConditionAccess().getGroup(), "rule__MultipleElementCondition__Group__0");
+			builder.put(grammarAccess.getMultipleElementConditionAccess().getGroup_2(), "rule__MultipleElementCondition__Group_2__0");
+			builder.put(grammarAccess.getSingleElementConditionAccess().getGroup(), "rule__SingleElementCondition__Group__0");
 			builder.put(grammarAccess.getSensorAccess().getGroup(), "rule__Sensor__Group__0");
 			builder.put(grammarAccess.getActuatorAccess().getGroup(), "rule__Actuator__Group__0");
 			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
@@ -55,9 +59,13 @@ public class AMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getStateAccess().getTransitionAssignment_4(), "rule__State__TransitionAssignment_4");
 			builder.put(grammarAccess.getActionAccess().getActuatorAssignment_1_0(), "rule__Action__ActuatorAssignment_1_0");
 			builder.put(grammarAccess.getActionAccess().getValueAssignment_1_2(), "rule__Action__ValueAssignment_1_2");
-			builder.put(grammarAccess.getTransitionAccess().getSensorAssignment_1(), "rule__Transition__SensorAssignment_1");
-			builder.put(grammarAccess.getTransitionAccess().getValueAssignment_3(), "rule__Transition__ValueAssignment_3");
-			builder.put(grammarAccess.getTransitionAccess().getNextAssignment_5(), "rule__Transition__NextAssignment_5");
+			builder.put(grammarAccess.getTransitionAccess().getConditionAssignment_2(), "rule__Transition__ConditionAssignment_2");
+			builder.put(grammarAccess.getTransitionAccess().getNextAssignment_4(), "rule__Transition__NextAssignment_4");
+			builder.put(grammarAccess.getMultipleElementConditionAccess().getConditionsAssignment_1(), "rule__MultipleElementCondition__ConditionsAssignment_1");
+			builder.put(grammarAccess.getMultipleElementConditionAccess().getOperatorsAssignment_2_0(), "rule__MultipleElementCondition__OperatorsAssignment_2_0");
+			builder.put(grammarAccess.getMultipleElementConditionAccess().getConditionsAssignment_2_1(), "rule__MultipleElementCondition__ConditionsAssignment_2_1");
+			builder.put(grammarAccess.getSingleElementConditionAccess().getSensorAssignment_1(), "rule__SingleElementCondition__SensorAssignment_1");
+			builder.put(grammarAccess.getSingleElementConditionAccess().getValueAssignment_3(), "rule__SingleElementCondition__ValueAssignment_3");
 			builder.put(grammarAccess.getSensorAccess().getNameAssignment_1(), "rule__Sensor__NameAssignment_1");
 			builder.put(grammarAccess.getSensorAccess().getPinAssignment_3(), "rule__Sensor__PinAssignment_3");
 			builder.put(grammarAccess.getActuatorAccess().getNameAssignment_1(), "rule__Actuator__NameAssignment_1");

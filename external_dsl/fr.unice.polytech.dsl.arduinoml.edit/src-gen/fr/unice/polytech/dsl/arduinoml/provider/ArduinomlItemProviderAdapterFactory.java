@@ -234,6 +234,52 @@ public class ArduinomlItemProviderAdapterFactory extends ArduinomlAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.SingleElementCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SingleElementConditionItemProvider singleElementConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.dsl.arduinoml.SingleElementCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSingleElementConditionAdapter() {
+		if (singleElementConditionItemProvider == null) {
+			singleElementConditionItemProvider = new SingleElementConditionItemProvider(this);
+		}
+
+		return singleElementConditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.MultipleElementCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MultipleElementConditionItemProvider multipleElementConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.dsl.arduinoml.MultipleElementCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMultipleElementConditionAdapter() {
+		if (multipleElementConditionItemProvider == null) {
+			multipleElementConditionItemProvider = new MultipleElementConditionItemProvider(this);
+		}
+
+		return multipleElementConditionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -346,6 +392,10 @@ public class ArduinomlItemProviderAdapterFactory extends ArduinomlAdapterFactory
 			sensorItemProvider.dispose();
 		if (actuatorItemProvider != null)
 			actuatorItemProvider.dispose();
+		if (singleElementConditionItemProvider != null)
+			singleElementConditionItemProvider.dispose();
+		if (multipleElementConditionItemProvider != null)
+			multipleElementConditionItemProvider.dispose();
 	}
 
 }

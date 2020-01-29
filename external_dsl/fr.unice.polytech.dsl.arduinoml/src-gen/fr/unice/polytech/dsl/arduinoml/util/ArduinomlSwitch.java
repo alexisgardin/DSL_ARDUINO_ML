@@ -136,6 +136,31 @@ public class ArduinomlSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ArduinomlPackage.CONDITION: {
+			Condition condition = (Condition) theEObject;
+			T result = caseCondition(condition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ArduinomlPackage.SINGLE_ELEMENT_CONDITION: {
+			SingleElementCondition singleElementCondition = (SingleElementCondition) theEObject;
+			T result = caseSingleElementCondition(singleElementCondition);
+			if (result == null)
+				result = caseCondition(singleElementCondition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ArduinomlPackage.MULTIPLE_ELEMENT_CONDITION: {
+			MultipleElementCondition multipleElementCondition = (MultipleElementCondition) theEObject;
+			T result = caseMultipleElementCondition(multipleElementCondition);
+			if (result == null)
+				result = caseCondition(multipleElementCondition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -258,6 +283,51 @@ public class ArduinomlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseActuator(Actuator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCondition(Condition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Single Element Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Single Element Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSingleElementCondition(SingleElementCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multiple Element Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multiple Element Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMultipleElementCondition(MultipleElementCondition object) {
 		return null;
 	}
 

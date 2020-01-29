@@ -5,9 +5,11 @@
 'HIGH'=21
 'LOW'=22
 'actuators'=14
+'and'=23
 'if'=18
 'initial'=16
 'is'=19
+'or'=24
 'sensors'=12
 'states'=15
 RULE_ANY_OTHER=10
@@ -29,3 +31,5 @@ T__19=19
 T__20=20
 T__21=21
 T__22=22
+T__23=23
+T__24=24

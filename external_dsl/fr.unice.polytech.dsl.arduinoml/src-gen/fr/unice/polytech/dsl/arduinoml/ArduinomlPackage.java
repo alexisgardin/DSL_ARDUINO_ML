@@ -316,31 +316,22 @@ public interface ArduinomlPackage extends EPackage {
 	int TRANSITION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSITION__VALUE = 0;
-
-	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__NEXT = 1;
+	int TRANSITION__NEXT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Sensor</b></em>' reference.
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION__SENSOR = 2;
+	int TRANSITION__CONDITION = 1;
 
 	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
@@ -349,7 +340,7 @@ public interface ArduinomlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_FEATURE_COUNT = 3;
+	int TRANSITION_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Transition</em>' class.
@@ -453,6 +444,126 @@ public interface ArduinomlPackage extends EPackage {
 	int ACTUATOR_OPERATION_COUNT = BRICK_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.impl.ConditionImpl <em>Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ConditionImpl
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getCondition()
+	 * @generated
+	 */
+	int CONDITION = 8;
+
+	/**
+	 * The number of structural features of the '<em>Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.impl.SingleElementConditionImpl <em>Single Element Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.SingleElementConditionImpl
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getSingleElementCondition()
+	 * @generated
+	 */
+	int SINGLE_ELEMENT_CONDITION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Sensor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_CONDITION__SENSOR = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_CONDITION__VALUE = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Single Element Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Single Element Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.impl.MultipleElementConditionImpl <em>Multiple Element Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.MultipleElementConditionImpl
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getMultipleElementCondition()
+	 * @generated
+	 */
+	int MULTIPLE_ELEMENT_CONDITION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_ELEMENT_CONDITION__CONDITIONS = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operators</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_ELEMENT_CONDITION__OPERATORS = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Multiple Element Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_ELEMENT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Multiple Element Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_ELEMENT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.SIGNAL <em>SIGNAL</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -460,7 +571,17 @@ public interface ArduinomlPackage extends EPackage {
 	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getSIGNAL()
 	 * @generated
 	 */
-	int SIGNAL = 8;
+	int SIGNAL = 11;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.OPERATOR <em>OPERATOR</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.dsl.arduinoml.OPERATOR
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getOPERATOR()
+	 * @generated
+	 */
+	int OPERATOR = 12;
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.NamedElement <em>Named Element</em>}'.
@@ -622,17 +743,6 @@ public interface ArduinomlPackage extends EPackage {
 	EClass getTransition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.unice.polytech.dsl.arduinoml.Transition#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see fr.unice.polytech.dsl.arduinoml.Transition#getValue()
-	 * @see #getTransition()
-	 * @generated
-	 */
-	EAttribute getTransition_Value();
-
-	/**
 	 * Returns the meta object for the reference '{@link fr.unice.polytech.dsl.arduinoml.Transition#getNext <em>Next</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -644,15 +754,15 @@ public interface ArduinomlPackage extends EPackage {
 	EReference getTransition_Next();
 
 	/**
-	 * Returns the meta object for the reference '{@link fr.unice.polytech.dsl.arduinoml.Transition#getSensor <em>Sensor</em>}'.
+	 * Returns the meta object for the containment reference '{@link fr.unice.polytech.dsl.arduinoml.Transition#getCondition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Sensor</em>'.
-	 * @see fr.unice.polytech.dsl.arduinoml.Transition#getSensor()
+	 * @return the meta object for the containment reference '<em>Condition</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.Transition#getCondition()
 	 * @see #getTransition()
 	 * @generated
 	 */
-	EReference getTransition_Sensor();
+	EReference getTransition_Condition();
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.Sensor <em>Sensor</em>}'.
@@ -675,6 +785,80 @@ public interface ArduinomlPackage extends EPackage {
 	EClass getActuator();
 
 	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.Condition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Condition</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.Condition
+	 * @generated
+	 */
+	EClass getCondition();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.SingleElementCondition <em>Single Element Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Single Element Condition</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.SingleElementCondition
+	 * @generated
+	 */
+	EClass getSingleElementCondition();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.unice.polytech.dsl.arduinoml.SingleElementCondition#getSensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Sensor</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.SingleElementCondition#getSensor()
+	 * @see #getSingleElementCondition()
+	 * @generated
+	 */
+	EReference getSingleElementCondition_Sensor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.dsl.arduinoml.SingleElementCondition#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.SingleElementCondition#getValue()
+	 * @see #getSingleElementCondition()
+	 * @generated
+	 */
+	EAttribute getSingleElementCondition_Value();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.MultipleElementCondition <em>Multiple Element Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Multiple Element Condition</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.MultipleElementCondition
+	 * @generated
+	 */
+	EClass getMultipleElementCondition();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.unice.polytech.dsl.arduinoml.MultipleElementCondition#getConditions <em>Conditions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Conditions</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.MultipleElementCondition#getConditions()
+	 * @see #getMultipleElementCondition()
+	 * @generated
+	 */
+	EReference getMultipleElementCondition_Conditions();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link fr.unice.polytech.dsl.arduinoml.MultipleElementCondition#getOperators <em>Operators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Operators</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.MultipleElementCondition#getOperators()
+	 * @see #getMultipleElementCondition()
+	 * @generated
+	 */
+	EAttribute getMultipleElementCondition_Operators();
+
+	/**
 	 * Returns the meta object for enum '{@link fr.unice.polytech.dsl.arduinoml.SIGNAL <em>SIGNAL</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -683,6 +867,16 @@ public interface ArduinomlPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getSIGNAL();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.unice.polytech.dsl.arduinoml.OPERATOR <em>OPERATOR</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>OPERATOR</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.OPERATOR
+	 * @generated
+	 */
+	EEnum getOPERATOR();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -840,14 +1034,6 @@ public interface ArduinomlPackage extends EPackage {
 		EClass TRANSITION = eINSTANCE.getTransition();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TRANSITION__VALUE = eINSTANCE.getTransition_Value();
-
-		/**
 		 * The meta object literal for the '<em><b>Next</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -856,12 +1042,12 @@ public interface ArduinomlPackage extends EPackage {
 		EReference TRANSITION__NEXT = eINSTANCE.getTransition_Next();
 
 		/**
-		 * The meta object literal for the '<em><b>Sensor</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRANSITION__SENSOR = eINSTANCE.getTransition_Sensor();
+		EReference TRANSITION__CONDITION = eINSTANCE.getTransition_Condition();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.impl.SensorImpl <em>Sensor</em>}' class.
@@ -884,6 +1070,68 @@ public interface ArduinomlPackage extends EPackage {
 		EClass ACTUATOR = eINSTANCE.getActuator();
 
 		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.impl.ConditionImpl <em>Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ConditionImpl
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getCondition()
+		 * @generated
+		 */
+		EClass CONDITION = eINSTANCE.getCondition();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.impl.SingleElementConditionImpl <em>Single Element Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.SingleElementConditionImpl
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getSingleElementCondition()
+		 * @generated
+		 */
+		EClass SINGLE_ELEMENT_CONDITION = eINSTANCE.getSingleElementCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Sensor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_ELEMENT_CONDITION__SENSOR = eINSTANCE.getSingleElementCondition_Sensor();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SINGLE_ELEMENT_CONDITION__VALUE = eINSTANCE.getSingleElementCondition_Value();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.impl.MultipleElementConditionImpl <em>Multiple Element Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.MultipleElementConditionImpl
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getMultipleElementCondition()
+		 * @generated
+		 */
+		EClass MULTIPLE_ELEMENT_CONDITION = eINSTANCE.getMultipleElementCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MULTIPLE_ELEMENT_CONDITION__CONDITIONS = eINSTANCE.getMultipleElementCondition_Conditions();
+
+		/**
+		 * The meta object literal for the '<em><b>Operators</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTIPLE_ELEMENT_CONDITION__OPERATORS = eINSTANCE.getMultipleElementCondition_Operators();
+
+		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.SIGNAL <em>SIGNAL</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -892,6 +1140,16 @@ public interface ArduinomlPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SIGNAL = eINSTANCE.getSIGNAL();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.OPERATOR <em>OPERATOR</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.dsl.arduinoml.OPERATOR
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getOPERATOR()
+		 * @generated
+		 */
+		EEnum OPERATOR = eINSTANCE.getOPERATOR();
 
 	}
 

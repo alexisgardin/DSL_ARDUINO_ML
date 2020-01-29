@@ -34,9 +34,24 @@ Action returns Action:
 enum SIGNAL returns SIGNAL:
 				HIGH = 'HIGH' | LOW = 'LOW';
 				
+enum OPERATOR returns OPERATOR:
+				and = 'and' | or = 'or'
+;
+				
 Transition returns Transition:
-	'if' sensor=[Sensor|EString] 'is' value=SIGNAL '->' next=[State|EString];
+	{Transition}
+	'if' condition=MultipleElementCondition '->' next=[State|EString];
 
+
+MultipleElementCondition returns MultipleElementCondition:
+	{MultipleElementCondition}
+	conditions+=SingleElementCondition (operators+=OPERATOR conditions+=SingleElementCondition)*;
+
+SingleElementCondition returns SingleElementCondition:
+	{SingleElementCondition}
+	sensor=[Sensor | EString] 'is' value=SIGNAL;
+
+	
 Sensor returns Sensor:
 	{Sensor}
 	name=EString '->' pin=EInt;

@@ -12,18 +12,25 @@ import org.eclipse.emf.common.util.EList;
 import fr.unice.polytech.dsl.arduinoml.Action;
 import fr.unice.polytech.dsl.arduinoml.Actuator;
 import fr.unice.polytech.dsl.arduinoml.Brick;
+import fr.unice.polytech.dsl.arduinoml.Condition;
+import fr.unice.polytech.dsl.arduinoml.MultipleElementCondition;
+import fr.unice.polytech.dsl.arduinoml.OPERATOR;
 import fr.unice.polytech.dsl.arduinoml.Sensor;
 import fr.unice.polytech.dsl.arduinoml.State;
 import fr.unice.polytech.dsl.arduinoml.Transition;
-import io.github.mosser.arduinoml.kernel.structural.SIGNAL;
+import fr.unice.polytech.dsl.arduinoml.impl.MultipleElementConditionImpl;
+import fr.unice.polytech.dsl.arduinoml.impl.SingleElementConditionImpl;
+import fr.unice.polytech.dsl.kernel.behavioral.Operator;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.SingleElementCondition;
+import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
 
 public class KernelAdapter {
 	
-	private List<io.github.mosser.arduinoml.kernel.behavioral.State> states = new ArrayList();
-	private List<io.github.mosser.arduinoml.kernel.structural.Sensor> sensors = new ArrayList();
-	private List<io.github.mosser.arduinoml.kernel.structural.Actuator> actuators = new ArrayList();
+	private List<fr.unice.polytech.dsl.kernel.behavioral.State> states = new ArrayList();
+	private List<fr.unice.polytech.dsl.kernel.structural.Sensor> sensors = new ArrayList();
+	private List<fr.unice.polytech.dsl.kernel.structural.Actuator> actuators = new ArrayList();
 	
-	public io.github.mosser.arduinoml.kernel.structural.Brick mapBrick(Brick brickToConvert) {
+	public fr.unice.polytech.dsl.kernel.structural.Brick mapBrick(Brick brickToConvert) {
 		if (brickToConvert instanceof Sensor) {
 			return mapSensor((Sensor) brickToConvert);
 		}
@@ -35,8 +42,8 @@ public class KernelAdapter {
 		return null;
 	}
 	
-	public io.github.mosser.arduinoml.kernel.structural.Sensor mapSensor(Sensor sensorToConvert) {
-		io.github.mosser.arduinoml.kernel.structural.Sensor sensor = new io.github.mosser.arduinoml.kernel.structural.Sensor(); 
+	public fr.unice.polytech.dsl.kernel.structural.Sensor mapSensor(Sensor sensorToConvert) {
+		fr.unice.polytech.dsl.kernel.structural.Sensor sensor = new fr.unice.polytech.dsl.kernel.structural.Sensor(); 
 		sensor.setName(sensorToConvert.getName());
 		sensor.setPin(sensorToConvert.getPin());
 		sensors.add(sensor);
@@ -44,8 +51,8 @@ public class KernelAdapter {
 		return sensor;
 	}
 	
-	public io.github.mosser.arduinoml.kernel.structural.Actuator mapActuator(Actuator actuatorToConvert) {
-		io.github.mosser.arduinoml.kernel.structural.Actuator actuator = new io.github.mosser.arduinoml.kernel.structural.Actuator();
+	public fr.unice.polytech.dsl.kernel.structural.Actuator mapActuator(Actuator actuatorToConvert) {
+		fr.unice.polytech.dsl.kernel.structural.Actuator actuator = new fr.unice.polytech.dsl.kernel.structural.Actuator();
 		actuator.setName(actuatorToConvert.getName());
 		actuator.setPin(actuatorToConvert.getPin());
 		actuators.add(actuator);
@@ -53,8 +60,8 @@ public class KernelAdapter {
 		return actuator;
 	}
 	
-	public io.github.mosser.arduinoml.kernel.behavioral.State mapState(State stateToConvert) {
-		io.github.mosser.arduinoml.kernel.behavioral.State state = new io.github.mosser.arduinoml.kernel.behavioral.State();
+	public fr.unice.polytech.dsl.kernel.behavioral.State mapState(State stateToConvert) {
+		fr.unice.polytech.dsl.kernel.behavioral.State state = new fr.unice.polytech.dsl.kernel.behavioral.State();
 		state.setName(stateToConvert.getName());
 		//state.setTransition(mapTransition(stateToConvert.getTransition()));
 		state.setActions(
@@ -67,8 +74,8 @@ public class KernelAdapter {
 		return state;
 	}
 	
-	public io.github.mosser.arduinoml.kernel.behavioral.Action mapAction(Action actionToConvert) {
-		io.github.mosser.arduinoml.kernel.behavioral.Action action = new io.github.mosser.arduinoml.kernel.behavioral.Action();
+	public fr.unice.polytech.dsl.kernel.behavioral.Action mapAction(Action actionToConvert) {
+		fr.unice.polytech.dsl.kernel.behavioral.Action action = new fr.unice.polytech.dsl.kernel.behavioral.Action();
 		action.setValue(SIGNAL.valueOf(actionToConvert.getValue().toString()));
 		action.setActuator(mapActuator(actionToConvert.getActuator()));
 		System.out.println(action);
@@ -76,14 +83,13 @@ public class KernelAdapter {
 	}
 	
 	
-	public List<io.github.mosser.arduinoml.kernel.behavioral.State> mapTransition(
+	public List<fr.unice.polytech.dsl.kernel.behavioral.State> mapTransition(
 			Transition transitionToConvert,
 			Integer stateIndice,
-			List<io.github.mosser.arduinoml.kernel.behavioral.State> kernelStates) {
+			List<fr.unice.polytech.dsl.kernel.behavioral.State> kernelStates) {
 		
-		io.github.mosser.arduinoml.kernel.behavioral.Transition transition = new io.github.mosser.arduinoml.kernel.behavioral.Transition();
-		transition.setValue(SIGNAL.valueOf(transitionToConvert.getValue().toString()));
-		transition.setSensor(mapSensor(transitionToConvert.getSensor()));
+		fr.unice.polytech.dsl.kernel.behavioral.Transition transition = new fr.unice.polytech.dsl.kernel.behavioral.Transition();
+		transition.setCondition( mapCondition(transitionToConvert.getCondition()));
 		transition.setNext(kernelStates.stream().filter(state -> state.getName().equals(transitionToConvert.getNext().getName())).findFirst().get());
 		
 		kernelStates.get(stateIndice).setTransition(transition);
@@ -92,8 +98,8 @@ public class KernelAdapter {
 	}
 	
 	
-	public List<io.github.mosser.arduinoml.kernel.behavioral.State> mapTransitionList(Map<Transition, Integer> transitionMapToConvert,
-			List<io.github.mosser.arduinoml.kernel.behavioral.State> kernelStates){
+	public List<fr.unice.polytech.dsl.kernel.behavioral.State> mapTransitionList(Map<Transition, Integer> transitionMapToConvert,
+			List<fr.unice.polytech.dsl.kernel.behavioral.State> kernelStates){
 			
 		for(Transition transition : transitionMapToConvert.keySet()) {
 			kernelStates = mapTransition(transition, transitionMapToConvert.get(transition), kernelStates);
@@ -102,13 +108,13 @@ public class KernelAdapter {
 		
 	}
 	
-	public List<io.github.mosser.arduinoml.kernel.behavioral.State> mapStateList(List<State> statesToConvert){
+	public List<fr.unice.polytech.dsl.kernel.behavioral.State> mapStateList(List<State> statesToConvert){
 		Map<Transition, Integer> transitionMapToConvert = new HashMap<>();
-		List<io.github.mosser.arduinoml.kernel.behavioral.State> kernelStates = new ArrayList<>();
+		List<fr.unice.polytech.dsl.kernel.behavioral.State> kernelStates = new ArrayList<>();
 		
 		int i=0;
 		for(State state : statesToConvert) {
-			io.github.mosser.arduinoml.kernel.behavioral.State kernelState = mapState(state);
+			fr.unice.polytech.dsl.kernel.behavioral.State kernelState = mapState(state);
 			kernelStates.add(kernelState);
 			transitionMapToConvert.put(state.getTransition(), i);
 			i++;
@@ -117,6 +123,35 @@ public class KernelAdapter {
 		kernelStates = mapTransitionList(transitionMapToConvert, kernelStates);
 		return kernelStates;
 		
+	}
+	
+	public fr.unice.polytech.dsl.kernel.behavioral.condition.Condition mapCondition(Condition condition){
+		if(condition instanceof MultipleElementCondition) {
+			MultipleElementConditionImpl xtextCondition = (MultipleElementConditionImpl) condition;
+			
+			fr.unice.polytech.dsl.kernel.behavioral.condition.MultipleElementCondition kernelCondition = 
+					new fr.unice.polytech.dsl.kernel.behavioral.condition.MultipleElementCondition();
+			
+			
+			kernelCondition.setConditionList(
+					xtextCondition.getConditions().stream().map( cond -> mapCondition(cond)).collect(Collectors.toList())
+			);
+			
+			for (OPERATOR operator : xtextCondition.getOperators()) {
+				kernelCondition.addOperator(Operator.valueOf(operator.toString().toUpperCase()));
+			}
+			
+			return kernelCondition;
+		}else {
+			SingleElementConditionImpl xtextCondition = (SingleElementConditionImpl) condition;
+			
+			SingleElementCondition kernelCondition = new SingleElementCondition();
+			
+			kernelCondition.setSensor(mapSensor(xtextCondition.getSensor()));
+			kernelCondition.setSignal(SIGNAL.valueOf(xtextCondition.getValue().toString()));
+			
+			return kernelCondition;
+		}
 	}
 	
 	

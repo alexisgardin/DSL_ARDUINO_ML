@@ -443,9 +443,39 @@ ruleTransition returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='if'
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getTransitionAccess().getTransitionAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='if'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getTransitionAccess().getIfKeyword_0());
+			newLeafNode(otherlv_1, grammarAccess.getTransitionAccess().getIfKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTransitionAccess().getConditionMultipleElementConditionParserRuleCall_2_0());
+				}
+				lv_condition_2_0=ruleMultipleElementCondition
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTransitionRule());
+					}
+					set(
+						$current,
+						"condition",
+						lv_condition_2_0,
+						"fr.unice.polytech.dsl.arduinoml.AML.MultipleElementCondition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_3='->'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getTransitionAccess().getHyphenMinusGreaterThanSignKeyword_3());
 		}
 		(
 			(
@@ -455,7 +485,134 @@ ruleTransition returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getTransitionAccess().getSensorSensorCrossReference_1_0());
+					newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_4_0());
+				}
+				ruleEString
+				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleMultipleElementCondition
+entryRuleMultipleElementCondition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMultipleElementConditionRule()); }
+	iv_ruleMultipleElementCondition=ruleMultipleElementCondition
+	{ $current=$iv_ruleMultipleElementCondition.current; }
+	EOF;
+
+// Rule MultipleElementCondition
+ruleMultipleElementCondition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getMultipleElementConditionAccess().getMultipleElementConditionAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMultipleElementConditionAccess().getConditionsSingleElementConditionParserRuleCall_1_0());
+				}
+				lv_conditions_1_0=ruleSingleElementCondition
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMultipleElementConditionRule());
+					}
+					add(
+						$current,
+						"conditions",
+						lv_conditions_1_0,
+						"fr.unice.polytech.dsl.arduinoml.AML.SingleElementCondition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getMultipleElementConditionAccess().getOperatorsOPERATOREnumRuleCall_2_0_0());
+					}
+					lv_operators_2_0=ruleOPERATOR
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getMultipleElementConditionRule());
+						}
+						add(
+							$current,
+							"operators",
+							lv_operators_2_0,
+							"fr.unice.polytech.dsl.arduinoml.AML.OPERATOR");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getMultipleElementConditionAccess().getConditionsSingleElementConditionParserRuleCall_2_1_0());
+					}
+					lv_conditions_3_0=ruleSingleElementCondition
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getMultipleElementConditionRule());
+						}
+						add(
+							$current,
+							"conditions",
+							lv_conditions_3_0,
+							"fr.unice.polytech.dsl.arduinoml.AML.SingleElementCondition");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleSingleElementCondition
+entryRuleSingleElementCondition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSingleElementConditionRule()); }
+	iv_ruleSingleElementCondition=ruleSingleElementCondition
+	{ $current=$iv_ruleSingleElementCondition.current; }
+	EOF;
+
+// Rule SingleElementCondition
+ruleSingleElementCondition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getSingleElementConditionAccess().getSingleElementConditionAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSingleElementConditionRule());
+					}
+				}
+				{
+					newCompositeNode(grammarAccess.getSingleElementConditionAccess().getSensorSensorCrossReference_1_0());
 				}
 				ruleEString
 				{
@@ -465,43 +622,23 @@ ruleTransition returns [EObject current=null]
 		)
 		otherlv_2='is'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getIsKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getSingleElementConditionAccess().getIsKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTransitionAccess().getValueSIGNALEnumRuleCall_3_0());
+					newCompositeNode(grammarAccess.getSingleElementConditionAccess().getValueSIGNALEnumRuleCall_3_0());
 				}
 				lv_value_3_0=ruleSIGNAL
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTransitionRule());
+						$current = createModelElementForParent(grammarAccess.getSingleElementConditionRule());
 					}
 					set(
 						$current,
 						"value",
 						lv_value_3_0,
 						"fr.unice.polytech.dsl.arduinoml.AML.SIGNAL");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_4='->'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getTransitionAccess().getHyphenMinusGreaterThanSignKeyword_4());
-		}
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTransitionRule());
-					}
-				}
-				{
-					newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_5_0());
-				}
-				ruleEString
-				{
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -734,6 +871,33 @@ ruleSIGNAL returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getSIGNALAccess().getLOWEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getSIGNALAccess().getLOWEnumLiteralDeclaration_1());
+			}
+		)
+	)
+;
+
+// Rule OPERATOR
+ruleOPERATOR returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='and'
+			{
+				$current = grammarAccess.getOPERATORAccess().getAndEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getOPERATORAccess().getAndEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='or'
+			{
+				$current = grammarAccess.getOPERATORAccess().getOrEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getOPERATORAccess().getOrEnumLiteralDeclaration_1());
 			}
 		)
 	)

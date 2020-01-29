@@ -9,7 +9,9 @@ Bundle-ClassPath: .,
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: fr.unice.polytech.dsl.arduinoml;uses:="org.eclipse.emf.ecore,org.eclipse.emf.common.util",
+Export-Package: fr.unice.polytech.dsl.arduinoml;
+  uses:="org.eclipse.emf.ecore,
+   org.eclipse.emf.common.util",
  fr.unice.polytech.dsl.arduinoml.homemade;
   uses:="org.eclipse.emf.ecore,
    fr.unice.polytech.dsl.arduinoml,
@@ -27,12 +29,7 @@ Export-Package: fr.unice.polytech.dsl.arduinoml;uses:="org.eclipse.emf.ecore,org
    fr.unice.polytech.dsl.arduinoml,
    org.eclipse.emf.common.notify,
    org.eclipse.emf.common.notify.impl,
-   org.eclipse.emf.ecore.util",
- io.github.mosser.arduinoml.kernel,
- io.github.mosser.arduinoml.kernel.behavioral,
- io.github.mosser.arduinoml.kernel.generator,
- io.github.mosser.arduinoml.kernel.samples,
- io.github.mosser.arduinoml.kernel.structural
+   org.eclipse.emf.ecore.util"
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy

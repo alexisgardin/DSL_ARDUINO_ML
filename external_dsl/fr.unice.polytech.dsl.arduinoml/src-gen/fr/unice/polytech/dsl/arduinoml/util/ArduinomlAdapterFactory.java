@@ -107,6 +107,21 @@ public class ArduinomlAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseCondition(Condition object) {
+			return createConditionAdapter();
+		}
+
+		@Override
+		public Adapter caseSingleElementCondition(SingleElementCondition object) {
+			return createSingleElementConditionAdapter();
+		}
+
+		@Override
+		public Adapter caseMultipleElementCondition(MultipleElementCondition object) {
+			return createMultipleElementConditionAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -234,6 +249,48 @@ public class ArduinomlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActuatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.dsl.arduinoml.Condition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.dsl.arduinoml.Condition
+	 * @generated
+	 */
+	public Adapter createConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.dsl.arduinoml.SingleElementCondition <em>Single Element Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.dsl.arduinoml.SingleElementCondition
+	 * @generated
+	 */
+	public Adapter createSingleElementConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.dsl.arduinoml.MultipleElementCondition <em>Multiple Element Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.dsl.arduinoml.MultipleElementCondition
+	 * @generated
+	 */
+	public Adapter createMultipleElementConditionAdapter() {
 		return null;
 	}
 

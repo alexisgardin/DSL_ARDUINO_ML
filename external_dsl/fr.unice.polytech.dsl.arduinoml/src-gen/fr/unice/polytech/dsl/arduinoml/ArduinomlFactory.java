@@ -85,6 +85,24 @@ public interface ArduinomlFactory extends EFactory {
 	Actuator createActuator();
 
 	/**
+	 * Returns a new object of class '<em>Single Element Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Single Element Condition</em>'.
+	 * @generated
+	 */
+	SingleElementCondition createSingleElementCondition();
+
+	/**
+	 * Returns a new object of class '<em>Multiple Element Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Multiple Element Condition</em>'.
+	 * @generated
+	 */
+	MultipleElementCondition createMultipleElementCondition();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

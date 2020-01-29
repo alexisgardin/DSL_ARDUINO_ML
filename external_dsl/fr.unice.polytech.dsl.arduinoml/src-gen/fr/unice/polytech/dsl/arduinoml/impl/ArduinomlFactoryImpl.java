@@ -71,6 +71,10 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 			return createSensor();
 		case ArduinomlPackage.ACTUATOR:
 			return createActuator();
+		case ArduinomlPackage.SINGLE_ELEMENT_CONDITION:
+			return createSingleElementCondition();
+		case ArduinomlPackage.MULTIPLE_ELEMENT_CONDITION:
+			return createMultipleElementCondition();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -86,6 +90,8 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 		switch (eDataType.getClassifierID()) {
 		case ArduinomlPackage.SIGNAL:
 			return createSIGNALFromString(eDataType, initialValue);
+		case ArduinomlPackage.OPERATOR:
+			return createOPERATORFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -101,6 +107,8 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 		switch (eDataType.getClassifierID()) {
 		case ArduinomlPackage.SIGNAL:
 			return convertSIGNALToString(eDataType, instanceValue);
+		case ArduinomlPackage.OPERATOR:
+			return convertOPERATORToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -181,6 +189,26 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SingleElementCondition createSingleElementCondition() {
+		SingleElementConditionImpl singleElementCondition = new SingleElementConditionImpl();
+		return singleElementCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MultipleElementCondition createMultipleElementCondition() {
+		MultipleElementConditionImpl multipleElementCondition = new MultipleElementConditionImpl();
+		return multipleElementCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SIGNAL createSIGNALFromString(EDataType eDataType, String initialValue) {
 		SIGNAL result = SIGNAL.get(initialValue);
 		if (result == null)
@@ -195,6 +223,28 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 	 * @generated
 	 */
 	public String convertSIGNALToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OPERATOR createOPERATORFromString(EDataType eDataType, String initialValue) {
+		OPERATOR result = OPERATOR.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOPERATORToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAMLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'App'", "'sensors'", "':'", "'actuators'", "'states'", "'initial'", "'->'", "'if'", "'is'", "'-'", "'HIGH'", "'LOW'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'App'", "'sensors'", "':'", "'actuators'", "'states'", "'initial'", "'->'", "'if'", "'is'", "'-'", "'HIGH'", "'LOW'", "'and'", "'or'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -42,6 +42,8 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
     public static final int RULE_INT=6;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
+    public static final int T__23=23;
+    public static final int T__24=24;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -934,73 +936,51 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTransition"
-    // InternalAML.g:438:1: ruleTransition returns [EObject current=null] : (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_value_3_0= ruleSIGNAL ) ) otherlv_4= '->' ( ( ruleEString ) ) ) ;
+    // InternalAML.g:438:1: ruleTransition returns [EObject current=null] : ( () otherlv_1= 'if' ( (lv_condition_2_0= ruleMultipleElementCondition ) ) otherlv_3= '->' ( ( ruleEString ) ) ) ;
     public final EObject ruleTransition() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        Enumerator lv_value_3_0 = null;
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        EObject lv_condition_2_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalAML.g:444:2: ( (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_value_3_0= ruleSIGNAL ) ) otherlv_4= '->' ( ( ruleEString ) ) ) )
-            // InternalAML.g:445:2: (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_value_3_0= ruleSIGNAL ) ) otherlv_4= '->' ( ( ruleEString ) ) )
+            // InternalAML.g:444:2: ( ( () otherlv_1= 'if' ( (lv_condition_2_0= ruleMultipleElementCondition ) ) otherlv_3= '->' ( ( ruleEString ) ) ) )
+            // InternalAML.g:445:2: ( () otherlv_1= 'if' ( (lv_condition_2_0= ruleMultipleElementCondition ) ) otherlv_3= '->' ( ( ruleEString ) ) )
             {
-            // InternalAML.g:445:2: (otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_value_3_0= ruleSIGNAL ) ) otherlv_4= '->' ( ( ruleEString ) ) )
-            // InternalAML.g:446:3: otherlv_0= 'if' ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_value_3_0= ruleSIGNAL ) ) otherlv_4= '->' ( ( ruleEString ) )
+            // InternalAML.g:445:2: ( () otherlv_1= 'if' ( (lv_condition_2_0= ruleMultipleElementCondition ) ) otherlv_3= '->' ( ( ruleEString ) ) )
+            // InternalAML.g:446:3: () otherlv_1= 'if' ( (lv_condition_2_0= ruleMultipleElementCondition ) ) otherlv_3= '->' ( ( ruleEString ) )
             {
-            otherlv_0=(Token)match(input,18,FOLLOW_3); 
-
-            			newLeafNode(otherlv_0, grammarAccess.getTransitionAccess().getIfKeyword_0());
-            		
-            // InternalAML.g:450:3: ( ( ruleEString ) )
-            // InternalAML.g:451:4: ( ruleEString )
-            {
-            // InternalAML.g:451:4: ( ruleEString )
-            // InternalAML.g:452:5: ruleEString
+            // InternalAML.g:446:3: ()
+            // InternalAML.g:447:4: 
             {
 
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getTransitionRule());
-            					}
-            				
-
-            					newCompositeNode(grammarAccess.getTransitionAccess().getSensorSensorCrossReference_1_0());
-            				
-            pushFollow(FOLLOW_12);
-            ruleEString();
-
-            state._fsp--;
-
-
-            					afterParserOrEnumRuleCall();
-            				
+            				current = forceCreateModelElement(
+            					grammarAccess.getTransitionAccess().getTransitionAction_0(),
+            					current);
+            			
 
             }
 
+            otherlv_1=(Token)match(input,18,FOLLOW_3); 
 
-            }
-
-            otherlv_2=(Token)match(input,19,FOLLOW_11); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getIsKeyword_2());
+            			newLeafNode(otherlv_1, grammarAccess.getTransitionAccess().getIfKeyword_1());
             		
-            // InternalAML.g:470:3: ( (lv_value_3_0= ruleSIGNAL ) )
-            // InternalAML.g:471:4: (lv_value_3_0= ruleSIGNAL )
+            // InternalAML.g:457:3: ( (lv_condition_2_0= ruleMultipleElementCondition ) )
+            // InternalAML.g:458:4: (lv_condition_2_0= ruleMultipleElementCondition )
             {
-            // InternalAML.g:471:4: (lv_value_3_0= ruleSIGNAL )
-            // InternalAML.g:472:5: lv_value_3_0= ruleSIGNAL
+            // InternalAML.g:458:4: (lv_condition_2_0= ruleMultipleElementCondition )
+            // InternalAML.g:459:5: lv_condition_2_0= ruleMultipleElementCondition
             {
 
-            					newCompositeNode(grammarAccess.getTransitionAccess().getValueSIGNALEnumRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getTransitionAccess().getConditionMultipleElementConditionParserRuleCall_2_0());
             				
             pushFollow(FOLLOW_10);
-            lv_value_3_0=ruleSIGNAL();
+            lv_condition_2_0=ruleMultipleElementCondition();
 
             state._fsp--;
 
@@ -1010,9 +990,9 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
             					}
             					set(
             						current,
-            						"value",
-            						lv_value_3_0,
-            						"fr.unice.polytech.dsl.arduinoml.AML.SIGNAL");
+            						"condition",
+            						lv_condition_2_0,
+            						"fr.unice.polytech.dsl.arduinoml.AML.MultipleElementCondition");
             					afterParserOrEnumRuleCall();
             				
 
@@ -1021,15 +1001,15 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,17,FOLLOW_3); 
+            otherlv_3=(Token)match(input,17,FOLLOW_3); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getTransitionAccess().getHyphenMinusGreaterThanSignKeyword_4());
+            			newLeafNode(otherlv_3, grammarAccess.getTransitionAccess().getHyphenMinusGreaterThanSignKeyword_3());
             		
-            // InternalAML.g:493:3: ( ( ruleEString ) )
-            // InternalAML.g:494:4: ( ruleEString )
+            // InternalAML.g:480:3: ( ( ruleEString ) )
+            // InternalAML.g:481:4: ( ruleEString )
             {
-            // InternalAML.g:494:4: ( ruleEString )
-            // InternalAML.g:495:5: ruleEString
+            // InternalAML.g:481:4: ( ruleEString )
+            // InternalAML.g:482:5: ruleEString
             {
 
             					if (current==null) {
@@ -1037,7 +1017,7 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
             					}
             				
 
-            					newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_5_0());
+            					newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_4_0());
             				
             pushFollow(FOLLOW_2);
             ruleEString();
@@ -1075,8 +1055,367 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleTransition"
 
 
+    // $ANTLR start "entryRuleMultipleElementCondition"
+    // InternalAML.g:500:1: entryRuleMultipleElementCondition returns [EObject current=null] : iv_ruleMultipleElementCondition= ruleMultipleElementCondition EOF ;
+    public final EObject entryRuleMultipleElementCondition() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleMultipleElementCondition = null;
+
+
+        try {
+            // InternalAML.g:500:65: (iv_ruleMultipleElementCondition= ruleMultipleElementCondition EOF )
+            // InternalAML.g:501:2: iv_ruleMultipleElementCondition= ruleMultipleElementCondition EOF
+            {
+             newCompositeNode(grammarAccess.getMultipleElementConditionRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleMultipleElementCondition=ruleMultipleElementCondition();
+
+            state._fsp--;
+
+             current =iv_ruleMultipleElementCondition; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleMultipleElementCondition"
+
+
+    // $ANTLR start "ruleMultipleElementCondition"
+    // InternalAML.g:507:1: ruleMultipleElementCondition returns [EObject current=null] : ( () ( (lv_conditions_1_0= ruleSingleElementCondition ) ) ( ( (lv_operators_2_0= ruleOPERATOR ) ) ( (lv_conditions_3_0= ruleSingleElementCondition ) ) )* ) ;
+    public final EObject ruleMultipleElementCondition() throws RecognitionException {
+        EObject current = null;
+
+        EObject lv_conditions_1_0 = null;
+
+        Enumerator lv_operators_2_0 = null;
+
+        EObject lv_conditions_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalAML.g:513:2: ( ( () ( (lv_conditions_1_0= ruleSingleElementCondition ) ) ( ( (lv_operators_2_0= ruleOPERATOR ) ) ( (lv_conditions_3_0= ruleSingleElementCondition ) ) )* ) )
+            // InternalAML.g:514:2: ( () ( (lv_conditions_1_0= ruleSingleElementCondition ) ) ( ( (lv_operators_2_0= ruleOPERATOR ) ) ( (lv_conditions_3_0= ruleSingleElementCondition ) ) )* )
+            {
+            // InternalAML.g:514:2: ( () ( (lv_conditions_1_0= ruleSingleElementCondition ) ) ( ( (lv_operators_2_0= ruleOPERATOR ) ) ( (lv_conditions_3_0= ruleSingleElementCondition ) ) )* )
+            // InternalAML.g:515:3: () ( (lv_conditions_1_0= ruleSingleElementCondition ) ) ( ( (lv_operators_2_0= ruleOPERATOR ) ) ( (lv_conditions_3_0= ruleSingleElementCondition ) ) )*
+            {
+            // InternalAML.g:515:3: ()
+            // InternalAML.g:516:4: 
+            {
+
+            				current = forceCreateModelElement(
+            					grammarAccess.getMultipleElementConditionAccess().getMultipleElementConditionAction_0(),
+            					current);
+            			
+
+            }
+
+            // InternalAML.g:522:3: ( (lv_conditions_1_0= ruleSingleElementCondition ) )
+            // InternalAML.g:523:4: (lv_conditions_1_0= ruleSingleElementCondition )
+            {
+            // InternalAML.g:523:4: (lv_conditions_1_0= ruleSingleElementCondition )
+            // InternalAML.g:524:5: lv_conditions_1_0= ruleSingleElementCondition
+            {
+
+            					newCompositeNode(grammarAccess.getMultipleElementConditionAccess().getConditionsSingleElementConditionParserRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_12);
+            lv_conditions_1_0=ruleSingleElementCondition();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getMultipleElementConditionRule());
+            					}
+            					add(
+            						current,
+            						"conditions",
+            						lv_conditions_1_0,
+            						"fr.unice.polytech.dsl.arduinoml.AML.SingleElementCondition");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalAML.g:541:3: ( ( (lv_operators_2_0= ruleOPERATOR ) ) ( (lv_conditions_3_0= ruleSingleElementCondition ) ) )*
+            loop5:
+            do {
+                int alt5=2;
+                int LA5_0 = input.LA(1);
+
+                if ( ((LA5_0>=23 && LA5_0<=24)) ) {
+                    alt5=1;
+                }
+
+
+                switch (alt5) {
+            	case 1 :
+            	    // InternalAML.g:542:4: ( (lv_operators_2_0= ruleOPERATOR ) ) ( (lv_conditions_3_0= ruleSingleElementCondition ) )
+            	    {
+            	    // InternalAML.g:542:4: ( (lv_operators_2_0= ruleOPERATOR ) )
+            	    // InternalAML.g:543:5: (lv_operators_2_0= ruleOPERATOR )
+            	    {
+            	    // InternalAML.g:543:5: (lv_operators_2_0= ruleOPERATOR )
+            	    // InternalAML.g:544:6: lv_operators_2_0= ruleOPERATOR
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getMultipleElementConditionAccess().getOperatorsOPERATOREnumRuleCall_2_0_0());
+            	    					
+            	    pushFollow(FOLLOW_3);
+            	    lv_operators_2_0=ruleOPERATOR();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getMultipleElementConditionRule());
+            	    						}
+            	    						add(
+            	    							current,
+            	    							"operators",
+            	    							lv_operators_2_0,
+            	    							"fr.unice.polytech.dsl.arduinoml.AML.OPERATOR");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+            	    // InternalAML.g:561:4: ( (lv_conditions_3_0= ruleSingleElementCondition ) )
+            	    // InternalAML.g:562:5: (lv_conditions_3_0= ruleSingleElementCondition )
+            	    {
+            	    // InternalAML.g:562:5: (lv_conditions_3_0= ruleSingleElementCondition )
+            	    // InternalAML.g:563:6: lv_conditions_3_0= ruleSingleElementCondition
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getMultipleElementConditionAccess().getConditionsSingleElementConditionParserRuleCall_2_1_0());
+            	    					
+            	    pushFollow(FOLLOW_12);
+            	    lv_conditions_3_0=ruleSingleElementCondition();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getMultipleElementConditionRule());
+            	    						}
+            	    						add(
+            	    							current,
+            	    							"conditions",
+            	    							lv_conditions_3_0,
+            	    							"fr.unice.polytech.dsl.arduinoml.AML.SingleElementCondition");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop5;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleMultipleElementCondition"
+
+
+    // $ANTLR start "entryRuleSingleElementCondition"
+    // InternalAML.g:585:1: entryRuleSingleElementCondition returns [EObject current=null] : iv_ruleSingleElementCondition= ruleSingleElementCondition EOF ;
+    public final EObject entryRuleSingleElementCondition() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleSingleElementCondition = null;
+
+
+        try {
+            // InternalAML.g:585:63: (iv_ruleSingleElementCondition= ruleSingleElementCondition EOF )
+            // InternalAML.g:586:2: iv_ruleSingleElementCondition= ruleSingleElementCondition EOF
+            {
+             newCompositeNode(grammarAccess.getSingleElementConditionRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleSingleElementCondition=ruleSingleElementCondition();
+
+            state._fsp--;
+
+             current =iv_ruleSingleElementCondition; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSingleElementCondition"
+
+
+    // $ANTLR start "ruleSingleElementCondition"
+    // InternalAML.g:592:1: ruleSingleElementCondition returns [EObject current=null] : ( () ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_value_3_0= ruleSIGNAL ) ) ) ;
+    public final EObject ruleSingleElementCondition() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        Enumerator lv_value_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalAML.g:598:2: ( ( () ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_value_3_0= ruleSIGNAL ) ) ) )
+            // InternalAML.g:599:2: ( () ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_value_3_0= ruleSIGNAL ) ) )
+            {
+            // InternalAML.g:599:2: ( () ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_value_3_0= ruleSIGNAL ) ) )
+            // InternalAML.g:600:3: () ( ( ruleEString ) ) otherlv_2= 'is' ( (lv_value_3_0= ruleSIGNAL ) )
+            {
+            // InternalAML.g:600:3: ()
+            // InternalAML.g:601:4: 
+            {
+
+            				current = forceCreateModelElement(
+            					grammarAccess.getSingleElementConditionAccess().getSingleElementConditionAction_0(),
+            					current);
+            			
+
+            }
+
+            // InternalAML.g:607:3: ( ( ruleEString ) )
+            // InternalAML.g:608:4: ( ruleEString )
+            {
+            // InternalAML.g:608:4: ( ruleEString )
+            // InternalAML.g:609:5: ruleEString
+            {
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getSingleElementConditionRule());
+            					}
+            				
+
+            					newCompositeNode(grammarAccess.getSingleElementConditionAccess().getSensorSensorCrossReference_1_0());
+            				
+            pushFollow(FOLLOW_13);
+            ruleEString();
+
+            state._fsp--;
+
+
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,19,FOLLOW_11); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getSingleElementConditionAccess().getIsKeyword_2());
+            		
+            // InternalAML.g:627:3: ( (lv_value_3_0= ruleSIGNAL ) )
+            // InternalAML.g:628:4: (lv_value_3_0= ruleSIGNAL )
+            {
+            // InternalAML.g:628:4: (lv_value_3_0= ruleSIGNAL )
+            // InternalAML.g:629:5: lv_value_3_0= ruleSIGNAL
+            {
+
+            					newCompositeNode(grammarAccess.getSingleElementConditionAccess().getValueSIGNALEnumRuleCall_3_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_value_3_0=ruleSIGNAL();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getSingleElementConditionRule());
+            					}
+            					set(
+            						current,
+            						"value",
+            						lv_value_3_0,
+            						"fr.unice.polytech.dsl.arduinoml.AML.SIGNAL");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleSingleElementCondition"
+
+
     // $ANTLR start "entryRuleSensor"
-    // InternalAML.g:513:1: entryRuleSensor returns [EObject current=null] : iv_ruleSensor= ruleSensor EOF ;
+    // InternalAML.g:650:1: entryRuleSensor returns [EObject current=null] : iv_ruleSensor= ruleSensor EOF ;
     public final EObject entryRuleSensor() throws RecognitionException {
         EObject current = null;
 
@@ -1084,8 +1423,8 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAML.g:513:47: (iv_ruleSensor= ruleSensor EOF )
-            // InternalAML.g:514:2: iv_ruleSensor= ruleSensor EOF
+            // InternalAML.g:650:47: (iv_ruleSensor= ruleSensor EOF )
+            // InternalAML.g:651:2: iv_ruleSensor= ruleSensor EOF
             {
              newCompositeNode(grammarAccess.getSensorRule()); 
             pushFollow(FOLLOW_1);
@@ -1112,7 +1451,7 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSensor"
-    // InternalAML.g:520:1: ruleSensor returns [EObject current=null] : ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) ) ;
+    // InternalAML.g:657:1: ruleSensor returns [EObject current=null] : ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) ) ;
     public final EObject ruleSensor() throws RecognitionException {
         EObject current = null;
 
@@ -1126,14 +1465,14 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAML.g:526:2: ( ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) ) )
-            // InternalAML.g:527:2: ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) )
+            // InternalAML.g:663:2: ( ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) ) )
+            // InternalAML.g:664:2: ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) )
             {
-            // InternalAML.g:527:2: ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) )
-            // InternalAML.g:528:3: () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) )
+            // InternalAML.g:664:2: ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) )
+            // InternalAML.g:665:3: () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) )
             {
-            // InternalAML.g:528:3: ()
-            // InternalAML.g:529:4: 
+            // InternalAML.g:665:3: ()
+            // InternalAML.g:666:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1143,11 +1482,11 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAML.g:535:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalAML.g:536:4: (lv_name_1_0= ruleEString )
+            // InternalAML.g:672:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalAML.g:673:4: (lv_name_1_0= ruleEString )
             {
-            // InternalAML.g:536:4: (lv_name_1_0= ruleEString )
-            // InternalAML.g:537:5: lv_name_1_0= ruleEString
+            // InternalAML.g:673:4: (lv_name_1_0= ruleEString )
+            // InternalAML.g:674:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getSensorAccess().getNameEStringParserRuleCall_1_0());
@@ -1174,15 +1513,15 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,17,FOLLOW_13); 
+            otherlv_2=(Token)match(input,17,FOLLOW_14); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSensorAccess().getHyphenMinusGreaterThanSignKeyword_2());
             		
-            // InternalAML.g:558:3: ( (lv_pin_3_0= ruleEInt ) )
-            // InternalAML.g:559:4: (lv_pin_3_0= ruleEInt )
+            // InternalAML.g:695:3: ( (lv_pin_3_0= ruleEInt ) )
+            // InternalAML.g:696:4: (lv_pin_3_0= ruleEInt )
             {
-            // InternalAML.g:559:4: (lv_pin_3_0= ruleEInt )
-            // InternalAML.g:560:5: lv_pin_3_0= ruleEInt
+            // InternalAML.g:696:4: (lv_pin_3_0= ruleEInt )
+            // InternalAML.g:697:5: lv_pin_3_0= ruleEInt
             {
 
             					newCompositeNode(grammarAccess.getSensorAccess().getPinEIntParserRuleCall_3_0());
@@ -1232,7 +1571,7 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleActuator"
-    // InternalAML.g:581:1: entryRuleActuator returns [EObject current=null] : iv_ruleActuator= ruleActuator EOF ;
+    // InternalAML.g:718:1: entryRuleActuator returns [EObject current=null] : iv_ruleActuator= ruleActuator EOF ;
     public final EObject entryRuleActuator() throws RecognitionException {
         EObject current = null;
 
@@ -1240,8 +1579,8 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAML.g:581:49: (iv_ruleActuator= ruleActuator EOF )
-            // InternalAML.g:582:2: iv_ruleActuator= ruleActuator EOF
+            // InternalAML.g:718:49: (iv_ruleActuator= ruleActuator EOF )
+            // InternalAML.g:719:2: iv_ruleActuator= ruleActuator EOF
             {
              newCompositeNode(grammarAccess.getActuatorRule()); 
             pushFollow(FOLLOW_1);
@@ -1268,7 +1607,7 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleActuator"
-    // InternalAML.g:588:1: ruleActuator returns [EObject current=null] : ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) ) ;
+    // InternalAML.g:725:1: ruleActuator returns [EObject current=null] : ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) ) ;
     public final EObject ruleActuator() throws RecognitionException {
         EObject current = null;
 
@@ -1282,14 +1621,14 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAML.g:594:2: ( ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) ) )
-            // InternalAML.g:595:2: ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) )
+            // InternalAML.g:731:2: ( ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) ) )
+            // InternalAML.g:732:2: ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) )
             {
-            // InternalAML.g:595:2: ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) )
-            // InternalAML.g:596:3: () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) )
+            // InternalAML.g:732:2: ( () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) ) )
+            // InternalAML.g:733:3: () ( (lv_name_1_0= ruleEString ) ) otherlv_2= '->' ( (lv_pin_3_0= ruleEInt ) )
             {
-            // InternalAML.g:596:3: ()
-            // InternalAML.g:597:4: 
+            // InternalAML.g:733:3: ()
+            // InternalAML.g:734:4: 
             {
 
             				current = forceCreateModelElement(
@@ -1299,11 +1638,11 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAML.g:603:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalAML.g:604:4: (lv_name_1_0= ruleEString )
+            // InternalAML.g:740:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalAML.g:741:4: (lv_name_1_0= ruleEString )
             {
-            // InternalAML.g:604:4: (lv_name_1_0= ruleEString )
-            // InternalAML.g:605:5: lv_name_1_0= ruleEString
+            // InternalAML.g:741:4: (lv_name_1_0= ruleEString )
+            // InternalAML.g:742:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getActuatorAccess().getNameEStringParserRuleCall_1_0());
@@ -1330,15 +1669,15 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,17,FOLLOW_13); 
+            otherlv_2=(Token)match(input,17,FOLLOW_14); 
 
             			newLeafNode(otherlv_2, grammarAccess.getActuatorAccess().getHyphenMinusGreaterThanSignKeyword_2());
             		
-            // InternalAML.g:626:3: ( (lv_pin_3_0= ruleEInt ) )
-            // InternalAML.g:627:4: (lv_pin_3_0= ruleEInt )
+            // InternalAML.g:763:3: ( (lv_pin_3_0= ruleEInt ) )
+            // InternalAML.g:764:4: (lv_pin_3_0= ruleEInt )
             {
-            // InternalAML.g:627:4: (lv_pin_3_0= ruleEInt )
-            // InternalAML.g:628:5: lv_pin_3_0= ruleEInt
+            // InternalAML.g:764:4: (lv_pin_3_0= ruleEInt )
+            // InternalAML.g:765:5: lv_pin_3_0= ruleEInt
             {
 
             					newCompositeNode(grammarAccess.getActuatorAccess().getPinEIntParserRuleCall_3_0());
@@ -1388,7 +1727,7 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalAML.g:649:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalAML.g:786:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -1396,8 +1735,8 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAML.g:649:47: (iv_ruleEString= ruleEString EOF )
-            // InternalAML.g:650:2: iv_ruleEString= ruleEString EOF
+            // InternalAML.g:786:47: (iv_ruleEString= ruleEString EOF )
+            // InternalAML.g:787:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -1424,7 +1763,7 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalAML.g:656:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // InternalAML.g:793:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1435,28 +1774,28 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAML.g:662:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // InternalAML.g:663:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalAML.g:799:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // InternalAML.g:800:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // InternalAML.g:663:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            // InternalAML.g:800:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA5_0==RULE_STRING) ) {
-                alt5=1;
+            if ( (LA6_0==RULE_STRING) ) {
+                alt6=1;
             }
-            else if ( (LA5_0==RULE_ID) ) {
-                alt5=2;
+            else if ( (LA6_0==RULE_ID) ) {
+                alt6=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
-            switch (alt5) {
+            switch (alt6) {
                 case 1 :
-                    // InternalAML.g:664:3: this_STRING_0= RULE_STRING
+                    // InternalAML.g:801:3: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -1469,7 +1808,7 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalAML.g:672:3: this_ID_1= RULE_ID
+                    // InternalAML.g:809:3: this_ID_1= RULE_ID
                     {
                     this_ID_1=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -1504,7 +1843,7 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEInt"
-    // InternalAML.g:683:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    // InternalAML.g:820:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
     public final String entryRuleEInt() throws RecognitionException {
         String current = null;
 
@@ -1512,8 +1851,8 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAML.g:683:44: (iv_ruleEInt= ruleEInt EOF )
-            // InternalAML.g:684:2: iv_ruleEInt= ruleEInt EOF
+            // InternalAML.g:820:44: (iv_ruleEInt= ruleEInt EOF )
+            // InternalAML.g:821:2: iv_ruleEInt= ruleEInt EOF
             {
              newCompositeNode(grammarAccess.getEIntRule()); 
             pushFollow(FOLLOW_1);
@@ -1540,7 +1879,7 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // InternalAML.g:690:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    // InternalAML.g:827:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1551,24 +1890,24 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAML.g:696:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
-            // InternalAML.g:697:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalAML.g:833:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // InternalAML.g:834:2: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            // InternalAML.g:697:2: ( (kw= '-' )? this_INT_1= RULE_INT )
-            // InternalAML.g:698:3: (kw= '-' )? this_INT_1= RULE_INT
+            // InternalAML.g:834:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalAML.g:835:3: (kw= '-' )? this_INT_1= RULE_INT
             {
-            // InternalAML.g:698:3: (kw= '-' )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalAML.g:835:3: (kw= '-' )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0==20) ) {
-                alt6=1;
+            if ( (LA7_0==20) ) {
+                alt7=1;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalAML.g:699:4: kw= '-'
+                    // InternalAML.g:836:4: kw= '-'
                     {
-                    kw=(Token)match(input,20,FOLLOW_14); 
+                    kw=(Token)match(input,20,FOLLOW_15); 
 
                     				current.merge(kw);
                     				newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0());
@@ -1609,7 +1948,7 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSIGNAL"
-    // InternalAML.g:716:1: ruleSIGNAL returns [Enumerator current=null] : ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) ) ;
+    // InternalAML.g:853:1: ruleSIGNAL returns [Enumerator current=null] : ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) ) ;
     public final Enumerator ruleSIGNAL() throws RecognitionException {
         Enumerator current = null;
 
@@ -1620,31 +1959,31 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAML.g:722:2: ( ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) ) )
-            // InternalAML.g:723:2: ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) )
+            // InternalAML.g:859:2: ( ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) ) )
+            // InternalAML.g:860:2: ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) )
             {
-            // InternalAML.g:723:2: ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) )
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalAML.g:860:2: ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) )
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0==21) ) {
-                alt7=1;
+            if ( (LA8_0==21) ) {
+                alt8=1;
             }
-            else if ( (LA7_0==22) ) {
-                alt7=2;
+            else if ( (LA8_0==22) ) {
+                alt8=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalAML.g:724:3: (enumLiteral_0= 'HIGH' )
+                    // InternalAML.g:861:3: (enumLiteral_0= 'HIGH' )
                     {
-                    // InternalAML.g:724:3: (enumLiteral_0= 'HIGH' )
-                    // InternalAML.g:725:4: enumLiteral_0= 'HIGH'
+                    // InternalAML.g:861:3: (enumLiteral_0= 'HIGH' )
+                    // InternalAML.g:862:4: enumLiteral_0= 'HIGH'
                     {
                     enumLiteral_0=(Token)match(input,21,FOLLOW_2); 
 
@@ -1658,10 +1997,10 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalAML.g:732:3: (enumLiteral_1= 'LOW' )
+                    // InternalAML.g:869:3: (enumLiteral_1= 'LOW' )
                     {
-                    // InternalAML.g:732:3: (enumLiteral_1= 'LOW' )
-                    // InternalAML.g:733:4: enumLiteral_1= 'LOW'
+                    // InternalAML.g:869:3: (enumLiteral_1= 'LOW' )
+                    // InternalAML.g:870:4: enumLiteral_1= 'LOW'
                     {
                     enumLiteral_1=(Token)match(input,22,FOLLOW_2); 
 
@@ -1695,6 +2034,94 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end "ruleSIGNAL"
 
+
+    // $ANTLR start "ruleOPERATOR"
+    // InternalAML.g:880:1: ruleOPERATOR returns [Enumerator current=null] : ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) ) ;
+    public final Enumerator ruleOPERATOR() throws RecognitionException {
+        Enumerator current = null;
+
+        Token enumLiteral_0=null;
+        Token enumLiteral_1=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalAML.g:886:2: ( ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) ) )
+            // InternalAML.g:887:2: ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) )
+            {
+            // InternalAML.g:887:2: ( (enumLiteral_0= 'and' ) | (enumLiteral_1= 'or' ) )
+            int alt9=2;
+            int LA9_0 = input.LA(1);
+
+            if ( (LA9_0==23) ) {
+                alt9=1;
+            }
+            else if ( (LA9_0==24) ) {
+                alt9=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 9, 0, input);
+
+                throw nvae;
+            }
+            switch (alt9) {
+                case 1 :
+                    // InternalAML.g:888:3: (enumLiteral_0= 'and' )
+                    {
+                    // InternalAML.g:888:3: (enumLiteral_0= 'and' )
+                    // InternalAML.g:889:4: enumLiteral_0= 'and'
+                    {
+                    enumLiteral_0=(Token)match(input,23,FOLLOW_2); 
+
+                    				current = grammarAccess.getOPERATORAccess().getAndEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_0, grammarAccess.getOPERATORAccess().getAndEnumLiteralDeclaration_0());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalAML.g:896:3: (enumLiteral_1= 'or' )
+                    {
+                    // InternalAML.g:896:3: (enumLiteral_1= 'or' )
+                    // InternalAML.g:897:4: enumLiteral_1= 'or'
+                    {
+                    enumLiteral_1=(Token)match(input,24,FOLLOW_2); 
+
+                    				current = grammarAccess.getOPERATORAccess().getOrEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_1, grammarAccess.getOPERATORAccess().getOrEnumLiteralDeclaration_1());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleOPERATOR"
+
     // Delegated rules
 
 
@@ -1711,8 +2138,9 @@ public class InternalAMLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000040030L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000600000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100040L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000001800002L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000100040L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000040L});
 
 }
