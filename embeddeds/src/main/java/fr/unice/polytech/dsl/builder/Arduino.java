@@ -7,10 +7,7 @@ import fr.unice.polytech.dsl.kernel.behavioral.Action;
 import fr.unice.polytech.dsl.kernel.behavioral.State;
 import fr.unice.polytech.dsl.kernel.generator.ToWiring;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
-import fr.unice.polytech.dsl.kernel.structural.Actuator;
-import fr.unice.polytech.dsl.kernel.structural.Brick;
-import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
-import fr.unice.polytech.dsl.kernel.structural.Sensor;
+import fr.unice.polytech.dsl.kernel.structural.*;
 import fr.unice.polytech.dsl.setup.Setup;
 import fr.unice.polytech.dsl.setup.SetupAction;
 import fr.unice.polytech.dsl.setup.SetupTransition;
@@ -96,7 +93,11 @@ public class Arduino {
         return (Actuator) brickList.stream().filter(v -> v.getName().equals(actuator)).findFirst().orElseThrow(BrickNotFoundException::new);
     }
 
-    public SetupTransition.SetSignal whenSensor(String button1) {
-        return new SetupTransition().whenSensor(button1);
+    public SetupTransition.SetDigitalSignal whenDigitalSensor(String sensor) {
+        return new SetupTransition().whenDigitalSensor(sensor);
+    }
+
+    public SetupTransition.SetAnalogComparator whenAnalogSensor(String sensor) {
+        return new SetupTransition().whenAnalogSensor(sensor);
     }
 }

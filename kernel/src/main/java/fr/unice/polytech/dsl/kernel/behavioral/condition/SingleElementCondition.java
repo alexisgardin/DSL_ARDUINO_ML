@@ -2,11 +2,11 @@ package fr.unice.polytech.dsl.kernel.behavioral.condition;
 
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
 import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
-import fr.unice.polytech.dsl.kernel.structural.Sensor;
+import fr.unice.polytech.dsl.kernel.structural.DigitalSensor;
 
 public class SingleElementCondition extends Condition {
 
-    private Sensor sensor;
+    private DigitalSensor sensor;
     private SIGNAL signal;
 
     @Override
@@ -14,11 +14,11 @@ public class SingleElementCondition extends Condition {
         visitor.visit(this);
     }
 
-    public Sensor getSensor() {
+    public DigitalSensor getSensor() {
         return sensor;
     }
 
-    public void setSensor(Sensor sensor) {
+    public void setSensor(DigitalSensor sensor) {
         this.sensor = sensor;
     }
 

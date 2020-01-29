@@ -26,4 +26,9 @@ public abstract class Brick implements NamedElement, Visitable {
         this.name = name;
     }
 
+    public abstract boolean isAnalog();
+    public abstract boolean isDigital();
+    public abstract boolean isSensor();
+    public abstract boolean isActuator();
+
 }

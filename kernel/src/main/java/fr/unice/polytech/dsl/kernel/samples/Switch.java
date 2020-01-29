@@ -1,20 +1,23 @@
 package fr.unice.polytech.dsl.kernel.samples;
 
 import fr.unice.polytech.dsl.kernel.App;
-import fr.unice.polytech.dsl.kernel.behavioral.*;
+import fr.unice.polytech.dsl.kernel.behavioral.Action;
+import fr.unice.polytech.dsl.kernel.behavioral.Operator;
+import fr.unice.polytech.dsl.kernel.behavioral.State;
+import fr.unice.polytech.dsl.kernel.behavioral.Transition;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.*;
 import fr.unice.polytech.dsl.kernel.generator.ToWiring;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
 import fr.unice.polytech.dsl.kernel.structural.Actuator;
+import fr.unice.polytech.dsl.kernel.structural.AnalogSensor;
 import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
-import fr.unice.polytech.dsl.kernel.structural.Sensor;
+import fr.unice.polytech.dsl.kernel.structural.DigitalSensor;
 
 import java.util.Arrays;
 
 public class Switch {
 
     public static void main(String[] args) {
-
         //basic_case();
         two_buttons_basic_case();
     }
@@ -22,7 +25,7 @@ public class Switch {
     private static void basic_case() {
 
         // Declaring elementary bricks
-        Sensor button = new Sensor();
+        DigitalSensor button = new DigitalSensor();
         button.setName("button");
         button.setPin(9);
 
@@ -89,15 +92,15 @@ public class Switch {
 
     private static void two_buttons_basic_case() {
         // Declaring elementary bricks
-        Sensor button = new Sensor();
+        DigitalSensor button = new DigitalSensor();
         button.setName("button");
         button.setPin(9);
 
-        Sensor button1 = new Sensor();
+        DigitalSensor button1 = new DigitalSensor();
         button1.setName("button1");
         button1.setPin(10);
 
-        Sensor temp = new Sensor();
+        AnalogSensor temp = new AnalogSensor();
         temp.setName("temp");
         temp.setPin(15);
 
@@ -153,7 +156,6 @@ public class Switch {
         on2off.setCondition(conditionOn2Off);
 
 
-
         SingleElementCondition conditionOff2On = new SingleElementCondition();
         conditionOff2On.setSensor(button);
         conditionOff2On.setSignal(SIGNAL.HIGH);
@@ -189,5 +191,7 @@ public class Switch {
 
         // Printing the generated code on the console
         System.out.println(codeGenerator.getResult());
+
+
     }
 }

@@ -1,12 +1,12 @@
 package fr.unice.polytech.dsl.kernel.behavioral.condition;
 
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
-import fr.unice.polytech.dsl.kernel.structural.Sensor;
+import fr.unice.polytech.dsl.kernel.structural.AnalogSensor;
 
-public class ValueElementCondition<T extends Number > extends Condition {
+public class ValueElementCondition<T extends Number> extends Condition {
 
     private Comparator comparator;
-    private Sensor sensor;
+    private AnalogSensor sensor;
     private T value;
 
     @Override
@@ -35,16 +35,16 @@ public class ValueElementCondition<T extends Number > extends Condition {
         this.value = value;
     }
 
-    public Sensor getSensor() {
+    public AnalogSensor getSensor() {
         return sensor;
     }
 
-    public void setSensor(Sensor sensor) {
+    public void setSensor(AnalogSensor sensor) {
         this.sensor = sensor;
     }
 
     @Override
     public String toString() {
-        return comparator.getValue()+" "+value.toString();
+        return comparator.getValue() + " " + value.toString();
     }
 }

@@ -1,4 +1,4 @@
-package fr.unice.polytech.dsl.exception.builder;
+package fr.unice.polytech.dsl.exception;
 
 public class PinAlreadyUsedException extends RuntimeException {
 }

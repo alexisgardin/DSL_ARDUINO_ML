@@ -2,15 +2,12 @@ package fr.unice.polytech.dsl.kernel.structural;
 
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
 
-public class Actuator extends Brick {
-
+public class DigitalSensor extends Sensor {
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
-
-    //TODO IMPLEMENTS ANALOG ACUATOR
     @Override
     public boolean isAnalog() {
         return false;
@@ -21,15 +18,13 @@ public class Actuator extends Brick {
         return true;
     }
 
-
-
     @Override
     public boolean isSensor() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isActuator() {
-        return true;
+        return false;
     }
 }
