@@ -122,6 +122,21 @@ public class ArduinomlAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseValueElementCondition(ValueElementCondition object) {
+			return createValueElementConditionAdapter();
+		}
+
+		@Override
+		public Adapter caseBinarySensor(BinarySensor object) {
+			return createBinarySensorAdapter();
+		}
+
+		@Override
+		public Adapter caseAnalogSensor(AnalogSensor object) {
+			return createAnalogSensorAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -291,6 +306,48 @@ public class ArduinomlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMultipleElementConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.dsl.arduinoml.ValueElementCondition <em>Value Element Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.dsl.arduinoml.ValueElementCondition
+	 * @generated
+	 */
+	public Adapter createValueElementConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.dsl.arduinoml.BinarySensor <em>Binary Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.dsl.arduinoml.BinarySensor
+	 * @generated
+	 */
+	public Adapter createBinarySensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.dsl.arduinoml.AnalogSensor <em>Analog Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.dsl.arduinoml.AnalogSensor
+	 * @generated
+	 */
+	public Adapter createAnalogSensorAdapter() {
 		return null;
 	}
 

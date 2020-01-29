@@ -67,14 +67,18 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 			return createAction();
 		case ArduinomlPackage.TRANSITION:
 			return createTransition();
-		case ArduinomlPackage.SENSOR:
-			return createSensor();
 		case ArduinomlPackage.ACTUATOR:
 			return createActuator();
 		case ArduinomlPackage.SINGLE_ELEMENT_CONDITION:
 			return createSingleElementCondition();
 		case ArduinomlPackage.MULTIPLE_ELEMENT_CONDITION:
 			return createMultipleElementCondition();
+		case ArduinomlPackage.VALUE_ELEMENT_CONDITION:
+			return createValueElementCondition();
+		case ArduinomlPackage.BINARY_SENSOR:
+			return createBinarySensor();
+		case ArduinomlPackage.ANALOG_SENSOR:
+			return createAnalogSensor();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -169,16 +173,6 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Sensor createSensor() {
-		SensorImpl sensor = new SensorImpl();
-		return sensor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Actuator createActuator() {
 		ActuatorImpl actuator = new ActuatorImpl();
 		return actuator;
@@ -202,6 +196,36 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 	public MultipleElementCondition createMultipleElementCondition() {
 		MultipleElementConditionImpl multipleElementCondition = new MultipleElementConditionImpl();
 		return multipleElementCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ValueElementCondition createValueElementCondition() {
+		ValueElementConditionImpl valueElementCondition = new ValueElementConditionImpl();
+		return valueElementCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BinarySensor createBinarySensor() {
+		BinarySensorImpl binarySensor = new BinarySensorImpl();
+		return binarySensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnalogSensor createAnalogSensor() {
+		AnalogSensorImpl analogSensor = new AnalogSensorImpl();
+		return analogSensor;
 	}
 
 	/**

@@ -161,6 +161,41 @@ public class ArduinomlSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ArduinomlPackage.VALUE_ELEMENT_CONDITION: {
+			ValueElementCondition valueElementCondition = (ValueElementCondition) theEObject;
+			T result = caseValueElementCondition(valueElementCondition);
+			if (result == null)
+				result = caseCondition(valueElementCondition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ArduinomlPackage.BINARY_SENSOR: {
+			BinarySensor binarySensor = (BinarySensor) theEObject;
+			T result = caseBinarySensor(binarySensor);
+			if (result == null)
+				result = caseSensor(binarySensor);
+			if (result == null)
+				result = caseBrick(binarySensor);
+			if (result == null)
+				result = caseNamedElement(binarySensor);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ArduinomlPackage.ANALOG_SENSOR: {
+			AnalogSensor analogSensor = (AnalogSensor) theEObject;
+			T result = caseAnalogSensor(analogSensor);
+			if (result == null)
+				result = caseSensor(analogSensor);
+			if (result == null)
+				result = caseBrick(analogSensor);
+			if (result == null)
+				result = caseNamedElement(analogSensor);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -328,6 +363,51 @@ public class ArduinomlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMultipleElementCondition(MultipleElementCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Value Element Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Value Element Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValueElementCondition(ValueElementCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Binary Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Binary Sensor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBinarySensor(BinarySensor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Analog Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Analog Sensor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnalogSensor(AnalogSensor object) {
 		return null;
 	}
 

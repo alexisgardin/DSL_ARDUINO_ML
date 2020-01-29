@@ -179,6 +179,12 @@ public class MultipleElementConditionItemProvider extends ConditionItemProvider 
 
 		newChildDescriptors.add(createChildParameter(ArduinomlPackage.Literals.MULTIPLE_ELEMENT_CONDITION__CONDITIONS,
 				ArduinomlFactory.eINSTANCE.createSingleElementCondition()));
+
+		newChildDescriptors.add(createChildParameter(ArduinomlPackage.Literals.MULTIPLE_ELEMENT_CONDITION__CONDITIONS,
+				ArduinomlFactory.eINSTANCE.createMultipleElementCondition()));
+
+		newChildDescriptors.add(createChildParameter(ArduinomlPackage.Literals.MULTIPLE_ELEMENT_CONDITION__CONDITIONS,
+				ArduinomlFactory.eINSTANCE.createValueElementCondition()));
 	}
 
 }

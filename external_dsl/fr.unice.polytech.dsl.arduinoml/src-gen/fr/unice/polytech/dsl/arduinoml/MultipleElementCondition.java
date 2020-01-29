@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
 public interface MultipleElementCondition extends Condition {
 	/**
 	 * Returns the value of the '<em><b>Conditions</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.unice.polytech.dsl.arduinoml.SingleElementCondition}.
+	 * The list contents are of type {@link fr.unice.polytech.dsl.arduinoml.Condition}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Conditions</em>' reference list isn't clear,
@@ -36,7 +36,7 @@ public interface MultipleElementCondition extends Condition {
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<SingleElementCondition> getConditions();
+	EList<Condition> getConditions();
 
 	/**
 	 * Returns the value of the '<em><b>Operators</b></em>' attribute list.

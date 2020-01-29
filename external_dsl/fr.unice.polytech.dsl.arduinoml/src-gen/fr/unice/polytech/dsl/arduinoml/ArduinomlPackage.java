@@ -564,6 +564,144 @@ public interface ArduinomlPackage extends EPackage {
 	int MULTIPLE_ELEMENT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.impl.ValueElementConditionImpl <em>Value Element Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ValueElementConditionImpl
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getValueElementCondition()
+	 * @generated
+	 */
+	int VALUE_ELEMENT_CONDITION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_ELEMENT_CONDITION__VALUE = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Sensor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_ELEMENT_CONDITION__SENSOR = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Value Element Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_ELEMENT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Value Element Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_ELEMENT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.impl.BinarySensorImpl <em>Binary Sensor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.BinarySensorImpl
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getBinarySensor()
+	 * @generated
+	 */
+	int BINARY_SENSOR = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_SENSOR__NAME = SENSOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Pin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_SENSOR__PIN = SENSOR__PIN;
+
+	/**
+	 * The number of structural features of the '<em>Binary Sensor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Binary Sensor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_SENSOR_OPERATION_COUNT = SENSOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.impl.AnalogSensorImpl <em>Analog Sensor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.AnalogSensorImpl
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getAnalogSensor()
+	 * @generated
+	 */
+	int ANALOG_SENSOR = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG_SENSOR__NAME = SENSOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Pin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG_SENSOR__PIN = SENSOR__PIN;
+
+	/**
+	 * The number of structural features of the '<em>Analog Sensor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Analog Sensor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG_SENSOR_OPERATION_COUNT = SENSOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.SIGNAL <em>SIGNAL</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -571,7 +709,7 @@ public interface ArduinomlPackage extends EPackage {
 	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getSIGNAL()
 	 * @generated
 	 */
-	int SIGNAL = 11;
+	int SIGNAL = 14;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.OPERATOR <em>OPERATOR</em>}' enum.
@@ -581,7 +719,7 @@ public interface ArduinomlPackage extends EPackage {
 	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getOPERATOR()
 	 * @generated
 	 */
-	int OPERATOR = 12;
+	int OPERATOR = 15;
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.NamedElement <em>Named Element</em>}'.
@@ -859,6 +997,58 @@ public interface ArduinomlPackage extends EPackage {
 	EAttribute getMultipleElementCondition_Operators();
 
 	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.ValueElementCondition <em>Value Element Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Value Element Condition</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.ValueElementCondition
+	 * @generated
+	 */
+	EClass getValueElementCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.dsl.arduinoml.ValueElementCondition#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.ValueElementCondition#getValue()
+	 * @see #getValueElementCondition()
+	 * @generated
+	 */
+	EAttribute getValueElementCondition_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link fr.unice.polytech.dsl.arduinoml.ValueElementCondition#getSensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Sensor</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.ValueElementCondition#getSensor()
+	 * @see #getValueElementCondition()
+	 * @generated
+	 */
+	EReference getValueElementCondition_Sensor();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.BinarySensor <em>Binary Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binary Sensor</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.BinarySensor
+	 * @generated
+	 */
+	EClass getBinarySensor();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.AnalogSensor <em>Analog Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Analog Sensor</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.AnalogSensor
+	 * @generated
+	 */
+	EClass getAnalogSensor();
+
+	/**
 	 * Returns the meta object for enum '{@link fr.unice.polytech.dsl.arduinoml.SIGNAL <em>SIGNAL</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1130,6 +1320,52 @@ public interface ArduinomlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MULTIPLE_ELEMENT_CONDITION__OPERATORS = eINSTANCE.getMultipleElementCondition_Operators();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.impl.ValueElementConditionImpl <em>Value Element Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ValueElementConditionImpl
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getValueElementCondition()
+		 * @generated
+		 */
+		EClass VALUE_ELEMENT_CONDITION = eINSTANCE.getValueElementCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_ELEMENT_CONDITION__VALUE = eINSTANCE.getValueElementCondition_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Sensor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VALUE_ELEMENT_CONDITION__SENSOR = eINSTANCE.getValueElementCondition_Sensor();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.impl.BinarySensorImpl <em>Binary Sensor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.BinarySensorImpl
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getBinarySensor()
+		 * @generated
+		 */
+		EClass BINARY_SENSOR = eINSTANCE.getBinarySensor();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.impl.AnalogSensorImpl <em>Analog Sensor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.AnalogSensorImpl
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getAnalogSensor()
+		 * @generated
+		 */
+		EClass ANALOG_SENSOR = eINSTANCE.getAnalogSensor();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.SIGNAL <em>SIGNAL</em>}' enum.

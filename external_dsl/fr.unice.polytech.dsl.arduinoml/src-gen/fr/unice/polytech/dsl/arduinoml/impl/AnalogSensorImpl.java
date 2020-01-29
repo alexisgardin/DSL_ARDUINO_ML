@@ -2,25 +2,25 @@
  */
 package fr.unice.polytech.dsl.arduinoml.impl;
 
+import fr.unice.polytech.dsl.arduinoml.AnalogSensor;
 import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
-import fr.unice.polytech.dsl.arduinoml.Sensor;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Sensor</b></em>'.
+ * An implementation of the model object '<em><b>Analog Sensor</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public abstract class SensorImpl extends BrickImpl implements Sensor {
+public class AnalogSensorImpl extends SensorImpl implements AnalogSensor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SensorImpl() {
+	protected AnalogSensorImpl() {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public abstract class SensorImpl extends BrickImpl implements Sensor {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ArduinomlPackage.Literals.SENSOR;
+		return ArduinomlPackage.Literals.ANALOG_SENSOR;
 	}
 
-} //SensorImpl
+} //AnalogSensorImpl

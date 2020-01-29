@@ -9,7 +9,7 @@ package fr.unice.polytech.dsl.arduinoml;
  *
  *
  * @see fr.unice.polytech.dsl.arduinoml.ArduinomlPackage#getSensor()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Sensor extends Brick {

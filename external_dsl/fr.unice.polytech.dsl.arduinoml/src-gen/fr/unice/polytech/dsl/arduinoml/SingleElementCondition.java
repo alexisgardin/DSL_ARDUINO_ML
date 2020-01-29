@@ -29,12 +29,12 @@ public interface SingleElementCondition extends Condition {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sensor</em>' reference.
-	 * @see #setSensor(Sensor)
+	 * @see #setSensor(BinarySensor)
 	 * @see fr.unice.polytech.dsl.arduinoml.ArduinomlPackage#getSingleElementCondition_Sensor()
 	 * @model required="true"
 	 * @generated
 	 */
-	Sensor getSensor();
+	BinarySensor getSensor();
 
 	/**
 	 * Sets the value of the '{@link fr.unice.polytech.dsl.arduinoml.SingleElementCondition#getSensor <em>Sensor</em>}' reference.
@@ -44,7 +44,7 @@ public interface SingleElementCondition extends Condition {
 	 * @see #getSensor()
 	 * @generated
 	 */
-	void setSensor(Sensor value);
+	void setSensor(BinarySensor value);
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

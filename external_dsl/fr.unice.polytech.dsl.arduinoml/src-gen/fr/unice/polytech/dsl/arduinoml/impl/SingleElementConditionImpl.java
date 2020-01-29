@@ -3,8 +3,8 @@
 package fr.unice.polytech.dsl.arduinoml.impl;
 
 import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
+import fr.unice.polytech.dsl.arduinoml.BinarySensor;
 import fr.unice.polytech.dsl.arduinoml.SIGNAL;
-import fr.unice.polytech.dsl.arduinoml.Sensor;
 import fr.unice.polytech.dsl.arduinoml.SingleElementCondition;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -37,7 +37,7 @@ public class SingleElementConditionImpl extends ConditionImpl implements SingleE
 	 * @generated
 	 * @ordered
 	 */
-	protected Sensor sensor;
+	protected BinarySensor sensor;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -83,10 +83,10 @@ public class SingleElementConditionImpl extends ConditionImpl implements SingleE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Sensor getSensor() {
+	public BinarySensor getSensor() {
 		if (sensor != null && sensor.eIsProxy()) {
 			InternalEObject oldSensor = (InternalEObject) sensor;
-			sensor = (Sensor) eResolveProxy(oldSensor);
+			sensor = (BinarySensor) eResolveProxy(oldSensor);
 			if (sensor != oldSensor) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -101,7 +101,7 @@ public class SingleElementConditionImpl extends ConditionImpl implements SingleE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Sensor basicGetSensor() {
+	public BinarySensor basicGetSensor() {
 		return sensor;
 	}
 
@@ -110,8 +110,8 @@ public class SingleElementConditionImpl extends ConditionImpl implements SingleE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSensor(Sensor newSensor) {
-		Sensor oldSensor = sensor;
+	public void setSensor(BinarySensor newSensor) {
+		BinarySensor oldSensor = sensor;
 		sensor = newSensor;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ArduinomlPackage.SINGLE_ELEMENT_CONDITION__SENSOR,
@@ -167,7 +167,7 @@ public class SingleElementConditionImpl extends ConditionImpl implements SingleE
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case ArduinomlPackage.SINGLE_ELEMENT_CONDITION__SENSOR:
-			setSensor((Sensor) newValue);
+			setSensor((BinarySensor) newValue);
 			return;
 		case ArduinomlPackage.SINGLE_ELEMENT_CONDITION__VALUE:
 			setValue((SIGNAL) newValue);
@@ -185,7 +185,7 @@ public class SingleElementConditionImpl extends ConditionImpl implements SingleE
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case ArduinomlPackage.SINGLE_ELEMENT_CONDITION__SENSOR:
-			setSensor((Sensor) null);
+			setSensor((BinarySensor) null);
 			return;
 		case ArduinomlPackage.SINGLE_ELEMENT_CONDITION__VALUE:
 			setValue(VALUE_EDEFAULT);

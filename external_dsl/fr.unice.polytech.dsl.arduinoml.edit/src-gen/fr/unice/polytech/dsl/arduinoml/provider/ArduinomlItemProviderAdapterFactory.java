@@ -188,29 +188,6 @@ public class ArduinomlItemProviderAdapterFactory extends ArduinomlAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.Sensor} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SensorItemProvider sensorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.unice.polytech.dsl.arduinoml.Sensor}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSensorAdapter() {
-		if (sensorItemProvider == null) {
-			sensorItemProvider = new SensorItemProvider(this);
-		}
-
-		return sensorItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.Actuator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -277,6 +254,75 @@ public class ArduinomlItemProviderAdapterFactory extends ArduinomlAdapterFactory
 		}
 
 		return multipleElementConditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.ValueElementCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValueElementConditionItemProvider valueElementConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.dsl.arduinoml.ValueElementCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValueElementConditionAdapter() {
+		if (valueElementConditionItemProvider == null) {
+			valueElementConditionItemProvider = new ValueElementConditionItemProvider(this);
+		}
+
+		return valueElementConditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.BinarySensor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BinarySensorItemProvider binarySensorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.dsl.arduinoml.BinarySensor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBinarySensorAdapter() {
+		if (binarySensorItemProvider == null) {
+			binarySensorItemProvider = new BinarySensorItemProvider(this);
+		}
+
+		return binarySensorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.AnalogSensor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnalogSensorItemProvider analogSensorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.dsl.arduinoml.AnalogSensor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnalogSensorAdapter() {
+		if (analogSensorItemProvider == null) {
+			analogSensorItemProvider = new AnalogSensorItemProvider(this);
+		}
+
+		return analogSensorItemProvider;
 	}
 
 	/**
@@ -388,14 +434,18 @@ public class ArduinomlItemProviderAdapterFactory extends ArduinomlAdapterFactory
 			actionItemProvider.dispose();
 		if (transitionItemProvider != null)
 			transitionItemProvider.dispose();
-		if (sensorItemProvider != null)
-			sensorItemProvider.dispose();
 		if (actuatorItemProvider != null)
 			actuatorItemProvider.dispose();
 		if (singleElementConditionItemProvider != null)
 			singleElementConditionItemProvider.dispose();
 		if (multipleElementConditionItemProvider != null)
 			multipleElementConditionItemProvider.dispose();
+		if (valueElementConditionItemProvider != null)
+			valueElementConditionItemProvider.dispose();
+		if (binarySensorItemProvider != null)
+			binarySensorItemProvider.dispose();
+		if (analogSensorItemProvider != null)
+			analogSensorItemProvider.dispose();
 	}
 
 }

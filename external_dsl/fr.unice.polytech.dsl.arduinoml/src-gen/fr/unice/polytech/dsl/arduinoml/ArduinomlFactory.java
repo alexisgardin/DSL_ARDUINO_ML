@@ -67,15 +67,6 @@ public interface ArduinomlFactory extends EFactory {
 	Transition createTransition();
 
 	/**
-	 * Returns a new object of class '<em>Sensor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sensor</em>'.
-	 * @generated
-	 */
-	Sensor createSensor();
-
-	/**
 	 * Returns a new object of class '<em>Actuator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,6 +92,33 @@ public interface ArduinomlFactory extends EFactory {
 	 * @generated
 	 */
 	MultipleElementCondition createMultipleElementCondition();
+
+	/**
+	 * Returns a new object of class '<em>Value Element Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Value Element Condition</em>'.
+	 * @generated
+	 */
+	ValueElementCondition createValueElementCondition();
+
+	/**
+	 * Returns a new object of class '<em>Binary Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binary Sensor</em>'.
+	 * @generated
+	 */
+	BinarySensor createBinarySensor();
+
+	/**
+	 * Returns a new object of class '<em>Analog Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Analog Sensor</em>'.
+	 * @generated
+	 */
+	AnalogSensor createAnalogSensor();
 
 	/**
 	 * Returns the package supported by this factory.

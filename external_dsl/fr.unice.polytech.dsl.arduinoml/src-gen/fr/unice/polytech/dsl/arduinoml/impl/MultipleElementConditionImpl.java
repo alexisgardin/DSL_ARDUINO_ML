@@ -3,9 +3,9 @@
 package fr.unice.polytech.dsl.arduinoml.impl;
 
 import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
+import fr.unice.polytech.dsl.arduinoml.Condition;
 import fr.unice.polytech.dsl.arduinoml.MultipleElementCondition;
 import fr.unice.polytech.dsl.arduinoml.OPERATOR;
-import fr.unice.polytech.dsl.arduinoml.SingleElementCondition;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -39,7 +39,7 @@ public class MultipleElementConditionImpl extends ConditionImpl implements Multi
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SingleElementCondition> conditions;
+	protected EList<Condition> conditions;
 
 	/**
 	 * The cached value of the '{@link #getOperators() <em>Operators</em>}' attribute list.
@@ -75,9 +75,9 @@ public class MultipleElementConditionImpl extends ConditionImpl implements Multi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SingleElementCondition> getConditions() {
+	public EList<Condition> getConditions() {
 		if (conditions == null) {
-			conditions = new EObjectContainmentEList<SingleElementCondition>(SingleElementCondition.class, this,
+			conditions = new EObjectContainmentEList<Condition>(Condition.class, this,
 					ArduinomlPackage.MULTIPLE_ELEMENT_CONDITION__CONDITIONS);
 		}
 		return conditions;
@@ -137,7 +137,7 @@ public class MultipleElementConditionImpl extends ConditionImpl implements Multi
 		switch (featureID) {
 		case ArduinomlPackage.MULTIPLE_ELEMENT_CONDITION__CONDITIONS:
 			getConditions().clear();
-			getConditions().addAll((Collection<? extends SingleElementCondition>) newValue);
+			getConditions().addAll((Collection<? extends Condition>) newValue);
 			return;
 		case ArduinomlPackage.MULTIPLE_ELEMENT_CONDITION__OPERATORS:
 			getOperators().clear();
