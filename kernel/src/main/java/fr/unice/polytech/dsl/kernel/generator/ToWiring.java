@@ -93,9 +93,10 @@ public class ToWiring extends Visitor<StringBuffer> {
 
     @Override
     public void visit(ValueElementCondition valueElementCondition) {
-        ws(String.format(Locale.US,"analogRead(%d)*%1f",
+        ws(String.format(Locale.US,"analogRead(%d)*%1f %s %s",
                 valueElementCondition.getSensor().getPin(),
-                valueElementCondition.getSensor().getMv()));
+                valueElementCondition.getSensor().getMv(), valueElementCondition.getComparator().getValue(),
+                valueElementCondition.getValue().toString()));
 
 
     }
