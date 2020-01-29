@@ -21,7 +21,7 @@ public class Setup {
     }
 
 
-    public Arduino createState(String ... states) {
+    public Arduino createState(String... states) {
         for (String s : states) {
             Arduino.getInstance().states().add(state(s));
         }

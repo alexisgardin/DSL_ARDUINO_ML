@@ -7,10 +7,16 @@ import fr.unice.polytech.dsl.kernel.behavioral.Action;
 import fr.unice.polytech.dsl.kernel.behavioral.State;
 import fr.unice.polytech.dsl.kernel.generator.ToWiring;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
-import fr.unice.polytech.dsl.kernel.structural.*;
+import fr.unice.polytech.dsl.kernel.structural.Actuator;
+import fr.unice.polytech.dsl.kernel.structural.Brick;
+import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
+import fr.unice.polytech.dsl.kernel.structural.Sensor;
 import fr.unice.polytech.dsl.setup.Setup;
-import fr.unice.polytech.dsl.setup.SetupAction;
-import fr.unice.polytech.dsl.setup.SetupTransition;
+import fr.unice.polytech.dsl.setup.action.SetBindingAction;
+import fr.unice.polytech.dsl.setup.action.SetupAction;
+import fr.unice.polytech.dsl.setup.transition.SetAnalogComparator;
+import fr.unice.polytech.dsl.setup.transition.SetDigitalSignal;
+import fr.unice.polytech.dsl.setup.transition.SetupTransition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +62,7 @@ public class Arduino {
         return this.actions;
     }
 
-    public SetupAction.Bind createAction(String nameOfAction, String nameOfBrick, SIGNAL signal) {
+    public SetBindingAction createAction(String nameOfAction, String nameOfBrick, SIGNAL signal) {
         return SetupAction.createAction(nameOfAction, nameOfBrick, signal);
 
     }
@@ -89,11 +95,11 @@ public class Arduino {
         return (Actuator) brickList.stream().filter(v -> v.getName().equals(actuator)).findFirst().orElseThrow(BrickNotFoundException::new);
     }
 
-    public SetupTransition.SetDigitalSignal whenDigitalSensor(String sensor) {
+    public SetDigitalSignal whenDigitalSensor(String sensor) {
         return new SetupTransition().whenDigitalSensor(sensor);
     }
 
-    public SetupTransition.SetAnalogComparator whenAnalogSensor(String sensor) {
+    public SetAnalogComparator whenAnalogSensor(String sensor) {
         return new SetupTransition().whenAnalogSensor(sensor);
     }
 }

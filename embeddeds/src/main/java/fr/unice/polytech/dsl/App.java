@@ -21,7 +21,7 @@ public class App {
 
     public static void temperatureBaseAlarm(){
         Arduino.setup(actuator("led", 12))
-                .and(analogSensor("temp", 9))
+                .and(analogSensor("temp", 9, 0.4887585533))
                 .and(actuator("buzz", 11))
                 .createState("highTemp", "lowTemp")
                 .createAction("AlarmOn", "led", HIGH)
