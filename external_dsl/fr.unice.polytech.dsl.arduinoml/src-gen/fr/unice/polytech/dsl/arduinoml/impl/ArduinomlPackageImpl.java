@@ -147,6 +147,13 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 	private EEnum operatorEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum comparatorEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -476,6 +483,15 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getValueElementCondition_Comparator() {
+		return (EAttribute) valueElementConditionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBinarySensor() {
 		return binarySensorEClass;
 	}
@@ -505,6 +521,15 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 	 */
 	public EEnum getOPERATOR() {
 		return operatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCOMPARATOR() {
+		return comparatorEEnum;
 	}
 
 	/**
@@ -576,6 +601,7 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 		valueElementConditionEClass = createEClass(VALUE_ELEMENT_CONDITION);
 		createEAttribute(valueElementConditionEClass, VALUE_ELEMENT_CONDITION__VALUE);
 		createEReference(valueElementConditionEClass, VALUE_ELEMENT_CONDITION__SENSOR);
+		createEAttribute(valueElementConditionEClass, VALUE_ELEMENT_CONDITION__COMPARATOR);
 
 		binarySensorEClass = createEClass(BINARY_SENSOR);
 
@@ -584,6 +610,7 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 		// Create enums
 		signalEEnum = createEEnum(SIGNAL);
 		operatorEEnum = createEEnum(OPERATOR);
+		comparatorEEnum = createEEnum(COMPARATOR);
 	}
 
 	/**
@@ -705,6 +732,9 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 		initEReference(getValueElementCondition_Sensor(), this.getAnalogSensor(), null, "sensor", null, 1, 1,
 				ValueElementCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValueElementCondition_Comparator(), this.getCOMPARATOR(), "comparator", null, 0, 1,
+				ValueElementCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(binarySensorEClass, BinarySensor.class, "BinarySensor", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -720,6 +750,11 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 		initEEnum(operatorEEnum, fr.unice.polytech.dsl.arduinoml.OPERATOR.class, "OPERATOR");
 		addEEnumLiteral(operatorEEnum, fr.unice.polytech.dsl.arduinoml.OPERATOR.AND);
 		addEEnumLiteral(operatorEEnum, fr.unice.polytech.dsl.arduinoml.OPERATOR.OR);
+
+		initEEnum(comparatorEEnum, fr.unice.polytech.dsl.arduinoml.COMPARATOR.class, "COMPARATOR");
+		addEEnumLiteral(comparatorEEnum, fr.unice.polytech.dsl.arduinoml.COMPARATOR.SUPERIOR);
+		addEEnumLiteral(comparatorEEnum, fr.unice.polytech.dsl.arduinoml.COMPARATOR.INFERIOR);
+		addEEnumLiteral(comparatorEEnum, fr.unice.polytech.dsl.arduinoml.COMPARATOR.EQUAL);
 
 		// Create resource
 		createResource(eNS_URI);

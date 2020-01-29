@@ -592,13 +592,22 @@ public interface ArduinomlPackage extends EPackage {
 	int VALUE_ELEMENT_CONDITION__SENSOR = CONDITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Comparator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_ELEMENT_CONDITION__COMPARATOR = CONDITION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Value Element Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_ELEMENT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
+	int VALUE_ELEMENT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Value Element Condition</em>' class.
@@ -720,6 +729,16 @@ public interface ArduinomlPackage extends EPackage {
 	 * @generated
 	 */
 	int OPERATOR = 15;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.COMPARATOR <em>COMPARATOR</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.dsl.arduinoml.COMPARATOR
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getCOMPARATOR()
+	 * @generated
+	 */
+	int COMPARATOR = 16;
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.NamedElement <em>Named Element</em>}'.
@@ -1029,6 +1048,17 @@ public interface ArduinomlPackage extends EPackage {
 	EReference getValueElementCondition_Sensor();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.dsl.arduinoml.ValueElementCondition#getComparator <em>Comparator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Comparator</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.ValueElementCondition#getComparator()
+	 * @see #getValueElementCondition()
+	 * @generated
+	 */
+	EAttribute getValueElementCondition_Comparator();
+
+	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.BinarySensor <em>Binary Sensor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1067,6 +1097,16 @@ public interface ArduinomlPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getOPERATOR();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.unice.polytech.dsl.arduinoml.COMPARATOR <em>COMPARATOR</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>COMPARATOR</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.COMPARATOR
+	 * @generated
+	 */
+	EEnum getCOMPARATOR();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1348,6 +1388,14 @@ public interface ArduinomlPackage extends EPackage {
 		EReference VALUE_ELEMENT_CONDITION__SENSOR = eINSTANCE.getValueElementCondition_Sensor();
 
 		/**
+		 * The meta object literal for the '<em><b>Comparator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_ELEMENT_CONDITION__COMPARATOR = eINSTANCE.getValueElementCondition_Comparator();
+
+		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.impl.BinarySensorImpl <em>Binary Sensor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1386,6 +1434,16 @@ public interface ArduinomlPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum OPERATOR = eINSTANCE.getOPERATOR();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.COMPARATOR <em>COMPARATOR</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.dsl.arduinoml.COMPARATOR
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getCOMPARATOR()
+		 * @generated
+		 */
+		EEnum COMPARATOR = eINSTANCE.getCOMPARATOR();
 
 	}
 

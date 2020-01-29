@@ -57,7 +57,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" lowerBound="1"
         eType="#//AnalogSensor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comparator" eType="#//COMPARATOR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinarySensor" eSuperTypes="#//Sensor"/>
   <eClassifiers xsi:type="ecore:EClass" name="AnalogSensor" eSuperTypes="#//Sensor"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="COMPARATOR">
+    <eLiterals name="SUPERIOR"/>
+    <eLiterals name="INFERIOR" value="1"/>
+    <eLiterals name="EQUAL" value="2"/>
+  </eClassifiers>
 </ecore:EPackage>

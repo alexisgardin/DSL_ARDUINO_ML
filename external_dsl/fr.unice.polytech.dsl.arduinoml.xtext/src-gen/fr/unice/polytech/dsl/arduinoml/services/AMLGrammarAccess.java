@@ -35,10 +35,20 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cSensorsKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cBricksAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cBricksSensorParserRuleCall_4_0 = (RuleCall)cBricksAssignment_4.eContents().get(0);
-		private final Assignment cBricksAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cBricksSensorParserRuleCall_5_0 = (RuleCall)cBricksAssignment_5.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cBinaryKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cColonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cBricksAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cBricksBinarySensorParserRuleCall_4_2_0 = (RuleCall)cBricksAssignment_4_2.eContents().get(0);
+		private final Assignment cBricksAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
+		private final RuleCall cBricksBinarySensorParserRuleCall_4_3_0 = (RuleCall)cBricksAssignment_4_3.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cAnalogKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cColonKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cBricksAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cBricksAnalogSensorParserRuleCall_5_2_0 = (RuleCall)cBricksAssignment_5_2.eContents().get(0);
+		private final Assignment cBricksAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cBricksAnalogSensorParserRuleCall_5_3_0 = (RuleCall)cBricksAssignment_5_3.eContents().get(0);
 		private final Keyword cActuatorsKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cBricksAssignment_8 = (Assignment)cGroup.eContents().get(8);
@@ -59,9 +69,11 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//App:
 		//	'App'
 		//	name=EString
-		//	'sensors' ':'
-		//	bricks+=Sensor
-		//	bricks+=Sensor*
+		//	'sensors' ':' ('binary' ':'
+		//	bricks+=BinarySensor
+		//	bricks+=BinarySensor*)? ('analog' ':'
+		//	bricks+=AnalogSensor
+		//	bricks+=AnalogSensor*)?
 		//	'actuators' ':'
 		//	bricks+=Actuator
 		//	bricks+=Actuator*
@@ -71,8 +83,9 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//	'initial' initial=[State|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'App' name=EString 'sensors' ':' bricks+=Sensor bricks+=Sensor* 'actuators' ':' bricks+=Actuator bricks+=Actuator*
-		//'states' ':' states+=State states+=State* 'initial' initial=[State|EString]
+		//'App' name=EString 'sensors' ':' ('binary' ':' bricks+=BinarySensor bricks+=BinarySensor*)? ('analog' ':'
+		//bricks+=AnalogSensor bricks+=AnalogSensor*)? 'actuators' ':' bricks+=Actuator bricks+=Actuator* 'states' ':'
+		//states+=State states+=State* 'initial' initial=[State|EString]
 		public Group getGroup() { return cGroup; }
 		
 		//'App'
@@ -90,17 +103,47 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
-		//bricks+=Sensor
-		public Assignment getBricksAssignment_4() { return cBricksAssignment_4; }
+		//('binary' ':' bricks+=BinarySensor bricks+=BinarySensor*)?
+		public Group getGroup_4() { return cGroup_4; }
 		
-		//Sensor
-		public RuleCall getBricksSensorParserRuleCall_4_0() { return cBricksSensorParserRuleCall_4_0; }
+		//'binary'
+		public Keyword getBinaryKeyword_4_0() { return cBinaryKeyword_4_0; }
 		
-		//bricks+=Sensor*
-		public Assignment getBricksAssignment_5() { return cBricksAssignment_5; }
+		//':'
+		public Keyword getColonKeyword_4_1() { return cColonKeyword_4_1; }
 		
-		//Sensor
-		public RuleCall getBricksSensorParserRuleCall_5_0() { return cBricksSensorParserRuleCall_5_0; }
+		//bricks+=BinarySensor
+		public Assignment getBricksAssignment_4_2() { return cBricksAssignment_4_2; }
+		
+		//BinarySensor
+		public RuleCall getBricksBinarySensorParserRuleCall_4_2_0() { return cBricksBinarySensorParserRuleCall_4_2_0; }
+		
+		//bricks+=BinarySensor*
+		public Assignment getBricksAssignment_4_3() { return cBricksAssignment_4_3; }
+		
+		//BinarySensor
+		public RuleCall getBricksBinarySensorParserRuleCall_4_3_0() { return cBricksBinarySensorParserRuleCall_4_3_0; }
+		
+		//('analog' ':' bricks+=AnalogSensor bricks+=AnalogSensor*)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'analog'
+		public Keyword getAnalogKeyword_5_0() { return cAnalogKeyword_5_0; }
+		
+		//':'
+		public Keyword getColonKeyword_5_1() { return cColonKeyword_5_1; }
+		
+		//bricks+=AnalogSensor
+		public Assignment getBricksAssignment_5_2() { return cBricksAssignment_5_2; }
+		
+		//AnalogSensor
+		public RuleCall getBricksAnalogSensorParserRuleCall_5_2_0() { return cBricksAnalogSensorParserRuleCall_5_2_0; }
+		
+		//bricks+=AnalogSensor*
+		public Assignment getBricksAssignment_5_3() { return cBricksAssignment_5_3; }
+		
+		//AnalogSensor
+		public RuleCall getBricksAnalogSensorParserRuleCall_5_3_0() { return cBricksAnalogSensorParserRuleCall_5_3_0; }
 		
 		//'actuators'
 		public Keyword getActuatorsKeyword_6() { return cActuatorsKeyword_6; }
@@ -292,31 +335,42 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cMultipleElementConditionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cConditionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cConditionsSingleElementConditionParserRuleCall_1_0 = (RuleCall)cConditionsAssignment_1.eContents().get(0);
+		private final Alternatives cConditionsAlternatives_1_0 = (Alternatives)cConditionsAssignment_1.eContents().get(0);
+		private final RuleCall cConditionsSingleElementConditionParserRuleCall_1_0_0 = (RuleCall)cConditionsAlternatives_1_0.eContents().get(0);
+		private final RuleCall cConditionsValueElementConditionParserRuleCall_1_0_1 = (RuleCall)cConditionsAlternatives_1_0.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Assignment cOperatorsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
 		private final RuleCall cOperatorsOPERATOREnumRuleCall_2_0_0 = (RuleCall)cOperatorsAssignment_2_0.eContents().get(0);
 		private final Assignment cConditionsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cConditionsSingleElementConditionParserRuleCall_2_1_0 = (RuleCall)cConditionsAssignment_2_1.eContents().get(0);
+		private final Alternatives cConditionsAlternatives_2_1_0 = (Alternatives)cConditionsAssignment_2_1.eContents().get(0);
+		private final RuleCall cConditionsSingleElementConditionParserRuleCall_2_1_0_0 = (RuleCall)cConditionsAlternatives_2_1_0.eContents().get(0);
+		private final RuleCall cConditionsValueElementConditionParserRuleCall_2_1_0_1 = (RuleCall)cConditionsAlternatives_2_1_0.eContents().get(1);
 		
 		//MultipleElementCondition:
-		//	{MultipleElementCondition} conditions+=SingleElementCondition (operators+=OPERATOR
-		//	conditions+=SingleElementCondition)*;
+		//	{MultipleElementCondition} conditions+=(SingleElementCondition | ValueElementCondition) (operators+=OPERATOR
+		//	conditions+=(SingleElementCondition | ValueElementCondition))*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{MultipleElementCondition} conditions+=SingleElementCondition (operators+=OPERATOR conditions+=SingleElementCondition)*
+		//{MultipleElementCondition} conditions+=(SingleElementCondition | ValueElementCondition) (operators+=OPERATOR
+		//conditions+=(SingleElementCondition | ValueElementCondition))*
 		public Group getGroup() { return cGroup; }
 		
 		//{MultipleElementCondition}
 		public Action getMultipleElementConditionAction_0() { return cMultipleElementConditionAction_0; }
 		
-		//conditions+=SingleElementCondition
+		//conditions+=(SingleElementCondition | ValueElementCondition)
 		public Assignment getConditionsAssignment_1() { return cConditionsAssignment_1; }
 		
-		//SingleElementCondition
-		public RuleCall getConditionsSingleElementConditionParserRuleCall_1_0() { return cConditionsSingleElementConditionParserRuleCall_1_0; }
+		//(SingleElementCondition | ValueElementCondition)
+		public Alternatives getConditionsAlternatives_1_0() { return cConditionsAlternatives_1_0; }
 		
-		//(operators+=OPERATOR conditions+=SingleElementCondition)*
+		//SingleElementCondition
+		public RuleCall getConditionsSingleElementConditionParserRuleCall_1_0_0() { return cConditionsSingleElementConditionParserRuleCall_1_0_0; }
+		
+		//ValueElementCondition
+		public RuleCall getConditionsValueElementConditionParserRuleCall_1_0_1() { return cConditionsValueElementConditionParserRuleCall_1_0_1; }
+		
+		//(operators+=OPERATOR conditions+=(SingleElementCondition | ValueElementCondition))*
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//operators+=OPERATOR
@@ -325,41 +379,47 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//OPERATOR
 		public RuleCall getOperatorsOPERATOREnumRuleCall_2_0_0() { return cOperatorsOPERATOREnumRuleCall_2_0_0; }
 		
-		//conditions+=SingleElementCondition
+		//conditions+=(SingleElementCondition | ValueElementCondition)
 		public Assignment getConditionsAssignment_2_1() { return cConditionsAssignment_2_1; }
 		
+		//(SingleElementCondition | ValueElementCondition)
+		public Alternatives getConditionsAlternatives_2_1_0() { return cConditionsAlternatives_2_1_0; }
+		
 		//SingleElementCondition
-		public RuleCall getConditionsSingleElementConditionParserRuleCall_2_1_0() { return cConditionsSingleElementConditionParserRuleCall_2_1_0; }
+		public RuleCall getConditionsSingleElementConditionParserRuleCall_2_1_0_0() { return cConditionsSingleElementConditionParserRuleCall_2_1_0_0; }
+		
+		//ValueElementCondition
+		public RuleCall getConditionsValueElementConditionParserRuleCall_2_1_0_1() { return cConditionsValueElementConditionParserRuleCall_2_1_0_1; }
 	}
 	public class SingleElementConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.SingleElementCondition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSingleElementConditionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cSensorAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cSensorSensorCrossReference_1_0 = (CrossReference)cSensorAssignment_1.eContents().get(0);
-		private final RuleCall cSensorSensorEStringParserRuleCall_1_0_1 = (RuleCall)cSensorSensorCrossReference_1_0.eContents().get(1);
+		private final CrossReference cSensorBinarySensorCrossReference_1_0 = (CrossReference)cSensorAssignment_1.eContents().get(0);
+		private final RuleCall cSensorBinarySensorEStringParserRuleCall_1_0_1 = (RuleCall)cSensorBinarySensorCrossReference_1_0.eContents().get(1);
 		private final Keyword cIsKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cValueSIGNALEnumRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		
 		//SingleElementCondition:
-		//	{SingleElementCondition} sensor=[Sensor|EString] 'is' value=SIGNAL;
+		//	{SingleElementCondition} sensor=[BinarySensor|EString] 'is' value=SIGNAL;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{SingleElementCondition} sensor=[Sensor|EString] 'is' value=SIGNAL
+		//{SingleElementCondition} sensor=[BinarySensor|EString] 'is' value=SIGNAL
 		public Group getGroup() { return cGroup; }
 		
 		//{SingleElementCondition}
 		public Action getSingleElementConditionAction_0() { return cSingleElementConditionAction_0; }
 		
-		//sensor=[Sensor|EString]
+		//sensor=[BinarySensor|EString]
 		public Assignment getSensorAssignment_1() { return cSensorAssignment_1; }
 		
-		//[Sensor|EString]
-		public CrossReference getSensorSensorCrossReference_1_0() { return cSensorSensorCrossReference_1_0; }
+		//[BinarySensor|EString]
+		public CrossReference getSensorBinarySensorCrossReference_1_0() { return cSensorBinarySensorCrossReference_1_0; }
 		
 		//EString
-		public RuleCall getSensorSensorEStringParserRuleCall_1_0_1() { return cSensorSensorEStringParserRuleCall_1_0_1; }
+		public RuleCall getSensorBinarySensorEStringParserRuleCall_1_0_1() { return cSensorBinarySensorEStringParserRuleCall_1_0_1; }
 		
 		//'is'
 		public Keyword getIsKeyword_2() { return cIsKeyword_2; }
@@ -370,25 +430,103 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//SIGNAL
 		public RuleCall getValueSIGNALEnumRuleCall_3_0() { return cValueSIGNALEnumRuleCall_3_0; }
 	}
-	public class SensorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.Sensor");
+	public class ValueElementConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.ValueElementCondition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSensorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cValueElementConditionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cSensorAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cSensorAnalogSensorCrossReference_1_0 = (CrossReference)cSensorAssignment_1.eContents().get(0);
+		private final RuleCall cSensorAnalogSensorEStringParserRuleCall_1_0_1 = (RuleCall)cSensorAnalogSensorCrossReference_1_0.eContents().get(1);
+		private final Assignment cComparatorAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cComparatorCOMPARATOREnumRuleCall_2_0 = (RuleCall)cComparatorAssignment_2.eContents().get(0);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueEFloatParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		
+		//ValueElementCondition:
+		//	{ValueElementCondition} sensor=[AnalogSensor|EString] comparator=COMPARATOR value=EFloat;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ValueElementCondition} sensor=[AnalogSensor|EString] comparator=COMPARATOR value=EFloat
+		public Group getGroup() { return cGroup; }
+		
+		//{ValueElementCondition}
+		public Action getValueElementConditionAction_0() { return cValueElementConditionAction_0; }
+		
+		//sensor=[AnalogSensor|EString]
+		public Assignment getSensorAssignment_1() { return cSensorAssignment_1; }
+		
+		//[AnalogSensor|EString]
+		public CrossReference getSensorAnalogSensorCrossReference_1_0() { return cSensorAnalogSensorCrossReference_1_0; }
+		
+		//EString
+		public RuleCall getSensorAnalogSensorEStringParserRuleCall_1_0_1() { return cSensorAnalogSensorEStringParserRuleCall_1_0_1; }
+		
+		//comparator=COMPARATOR
+		public Assignment getComparatorAssignment_2() { return cComparatorAssignment_2; }
+		
+		//COMPARATOR
+		public RuleCall getComparatorCOMPARATOREnumRuleCall_2_0() { return cComparatorCOMPARATOREnumRuleCall_2_0; }
+		
+		//value=EFloat
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		
+		//EFloat
+		public RuleCall getValueEFloatParserRuleCall_3_0() { return cValueEFloatParserRuleCall_3_0; }
+	}
+	public class BinarySensorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.BinarySensor");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBinarySensorAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cPinAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cPinEIntParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
 		
-		//Sensor:
-		//	{Sensor} name=EString '->' pin=EInt;
+		//BinarySensor:
+		//	{BinarySensor} name=EString '->' pin=EInt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Sensor} name=EString '->' pin=EInt
+		//{BinarySensor} name=EString '->' pin=EInt
 		public Group getGroup() { return cGroup; }
 		
-		//{Sensor}
-		public Action getSensorAction_0() { return cSensorAction_0; }
+		//{BinarySensor}
+		public Action getBinarySensorAction_0() { return cBinarySensorAction_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
+		
+		//pin=EInt
+		public Assignment getPinAssignment_3() { return cPinAssignment_3; }
+		
+		//EInt
+		public RuleCall getPinEIntParserRuleCall_3_0() { return cPinEIntParserRuleCall_3_0; }
+	}
+	public class AnalogSensorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.AnalogSensor");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cAnalogSensorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPinAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPinEIntParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
+		
+		//AnalogSensor:
+		//	{AnalogSensor} name=EString '->' pin=EInt;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{AnalogSensor} name=EString '->' pin=EInt
+		public Group getGroup() { return cGroup; }
+		
+		//{AnalogSensor}
+		public Action getAnalogSensorAction_0() { return cAnalogSensorAction_0; }
 		
 		//name=EString
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -478,6 +616,33 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
+	public class EFloatElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.EFloat");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//EFloat ecore::EFloat:
+		//	INT ('.' INT+)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//INT ('.' INT+)?
+		public Group getGroup() { return cGroup; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+		
+		//('.' INT+)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		
+		//INT+
+		public RuleCall getINTTerminalRuleCall_1_1() { return cINTTerminalRuleCall_1_1; }
+	}
 	
 	public class SIGNALElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.SIGNAL");
@@ -533,19 +698,58 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//'or'
 		public Keyword getOrOrKeyword_1_0() { return cOrOrKeyword_1_0; }
 	}
+	public class COMPARATORElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.COMPARATOR");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cEQUALEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cEQUALEqualsSignKeyword_0_0 = (Keyword)cEQUALEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cINFERIOREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cINFERIORLessThanSignKeyword_1_0 = (Keyword)cINFERIOREnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cSUPERIOREnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cSUPERIORGreaterThanSignKeyword_2_0 = (Keyword)cSUPERIOREnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum COMPARATOR:
+		//	EQUAL='=' | INFERIOR='<' | SUPERIOR='>';
+		public EnumRule getRule() { return rule; }
+		
+		//EQUAL='=' | INFERIOR='<' | SUPERIOR='>'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//EQUAL='='
+		public EnumLiteralDeclaration getEQUALEnumLiteralDeclaration_0() { return cEQUALEnumLiteralDeclaration_0; }
+		
+		//'='
+		public Keyword getEQUALEqualsSignKeyword_0_0() { return cEQUALEqualsSignKeyword_0_0; }
+		
+		//INFERIOR='<'
+		public EnumLiteralDeclaration getINFERIOREnumLiteralDeclaration_1() { return cINFERIOREnumLiteralDeclaration_1; }
+		
+		//'<'
+		public Keyword getINFERIORLessThanSignKeyword_1_0() { return cINFERIORLessThanSignKeyword_1_0; }
+		
+		//SUPERIOR='>'
+		public EnumLiteralDeclaration getSUPERIOREnumLiteralDeclaration_2() { return cSUPERIOREnumLiteralDeclaration_2; }
+		
+		//'>'
+		public Keyword getSUPERIORGreaterThanSignKeyword_2_0() { return cSUPERIORGreaterThanSignKeyword_2_0; }
+	}
 	
 	private final AppElements pApp;
 	private final StateElements pState;
 	private final ActionElements pAction;
 	private final SIGNALElements eSIGNAL;
 	private final OPERATORElements eOPERATOR;
+	private final COMPARATORElements eCOMPARATOR;
 	private final TransitionElements pTransition;
 	private final MultipleElementConditionElements pMultipleElementCondition;
 	private final SingleElementConditionElements pSingleElementCondition;
-	private final SensorElements pSensor;
+	private final ValueElementConditionElements pValueElementCondition;
+	private final BinarySensorElements pBinarySensor;
+	private final AnalogSensorElements pAnalogSensor;
 	private final ActuatorElements pActuator;
 	private final EStringElements pEString;
 	private final EIntElements pEInt;
+	private final EFloatElements pEFloat;
 	
 	private final Grammar grammar;
 	
@@ -561,13 +765,17 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAction = new ActionElements();
 		this.eSIGNAL = new SIGNALElements();
 		this.eOPERATOR = new OPERATORElements();
+		this.eCOMPARATOR = new COMPARATORElements();
 		this.pTransition = new TransitionElements();
 		this.pMultipleElementCondition = new MultipleElementConditionElements();
 		this.pSingleElementCondition = new SingleElementConditionElements();
-		this.pSensor = new SensorElements();
+		this.pValueElementCondition = new ValueElementConditionElements();
+		this.pBinarySensor = new BinarySensorElements();
+		this.pAnalogSensor = new AnalogSensorElements();
 		this.pActuator = new ActuatorElements();
 		this.pEString = new EStringElements();
 		this.pEInt = new EIntElements();
+		this.pEFloat = new EFloatElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -600,9 +808,11 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	//App:
 	//	'App'
 	//	name=EString
-	//	'sensors' ':'
-	//	bricks+=Sensor
-	//	bricks+=Sensor*
+	//	'sensors' ':' ('binary' ':'
+	//	bricks+=BinarySensor
+	//	bricks+=BinarySensor*)? ('analog' ':'
+	//	bricks+=AnalogSensor
+	//	bricks+=AnalogSensor*)?
 	//	'actuators' ':'
 	//	bricks+=Actuator
 	//	bricks+=Actuator*
@@ -661,6 +871,16 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		return getOPERATORAccess().getRule();
 	}
 	
+	//enum COMPARATOR:
+	//	EQUAL='=' | INFERIOR='<' | SUPERIOR='>';
+	public COMPARATORElements getCOMPARATORAccess() {
+		return eCOMPARATOR;
+	}
+	
+	public EnumRule getCOMPARATORRule() {
+		return getCOMPARATORAccess().getRule();
+	}
+	
 	//Transition:
 	//	{Transition}
 	//	'if' condition=MultipleElementCondition '->' next=[State|EString];
@@ -673,8 +893,8 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//MultipleElementCondition:
-	//	{MultipleElementCondition} conditions+=SingleElementCondition (operators+=OPERATOR
-	//	conditions+=SingleElementCondition)*;
+	//	{MultipleElementCondition} conditions+=(SingleElementCondition | ValueElementCondition) (operators+=OPERATOR
+	//	conditions+=(SingleElementCondition | ValueElementCondition))*;
 	public MultipleElementConditionElements getMultipleElementConditionAccess() {
 		return pMultipleElementCondition;
 	}
@@ -684,7 +904,7 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SingleElementCondition:
-	//	{SingleElementCondition} sensor=[Sensor|EString] 'is' value=SIGNAL;
+	//	{SingleElementCondition} sensor=[BinarySensor|EString] 'is' value=SIGNAL;
 	public SingleElementConditionElements getSingleElementConditionAccess() {
 		return pSingleElementCondition;
 	}
@@ -693,14 +913,34 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		return getSingleElementConditionAccess().getRule();
 	}
 	
-	//Sensor:
-	//	{Sensor} name=EString '->' pin=EInt;
-	public SensorElements getSensorAccess() {
-		return pSensor;
+	//ValueElementCondition:
+	//	{ValueElementCondition} sensor=[AnalogSensor|EString] comparator=COMPARATOR value=EFloat;
+	public ValueElementConditionElements getValueElementConditionAccess() {
+		return pValueElementCondition;
 	}
 	
-	public ParserRule getSensorRule() {
-		return getSensorAccess().getRule();
+	public ParserRule getValueElementConditionRule() {
+		return getValueElementConditionAccess().getRule();
+	}
+	
+	//BinarySensor:
+	//	{BinarySensor} name=EString '->' pin=EInt;
+	public BinarySensorElements getBinarySensorAccess() {
+		return pBinarySensor;
+	}
+	
+	public ParserRule getBinarySensorRule() {
+		return getBinarySensorAccess().getRule();
+	}
+	
+	//AnalogSensor:
+	//	{AnalogSensor} name=EString '->' pin=EInt;
+	public AnalogSensorElements getAnalogSensorAccess() {
+		return pAnalogSensor;
+	}
+	
+	public ParserRule getAnalogSensorRule() {
+		return getAnalogSensorAccess().getRule();
 	}
 	
 	//Actuator:
@@ -731,6 +971,16 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEIntRule() {
 		return getEIntAccess().getRule();
+	}
+	
+	//EFloat ecore::EFloat:
+	//	INT ('.' INT+)?;
+	public EFloatElements getEFloatAccess() {
+		return pEFloat;
+	}
+	
+	public ParserRule getEFloatRule() {
+		return getEFloatAccess().getRule();
 	}
 	
 	//terminal ID:

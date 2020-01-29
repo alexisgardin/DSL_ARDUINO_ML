@@ -96,6 +96,8 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 			return createSIGNALFromString(eDataType, initialValue);
 		case ArduinomlPackage.OPERATOR:
 			return createOPERATORFromString(eDataType, initialValue);
+		case ArduinomlPackage.COMPARATOR:
+			return createCOMPARATORFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -113,6 +115,8 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 			return convertSIGNALToString(eDataType, instanceValue);
 		case ArduinomlPackage.OPERATOR:
 			return convertOPERATORToString(eDataType, instanceValue);
+		case ArduinomlPackage.COMPARATOR:
+			return convertCOMPARATORToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -269,6 +273,28 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 	 * @generated
 	 */
 	public String convertOPERATORToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public COMPARATOR createCOMPARATORFromString(EDataType eDataType, String initialValue) {
+		COMPARATOR result = COMPARATOR.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCOMPARATORToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

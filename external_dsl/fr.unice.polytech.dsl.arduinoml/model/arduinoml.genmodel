@@ -18,6 +18,11 @@
       <genEnumLiterals ecoreEnumLiteral="arduinoml.ecore#//OPERATOR/and"/>
       <genEnumLiterals ecoreEnumLiteral="arduinoml.ecore#//OPERATOR/or"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="arduinoml.ecore#//COMPARATOR">
+      <genEnumLiterals ecoreEnumLiteral="arduinoml.ecore#//COMPARATOR/SUPERIOR"/>
+      <genEnumLiterals ecoreEnumLiteral="arduinoml.ecore#//COMPARATOR/INFERIOR"/>
+      <genEnumLiterals ecoreEnumLiteral="arduinoml.ecore#//COMPARATOR/EQUAL"/>
+    </genEnums>
     <genClasses ecoreClass="arduinoml.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoml.ecore#//NamedElement/name"/>
     </genClasses>
@@ -55,6 +60,7 @@
     <genClasses ecoreClass="arduinoml.ecore#//ValueElementCondition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoml.ecore#//ValueElementCondition/value"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arduinoml.ecore#//ValueElementCondition/sensor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arduinoml.ecore#//ValueElementCondition/comparator"/>
     </genClasses>
     <genClasses ecoreClass="arduinoml.ecore#//BinarySensor"/>
     <genClasses ecoreClass="arduinoml.ecore#//AnalogSensor"/>

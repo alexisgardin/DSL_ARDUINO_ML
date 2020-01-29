@@ -4,6 +4,7 @@ package fr.unice.polytech.dsl.arduinoml.impl;
 
 import fr.unice.polytech.dsl.arduinoml.AnalogSensor;
 import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
+import fr.unice.polytech.dsl.arduinoml.COMPARATOR;
 import fr.unice.polytech.dsl.arduinoml.ValueElementCondition;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link fr.unice.polytech.dsl.arduinoml.impl.ValueElementConditionImpl#getValue <em>Value</em>}</li>
  *   <li>{@link fr.unice.polytech.dsl.arduinoml.impl.ValueElementConditionImpl#getSensor <em>Sensor</em>}</li>
+ *   <li>{@link fr.unice.polytech.dsl.arduinoml.impl.ValueElementConditionImpl#getComparator <em>Comparator</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,6 +59,26 @@ public class ValueElementConditionImpl extends ConditionImpl implements ValueEle
 	 * @ordered
 	 */
 	protected AnalogSensor sensor;
+
+	/**
+	 * The default value of the '{@link #getComparator() <em>Comparator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComparator()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final COMPARATOR COMPARATOR_EDEFAULT = COMPARATOR.SUPERIOR;
+
+	/**
+	 * The cached value of the '{@link #getComparator() <em>Comparator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComparator()
+	 * @generated
+	 * @ordered
+	 */
+	protected COMPARATOR comparator = COMPARATOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,6 +166,28 @@ public class ValueElementConditionImpl extends ConditionImpl implements ValueEle
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public COMPARATOR getComparator() {
+		return comparator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComparator(COMPARATOR newComparator) {
+		COMPARATOR oldComparator = comparator;
+		comparator = newComparator == null ? COMPARATOR_EDEFAULT : newComparator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinomlPackage.VALUE_ELEMENT_CONDITION__COMPARATOR,
+					oldComparator, comparator));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -153,6 +197,8 @@ public class ValueElementConditionImpl extends ConditionImpl implements ValueEle
 			if (resolve)
 				return getSensor();
 			return basicGetSensor();
+		case ArduinomlPackage.VALUE_ELEMENT_CONDITION__COMPARATOR:
+			return getComparator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,6 +216,9 @@ public class ValueElementConditionImpl extends ConditionImpl implements ValueEle
 			return;
 		case ArduinomlPackage.VALUE_ELEMENT_CONDITION__SENSOR:
 			setSensor((AnalogSensor) newValue);
+			return;
+		case ArduinomlPackage.VALUE_ELEMENT_CONDITION__COMPARATOR:
+			setComparator((COMPARATOR) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -189,6 +238,9 @@ public class ValueElementConditionImpl extends ConditionImpl implements ValueEle
 		case ArduinomlPackage.VALUE_ELEMENT_CONDITION__SENSOR:
 			setSensor((AnalogSensor) null);
 			return;
+		case ArduinomlPackage.VALUE_ELEMENT_CONDITION__COMPARATOR:
+			setComparator(COMPARATOR_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -205,6 +257,8 @@ public class ValueElementConditionImpl extends ConditionImpl implements ValueEle
 			return value != VALUE_EDEFAULT;
 		case ArduinomlPackage.VALUE_ELEMENT_CONDITION__SENSOR:
 			return sensor != null;
+		case ArduinomlPackage.VALUE_ELEMENT_CONDITION__COMPARATOR:
+			return comparator != COMPARATOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -222,6 +276,8 @@ public class ValueElementConditionImpl extends ConditionImpl implements ValueEle
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (value: ");
 		result.append(value);
+		result.append(", comparator: ");
+		result.append(comparator);
 		result.append(')');
 		return result.toString();
 	}

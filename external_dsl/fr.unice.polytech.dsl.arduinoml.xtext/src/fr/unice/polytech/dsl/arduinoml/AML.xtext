@@ -8,10 +8,14 @@ App returns App:
 	'App'
 	name=EString
 	'sensors' ':'
-	 	bricks+=Sensor
-	    (bricks+=Sensor)*
+		('binary' ':'
+	 		bricks+=BinarySensor
+	    	(bricks+=BinarySensor)*)?
+	    ('analog' ':'
+	 		bricks+=AnalogSensor
+	    	(bricks+=AnalogSensor)*)?
 	'actuators' ':'
-		bricks+=Actuator 
+		bricks+=Actuator
 		(bricks+=Actuator)*
 	'states' ':' 
 		states+=State 
@@ -37,6 +41,10 @@ enum SIGNAL returns SIGNAL:
 enum OPERATOR returns OPERATOR:
 				and = 'and' | or = 'or'
 ;
+
+enum COMPARATOR returns COMPARATOR:
+				EQUAL = '=' | INFERIOR = '<' | SUPERIOR = '>'
+;
 				
 Transition returns Transition:
 	{Transition}
@@ -45,16 +53,25 @@ Transition returns Transition:
 
 MultipleElementCondition returns MultipleElementCondition:
 	{MultipleElementCondition}
-	conditions+=SingleElementCondition (operators+=OPERATOR conditions+=SingleElementCondition)*;
+	conditions+=(SingleElementCondition | ValueElementCondition) (operators+=OPERATOR conditions+=(SingleElementCondition | ValueElementCondition))*;
 
 SingleElementCondition returns SingleElementCondition:
 	{SingleElementCondition}
-	sensor=[Sensor | EString] 'is' value=SIGNAL;
+	sensor=[BinarySensor | EString] 'is' value=SIGNAL;
+
+ValueElementCondition returns ValueElementCondition:
+	{ValueElementCondition}
+	sensor=[AnalogSensor | EString] comparator=COMPARATOR value=EFloat;
 
 	
-Sensor returns Sensor:
-	{Sensor}
+BinarySensor returns BinarySensor:
+	{BinarySensor}
 	name=EString '->' pin=EInt;
+	
+AnalogSensor returns AnalogSensor:
+	{AnalogSensor}
+	name=EString '->' pin=EInt;
+
 
 Actuator returns Actuator:
 	{Actuator}
@@ -65,3 +82,6 @@ EString returns ecore::EString:
 
 EInt returns ecore::EInt:
 	'-'? INT;
+	
+EFloat returns ecore::EFloat:
+	INT('.'INT+)?;
