@@ -5,9 +5,10 @@ import fr.unice.polytech.dsl.kernel.behavioral.*;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.MultipleElementCondition;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.SingleElementCondition;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.ValueElementCondition;
-import fr.unice.polytech.dsl.kernel.structural.Actuator;
-import fr.unice.polytech.dsl.kernel.structural.Brick;
-import fr.unice.polytech.dsl.kernel.structural.Sensor;
+import fr.unice.polytech.dsl.kernel.structural.*;
+
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 /**
  * Quick and dirty visitor to support the generation of Wiring code
@@ -39,7 +40,7 @@ public class ToWiring extends Visitor<StringBuffer> {
         w(String.format("// Application name: %s\n", app.getName()));
 
         w("void setup(){");
-        for (Brick brick : app.getBricks()) {
+        for (Brick brick : app.getBricks().stream().filter(Brick::isDigital).collect(Collectors.toList())) {
             brick.accept(this);
         }
         w("}\n");
@@ -47,6 +48,7 @@ public class ToWiring extends Visitor<StringBuffer> {
         w("long time = 0; long debounce = 200;\n");
 
         for (State state : app.getStates()) {
+            state.setApp(app);
             state.accept(this);
         }
 
@@ -91,8 +93,10 @@ public class ToWiring extends Visitor<StringBuffer> {
 
     @Override
     public void visit(ValueElementCondition valueElementCondition) {
+        ws(String.format(Locale.US,"analogRead(%d)*%1f",
+                valueElementCondition.getSensor().getPin(),
+                valueElementCondition.getSensor().getMv()));
 
-        ws(String.format("digitalRead(%d) %s", valueElementCondition.getSensor().getPin(), valueElementCondition.toString()));
 
     }
 
@@ -102,7 +106,6 @@ public class ToWiring extends Visitor<StringBuffer> {
         for (Action action : state.getActions()) {
             action.accept(this);
         }
-
         if (state.getTransition() != null) {
             w("  boolean guard = millis() - time > debounce;");
             context.put(CURRENT_STATE, state);

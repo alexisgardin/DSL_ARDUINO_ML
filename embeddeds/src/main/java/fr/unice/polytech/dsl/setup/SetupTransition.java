@@ -2,11 +2,15 @@ package fr.unice.polytech.dsl.setup;
 
 import fr.unice.polytech.dsl.builder.Arduino;
 import fr.unice.polytech.dsl.exception.StateNotFoundException;
-import fr.unice.polytech.dsl.kernel.behavioral.*;
+import fr.unice.polytech.dsl.kernel.behavioral.Operator;
+import fr.unice.polytech.dsl.kernel.behavioral.State;
+import fr.unice.polytech.dsl.kernel.behavioral.Transition;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.Comparator;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.MultipleElementCondition;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.SingleElementCondition;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.ValueElementCondition;
 import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
-import fr.unice.polytech.dsl.kernel.structural.Sensor;
+import fr.unice.polytech.dsl.kernel.structural.DigitalSensor;
 
 public class SetupTransition {
     private Transition transition;
@@ -15,15 +19,40 @@ public class SetupTransition {
         this.transition = new Transition();
     }
 
-    public SetSignal whenSensor(String string) {
-        return new SetSignal(transition, Arduino.getInstance().getSensor(string));
+    public SetDigitalSignal whenDigitalSensor(String string) {
+        return new SetDigitalSignal(transition, Arduino.getInstance().getSensor(string));
     }
 
-    public static class SetSignal {
-        private Transition transition;
-        private Sensor sensor;
+    public SetAnalogComparator whenAnalogSensor(String string) {
+        return new SetAnalogComparator(transition, Arduino.getInstance().getSensor(string));
+    }
 
-        public SetSignal(Transition transition, Sensor sensor) {
+    public static class SetAnalogComparator{
+        private Transition transition;
+        private DigitalSensor sensor;
+
+        public SetAnalogComparator(Transition transition, DigitalSensor sensor) {
+            this.transition = transition;
+            this.sensor = sensor;
+        }
+
+        public SetValue are(Comparator comparator) {
+            ValueElementCondition valueElementCondition = new ValueElementCondition<>();
+            valueElementCondition.setSensor(this.sensor);
+            valueElementCondition.setComparator(comparator);
+            if (transition.getCondition() == null) {
+                this.transition.setCondition(valueElementCondition);
+            } else {
+                ((MultipleElementCondition) transition.getCondition()).addCondition(valueElementCondition);
+            }
+            return new SetValue(transition, valueElementCondition);
+        }
+    }
+    public static class SetDigitalSignal {
+        private Transition transition;
+        private DigitalSensor sensor;
+
+        public SetDigitalSignal(Transition transition, DigitalSensor sensor) {
             this.transition = transition;
             this.sensor = sensor;
         }
@@ -33,35 +62,51 @@ public class SetupTransition {
             SingleElementCondition singleElementCondition = new SingleElementCondition();
             singleElementCondition.setSensor(this.sensor);
             singleElementCondition.setSignal(signal);
-            if(transition.getCondition()==null) {
+            if (transition.getCondition() == null) {
                 this.transition.setCondition(singleElementCondition);
-            }else{
-                ((MultipleElementCondition)transition.getCondition()).addCondition(singleElementCondition);
+            } else {
+                ((MultipleElementCondition) transition.getCondition()).addCondition(singleElementCondition);
             }
             return new SetCondition(transition);
         }
     }
 
-    public static class SetCondition{
+    public static class SetValue {
+        private Transition transition;
+        private ValueElementCondition valueElementCondition;
+
+        public SetValue(Transition transition, ValueElementCondition valueElementCondition) {
+            this.transition = transition;
+            this.valueElementCondition = valueElementCondition;
+        }
+
+        public SetCondition withValue(Number value) {
+            valueElementCondition.setValue(value);
+            return new SetCondition(transition);
+        }
+    }
+
+    public static class SetCondition {
         Transition transition;
 
         public SetCondition(Transition transition) {
             this.transition = transition;
         }
 
-        public SetSignal and(String sensor){
-            Sensor sensor1 = manageCondition(sensor);
-            ((MultipleElementCondition)transition.getCondition()).addOperator(Operator.AND);
-            return new SetSignal(transition,sensor1);
-        }
-        public SetSignal or(String sensor){
-            Sensor sensor1 = manageCondition(sensor);
-            ((MultipleElementCondition)transition.getCondition()).addOperator(Operator.OR);
-            return new SetSignal(transition,sensor1);
+        public SetDigitalSignal and(String sensor) {
+            DigitalSensor sensor1 = manageCondition(sensor);
+            ((MultipleElementCondition) transition.getCondition()).addOperator(Operator.AND);
+            return new SetDigitalSignal(transition, sensor1);
         }
 
-        public SetCondition group(){
-            if(this.transition.getCondition().isSingle())
+        public SetDigitalSignal or(String sensor) {
+            DigitalSensor sensor1 = manageCondition(sensor);
+            ((MultipleElementCondition) transition.getCondition()).addOperator(Operator.OR);
+            return new SetDigitalSignal(transition, sensor1);
+        }
+
+        public SetCondition group() {
+            if (this.transition.getCondition().isSingle())
                 throw new IllegalArgumentException("We cannot group a single expression");
             MultipleElementCondition cond = new MultipleElementCondition();
             cond.addCondition(this.transition.getCondition());
@@ -69,13 +114,13 @@ public class SetupTransition {
             return this;
         }
 
-        public NextState atState(String state){
+        public NextState atState(String state) {
             return new SetState(transition).atState(state);
         }
 
-        private Sensor manageCondition(String sensor) {
-            Sensor sensor1 = Arduino.getInstance().getSensor(sensor);
-            if(transition.getCondition().isSingle()){
+        private DigitalSensor manageCondition(String sensor) {
+            DigitalSensor sensor1 = Arduino.getInstance().getSensor(sensor);
+            if (transition.getCondition().isSingle()) {
                 MultipleElementCondition multipleElementCondition = new MultipleElementCondition();
                 multipleElementCondition.addCondition(transition.getCondition());
                 transition.setCondition(multipleElementCondition);
@@ -84,109 +129,32 @@ public class SetupTransition {
         }
 
     }
-        public static class SetState{
-            private Transition transition;
 
-            public SetState(Transition transition) {
-                this.transition = transition;
-            }
-            public NextState atState(final String state){
-                State state1 = Arduino.getInstance().states().stream().filter(v -> v.getName().equals(state)).findFirst().orElseThrow(StateNotFoundException::new);
-                state1.setTransition(transition);
-                return new NextState(transition);
-            }
+    public static class SetState {
+        private Transition transition;
+
+        public SetState(Transition transition) {
+            this.transition = transition;
         }
 
-        public static class NextState{
-            private Transition transition;
+        public NextState atState(final String state) {
+            State state1 = Arduino.getInstance().states().stream().filter(v -> v.getName().equals(state)).findFirst().orElseThrow(StateNotFoundException::new);
+            state1.setTransition(transition);
+            return new NextState(transition);
+        }
+    }
 
-            public NextState(Transition transition) {
-                this.transition = transition;
-            }
+    public static class NextState {
+        private Transition transition;
 
-            public Arduino goToState(final String state){
-                State state1 = Arduino.getInstance().states().stream().filter(v -> v.getName().equals(state)).findFirst().orElseThrow(StateNotFoundException::new);
-                transition.setNext(state1);
-                return Arduino.getInstance();
-            }
+        public NextState(Transition transition) {
+            this.transition = transition;
         }
 
-    /** public static class OnSensor{
-     private Transition_ transition;
-
-     public OnSensor() {
-     this.transition = new MultipleTriggerTransition();
-     }
-
-     public SetState onSensor(final String sensor){
-     Sensor brick = (Sensor) Arduino.getInstance().bricks().stream().filter(v -> v.getName().equals(sensor)).findFirst().orElseThrow(BrickNotFoundException::new);
-     transition.addSensor(brick);
-     return new SetState(transition);
-     }
-     public SetState onMultipleSensor(final String ... sensor){
-     for (String s : sensor) {
-     Sensor brick = (Sensor) Arduino.getInstance().bricks()
-     .stream().filter(v -> v.getName().equals(s)).findFirst().orElseThrow(BrickNotFoundException::new);
-     transition.addSensor(brick);
-     }
-     return new SetState(transition);
-     }
-     }
-
-     public static class SetState{
-     private MultipleTriggerTransition transition;
-
-     public SetState(MultipleTriggerTransition transition) {
-     this.transition = transition;
-     }
-     public SetSignal whenWeAreAteState(final String state){
-     State state1 = Arduino.getInstance().states().stream().filter(v -> v.getName().equals(state)).findFirst().orElseThrow(StateNotFoundException::new);
-     state1.setTransition(transition);
-     return new SetSignal(transition);
-     }
-     }
-     public static class SetStates{
-     private MultipleTriggerTransition transition;
-
-     public SetStates(MultipleTriggerTransition transition) {
-     this.transition = transition;
-     }
-     public SetSignal whenStatesAre(final String ... state){
-     State state1 = Arduino.getInstance().states().stream().filter(v -> v.getName().equals(state)).findFirst().orElseThrow(StateNotFoundException::new);
-     state1.setTransition(transition);
-     return new SetSignal(transition);
-     }
-     }
-
-     public static class SetSignal{
-     private MultipleTriggerTransition transition;
-
-     public SetSignal(MultipleTriggerTransition transition) {
-     this.transition = transition;
-     }
-     public NextState when(final SIGNAL signal){
-     for (int i = 0; i < transition.getSensors().size(); i++) {
-     transition.addSignal(signal);
-     }
-     return new NextState(transition);
-     }
-     public NextState when(final SIGNAL ... signal){
-     transition.getSignals().addAll(Arrays.asList(signal));
-     return new NextState(transition);
-     }
-     }
-
-     public static class NextState{
-     private Transition transition;
-
-     public NextState(Transition transition) {
-     this.transition = transition;
-     }
-
-     public Arduino goToState(final String state){
-     State state1 = Arduino.getInstance().states().stream().filter(v -> v.getName().equals(state)).findFirst().orElseThrow(StateNotFoundException::new);
-     transition.setNext(state1);
-     return Arduino.getInstance();
-     }
-     }**/
+        public Arduino goToState(final String state) {
+            State state1 = Arduino.getInstance().states().stream().filter(v -> v.getName().equals(state)).findFirst().orElseThrow(StateNotFoundException::new);
+            transition.setNext(state1);
+            return Arduino.getInstance();
+        }
+    }
 }

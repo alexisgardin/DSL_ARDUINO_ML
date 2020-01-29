@@ -10,7 +10,7 @@ import fr.unice.polytech.dsl.kernel.generator.Visitor;
 import fr.unice.polytech.dsl.kernel.structural.Actuator;
 import fr.unice.polytech.dsl.kernel.structural.Brick;
 import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
-import fr.unice.polytech.dsl.kernel.structural.Sensor;
+import fr.unice.polytech.dsl.kernel.structural.DigitalSensor;
 import fr.unice.polytech.dsl.setup.Setup;
 import fr.unice.polytech.dsl.setup.SetupAction;
 import fr.unice.polytech.dsl.setup.SetupTransition;
@@ -88,15 +88,19 @@ public class Arduino {
         return states.stream().filter(v -> v.getName().equals(state)).findFirst().orElseThrow(StateNotFoundException::new);
     }
 
-    public Sensor getSensor(String sensor) {
-        return (Sensor) brickList.stream().filter(v -> v.getName().equals(sensor)).findFirst().orElseThrow(BrickNotFoundException::new);
+    public DigitalSensor getSensor(String sensor) {
+        return (DigitalSensor) brickList.stream().filter(v -> v.getName().equals(sensor)).findFirst().orElseThrow(BrickNotFoundException::new);
     }
 
     public Actuator getActuator(String actuator) {
         return (Actuator) brickList.stream().filter(v -> v.getName().equals(actuator)).findFirst().orElseThrow(BrickNotFoundException::new);
     }
 
-    public SetupTransition.SetSignal whenSensor(String button1) {
-        return new SetupTransition().whenSensor(button1);
+    public SetupTransition.SetDigitalSignal whenDigitalSensor(String sensor) {
+        return new SetupTransition().whenDigitalSensor(sensor);
+    }
+
+    public SetupTransition.SetAnalogComparator whenAnalogSensor(String sensor) {
+        return new SetupTransition().whenAnalogSensor(sensor);
     }
 }

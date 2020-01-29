@@ -6,6 +6,8 @@ import fr.unice.polytech.dsl.kernel.behavioral.condition.MultipleElementConditio
 import fr.unice.polytech.dsl.kernel.behavioral.condition.SingleElementCondition;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.ValueElementCondition;
 import fr.unice.polytech.dsl.kernel.structural.Actuator;
+import fr.unice.polytech.dsl.kernel.structural.AnalogSensor;
+import fr.unice.polytech.dsl.kernel.structural.DigitalSensor;
 import fr.unice.polytech.dsl.kernel.structural.Sensor;
 
 import java.util.HashMap;

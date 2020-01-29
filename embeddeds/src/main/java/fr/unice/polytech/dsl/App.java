@@ -1,6 +1,7 @@
 package fr.unice.polytech.dsl;
 
 import fr.unice.polytech.dsl.builder.Arduino;
+import fr.unice.polytech.dsl.kernel.behavioral.condition.Comparator;
 
 import static fr.unice.polytech.dsl.builder.factory.BrickFactory.actuator;
 import static fr.unice.polytech.dsl.builder.factory.BrickFactory.sensor;
@@ -15,9 +16,24 @@ public class App {
         //dualCheckAlarm();
         //verySimpleAlarm();
        // stateBasedAlarm();
-        multiStateAlarm();
+        //multiStateAlarm();
+        temperatureBaseAlarm();
     }
 
+    public static void temperatureBaseAlarm(){
+        Arduino.setup(actuator("led", 12))
+                .and(sensor("temp", 9))
+                .and(actuator("buzz", 11))
+                .createState("highTemp", "lowTemp")
+                .createAction("AlarmOn", "led", HIGH)
+                .addRelatedAction("buzz", HIGH).bindToState("highTemp")
+                .createAction("AlarmOff", "led", LOW)
+                .addRelatedAction("buzz", LOW).bindToState("lowTemp")
+                .whenAnalogSensor("temp").are(Comparator.SUPERIOR).withValue(25).atState("lowTemp").goToState("highTemp")
+                .whenAnalogSensor("temp").are(Comparator.INFERIOR).withValue(25).atState("highTemp").goToState("lowTemp")
+                .run("lowTemp");
+
+    }
     public static void dualCheckAlarm(){
         Arduino.setup(actuator("led", 12)).and(actuator("buzzer", 8))
                 .and(sensor("button1", 9))
@@ -27,9 +43,9 @@ public class App {
                     .addRelatedAction("buzzer", HIGH).bindToState("work")
                 .createAction("AlarmOff", "led", LOW)
                     .addRelatedAction("buzzer", LOW).bindToState("notwork")
-                .whenSensor("button1").are(HIGH).and("button2").are(HIGH)
+                .whenDigitalSensor("button1").are(HIGH).and("button2").are(HIGH)
                 .atState("notwork").goToState("work")
-                .whenSensor("button1").are(LOW).or("button2").are(LOW).atState("work").goToState("notwork")
+                .whenDigitalSensor("button1").are(LOW).or("button2").are(LOW).atState("work").goToState("notwork")
                 .run("notwork");
     }
 
@@ -42,8 +58,8 @@ public class App {
                     .addRelatedAction("buzz", HIGH).bindToState("pressed")
                 .createAction("AlarmOff", "led", LOW)
                     .addRelatedAction("buzz", LOW).bindToState("unpress")
-                .whenSensor("button").are(HIGH).atState("unpress").goToState("pressed")
-                .whenSensor("button").are(LOW).atState("pressed").goToState("unpress")
+                .whenDigitalSensor("button").are(HIGH).atState("unpress").goToState("pressed")
+                .whenDigitalSensor("button").are(LOW).atState("pressed").goToState("unpress")
                 .run("unpress");
     }
 
@@ -53,8 +69,8 @@ public class App {
                 .createState("on", "off")
                 .createAction("LightOn", "led", HIGH).bindToState("on")
                 .createAction("LightOff", "led", LOW).bindToState("off")
-              .whenSensor("button").are(HIGH).atState("on").goToState("off")
-              .whenSensor("button").are(HIGH).atState("off").goToState("on")
+              .whenDigitalSensor("button").are(HIGH).atState("on").goToState("off")
+              .whenDigitalSensor("button").are(HIGH).atState("off").goToState("on")
                 .run("off");
     }
 
@@ -66,9 +82,9 @@ public class App {
                 .createAction("UpBuzzer", "buzzer", HIGH).addRelatedAction("led", LOW).bindToState("BuzzerOn")
                 .createAction("LedUp", "led", HIGH).addRelatedAction("buzzer", LOW).bindToState("LedOn")
                 .createAction("Off", "led", LOW).addRelatedAction("buzzer", LOW).bindToState("Off")
-                .whenSensor("button").are(HIGH).atState("Off").goToState("BuzzerOn")
-                .whenSensor("button").are(HIGH).atState("BuzzerOn").goToState("LedOn")
-                .whenSensor("button").are(HIGH).atState("LedOn").goToState("Off")
+                .whenDigitalSensor("button").are(HIGH).atState("Off").goToState("BuzzerOn")
+                .whenDigitalSensor("button").are(HIGH).atState("BuzzerOn").goToState("LedOn")
+                .whenDigitalSensor("button").are(HIGH).atState("LedOn").goToState("Off")
                 .run("Off");
     }
 }

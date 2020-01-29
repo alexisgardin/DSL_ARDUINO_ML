@@ -1,5 +1,6 @@
 package fr.unice.polytech.dsl.kernel.behavioral;
 
+import fr.unice.polytech.dsl.kernel.App;
 import fr.unice.polytech.dsl.kernel.NamedElement;
 import fr.unice.polytech.dsl.kernel.generator.Visitable;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
@@ -12,7 +13,7 @@ public class State implements NamedElement, Visitable {
     private String name;
     private List<Action> actions = new ArrayList<Action>();
     private Transition transition;
-
+    private App app;
     @Override
     public String getName() {
         return name;
@@ -42,5 +43,13 @@ public class State implements NamedElement, Visitable {
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
+    }
+
+    public App getApp() {
+        return app;
+    }
+
+    public void setApp(App app) {
+        this.app = app;
     }
 }

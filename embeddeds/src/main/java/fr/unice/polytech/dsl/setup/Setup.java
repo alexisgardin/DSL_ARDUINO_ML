@@ -1,7 +1,7 @@
 package fr.unice.polytech.dsl.setup;
 
 import fr.unice.polytech.dsl.builder.Arduino;
-import fr.unice.polytech.dsl.exception.builder.PinAlreadyUsedException;
+import fr.unice.polytech.dsl.exception.PinAlreadyUsedException;
 import fr.unice.polytech.dsl.kernel.structural.Brick;
 
 import static fr.unice.polytech.dsl.builder.factory.StateFactory.state;
