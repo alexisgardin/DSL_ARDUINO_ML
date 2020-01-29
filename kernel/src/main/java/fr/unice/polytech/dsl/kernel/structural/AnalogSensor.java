@@ -3,20 +3,11 @@ package fr.unice.polytech.dsl.kernel.structural;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
 
 public class AnalogSensor extends Sensor {
-    private int baud;
     private double mv = 1;
 
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
-    }
-
-    public int getBaud() {
-        return baud;
-    }
-
-    public void setBaud(int baud) {
-        this.baud = baud;
     }
 
     public double getMv() {

@@ -9,8 +9,10 @@ import fr.unice.polytech.dsl.kernel.behavioral.condition.Comparator;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.MultipleElementCondition;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.SingleElementCondition;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.ValueElementCondition;
+import fr.unice.polytech.dsl.kernel.structural.AnalogSensor;
 import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
 import fr.unice.polytech.dsl.kernel.structural.DigitalSensor;
+import fr.unice.polytech.dsl.kernel.structural.Sensor;
 
 public class SetupTransition {
     private Transition transition;
@@ -20,18 +22,18 @@ public class SetupTransition {
     }
 
     public SetDigitalSignal whenDigitalSensor(String string) {
-        return new SetDigitalSignal(transition, Arduino.getInstance().getSensor(string));
+        return new SetDigitalSignal(transition, (DigitalSensor) Arduino.getInstance().getSensor(string));
     }
 
     public SetAnalogComparator whenAnalogSensor(String string) {
-        return new SetAnalogComparator(transition, Arduino.getInstance().getSensor(string));
+        return new SetAnalogComparator(transition, (AnalogSensor) Arduino.getInstance().getSensor(string));
     }
 
     public static class SetAnalogComparator{
         private Transition transition;
-        private DigitalSensor sensor;
+        private AnalogSensor sensor;
 
-        public SetAnalogComparator(Transition transition, DigitalSensor sensor) {
+        public SetAnalogComparator(Transition transition, AnalogSensor sensor) {
             this.transition = transition;
             this.sensor = sensor;
         }
@@ -84,6 +86,11 @@ public class SetupTransition {
             valueElementCondition.setValue(value);
             return new SetCondition(transition);
         }
+        public SetCondition withValue(Number value, double multiplicator) {
+            valueElementCondition.setValue(value);
+            valueElementCondition.getSensor().setMv(multiplicator);
+            return new SetCondition(transition);
+        }
     }
 
     public static class SetCondition {
@@ -93,16 +100,28 @@ public class SetupTransition {
             this.transition = transition;
         }
 
-        public SetDigitalSignal and(String sensor) {
-            DigitalSensor sensor1 = manageCondition(sensor);
+        public SetDigitalSignal andDigital(String sensor) {
+            Sensor sensor1 = manageCondition(sensor);
             ((MultipleElementCondition) transition.getCondition()).addOperator(Operator.AND);
-            return new SetDigitalSignal(transition, sensor1);
+            return new SetDigitalSignal(transition, (DigitalSensor) sensor1);
         }
 
-        public SetDigitalSignal or(String sensor) {
-            DigitalSensor sensor1 = manageCondition(sensor);
+        public SetDigitalSignal orDigital(String sensor) {
+            Sensor sensor1 = manageCondition(sensor);
             ((MultipleElementCondition) transition.getCondition()).addOperator(Operator.OR);
-            return new SetDigitalSignal(transition, sensor1);
+            return new SetDigitalSignal(transition, (DigitalSensor) sensor1);
+        }
+
+        public SetAnalogComparator andAnalog(String sensor) {
+            Sensor sensor1 = manageCondition(sensor);
+            ((MultipleElementCondition) transition.getCondition()).addOperator(Operator.AND);
+            return new SetAnalogComparator(transition, (AnalogSensor) sensor1);
+        }
+
+        public SetAnalogComparator orAnalog(String sensor) {
+            Sensor sensor1 = manageCondition(sensor);
+            ((MultipleElementCondition) transition.getCondition()).addOperator(Operator.OR);
+            return new SetAnalogComparator(transition, (AnalogSensor) sensor1);
         }
 
         public SetCondition group() {
@@ -118,8 +137,8 @@ public class SetupTransition {
             return new SetState(transition).atState(state);
         }
 
-        private DigitalSensor manageCondition(String sensor) {
-            DigitalSensor sensor1 = Arduino.getInstance().getSensor(sensor);
+        private Sensor manageCondition(String sensor) {
+            Sensor sensor1 = Arduino.getInstance().getSensor(sensor);
             if (transition.getCondition().isSingle()) {
                 MultipleElementCondition multipleElementCondition = new MultipleElementCondition();
                 multipleElementCondition.addCondition(transition.getCondition());

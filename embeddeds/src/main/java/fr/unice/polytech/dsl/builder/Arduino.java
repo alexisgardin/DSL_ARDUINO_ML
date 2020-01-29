@@ -7,10 +7,7 @@ import fr.unice.polytech.dsl.kernel.behavioral.Action;
 import fr.unice.polytech.dsl.kernel.behavioral.State;
 import fr.unice.polytech.dsl.kernel.generator.ToWiring;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
-import fr.unice.polytech.dsl.kernel.structural.Actuator;
-import fr.unice.polytech.dsl.kernel.structural.Brick;
-import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
-import fr.unice.polytech.dsl.kernel.structural.DigitalSensor;
+import fr.unice.polytech.dsl.kernel.structural.*;
 import fr.unice.polytech.dsl.setup.Setup;
 import fr.unice.polytech.dsl.setup.SetupAction;
 import fr.unice.polytech.dsl.setup.SetupTransition;
@@ -88,8 +85,8 @@ public class Arduino {
         return states.stream().filter(v -> v.getName().equals(state)).findFirst().orElseThrow(StateNotFoundException::new);
     }
 
-    public DigitalSensor getSensor(String sensor) {
-        return (DigitalSensor) brickList.stream().filter(v -> v.getName().equals(sensor)).findFirst().orElseThrow(BrickNotFoundException::new);
+    public Sensor getSensor(String sensor) {
+        return (Sensor) brickList.stream().filter(v -> v.getName().equals(sensor)).findFirst().orElseThrow(BrickNotFoundException::new);
     }
 
     public Actuator getActuator(String actuator) {

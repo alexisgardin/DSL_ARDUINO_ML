@@ -40,7 +40,7 @@ public class ToWiring extends Visitor<StringBuffer> {
         w(String.format("// Application name: %s\n", app.getName()));
 
         w("void setup(){");
-        for (Brick brick : app.getBricks().stream().filter(Brick::isDigital).collect(Collectors.toList())) {
+        for (Brick brick : app.getBricks()) {
             brick.accept(this);
         }
         w("}\n");
