@@ -8,7 +8,6 @@ import fr.unice.polytech.dsl.kernel.behavioral.condition.ValueElementCondition;
 import fr.unice.polytech.dsl.kernel.structural.*;
 
 import java.util.Locale;
-import java.util.stream.Collectors;
 
 /**
  * Quick and dirty visitor to support the generation of Wiring code
@@ -61,13 +60,13 @@ public class ToWiring extends Visitor<StringBuffer> {
 
     @Override
     public void visit(Actuator actuator) {
-        w(String.format("  pinMode(%d, OUTPUT); // %s [Actuator]", actuator.getPin(), actuator.getName()));
+        w(String.format("  pinMode(%s, OUTPUT); // %s [Actuator]", actuator.getPin(), actuator.getName()));
     }
 
 
     @Override
     public void visit(Sensor sensor) {
-        w(String.format("  pinMode(%d, INPUT);  // %s [Sensor]", sensor.getPin(), sensor.getName()));
+        w(String.format("  pinMode(%s, INPUT);  // %s [Sensor]", sensor.getPin(), sensor.getName()));
     }
 
     @Override
@@ -88,14 +87,14 @@ public class ToWiring extends Visitor<StringBuffer> {
 
     @Override
     public void visit(SingleElementCondition singleElementCondition) {
-        ws(String.format("digitalRead(%d) == %s", singleElementCondition.getSensor().getPin(), singleElementCondition.getSignal()));
+        ws(String.format("digitalRead(%s) == %s", singleElementCondition.getSensor().getPin(), singleElementCondition.getSignal()));
     }
 
     @Override
     public void visit(ValueElementCondition valueElementCondition) {
-        ws(String.format(Locale.US,"analogRead(%d)*%1f %s %s",
+        ws(String.format(Locale.US,"analogRead(%s)*%1f %s %s",
                 valueElementCondition.getSensor().getPin(),
-                valueElementCondition.getSensor().getMv(), valueElementCondition.getComparator().getValue(),
+                valueElementCondition.getSensor().getFactor(), valueElementCondition.getComparator().getValue(),
                 valueElementCondition.getValue().toString()));
 
 
@@ -132,7 +131,7 @@ public class ToWiring extends Visitor<StringBuffer> {
 
     @Override
     public void visit(Action action) {
-        w(String.format("  digitalWrite(%d,%s);", action.getActuator().getPin(), action.getValue()));
+        w(String.format("  digitalWrite(%s,%s);", action.getActuator().getPin(), action.getValue()));
     }
 
 

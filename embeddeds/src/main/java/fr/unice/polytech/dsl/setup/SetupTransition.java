@@ -88,7 +88,7 @@ public class SetupTransition {
         }
         public SetCondition withValue(Number value, double multiplicator) {
             valueElementCondition.setValue(value);
-            valueElementCondition.getSensor().setMv(multiplicator);
+            valueElementCondition.getSensor().setFactor(multiplicator);
             return new SetCondition(transition);
         }
     }

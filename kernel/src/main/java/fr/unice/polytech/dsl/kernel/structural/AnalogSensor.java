@@ -3,19 +3,19 @@ package fr.unice.polytech.dsl.kernel.structural;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
 
 public class AnalogSensor extends Sensor {
-    private double mv = 1;
+    private double factor = 1;
 
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
-    public double getMv() {
-        return mv;
+    public double getFactor() {
+        return factor;
     }
 
-    public void setMv(double mv) {
-        this.mv = mv;
+    public void setFactor(double factor) {
+        this.factor = factor;
     }
 
     @Override

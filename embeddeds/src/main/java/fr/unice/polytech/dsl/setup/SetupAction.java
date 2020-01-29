@@ -31,16 +31,6 @@ public class SetupAction {
     }
 
 
-    public static Bind createAction(String nameOfAction, int pin, SIGNAL signal) {
-        Optional<Brick> first = Arduino.getInstance().bricks().stream().filter(v -> v.getPin() == pin).findFirst();
-        if (first.isPresent()) {
-            Action action = action((Actuator) first.get(), signal, nameOfAction);
-            Arduino.getInstance().actions().add(action);
-            return new Bind(action);
-        } else {
-            throw new BrickNotFoundException();
-        }
-    }
 
 
     public static class Bind {
@@ -63,7 +53,7 @@ public class SetupAction {
 
         public Bind addRelatedAction(final String nameOfBrick, final SIGNAL signal) {
             Optional<Brick> first = Arduino.getInstance().bricks().stream().filter(v -> v.getName().equals(nameOfBrick)).findFirst();
-            if(actions.isEmpty()){
+            if (actions.isEmpty()) {
                 throw new NoActionDefineException();
             }
             if (first.isPresent()) {

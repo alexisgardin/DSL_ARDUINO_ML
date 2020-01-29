@@ -6,13 +6,13 @@ import fr.unice.polytech.dsl.kernel.generator.Visitable;
 public abstract class Brick implements NamedElement, Visitable {
 
     private String name;
-    private int pin;
+    private String pin;
 
-    public int getPin() {
+    public String getPin() {
         return pin;
     }
 
-    public void setPin(int pin) {
+    public void setPin(String pin) {
         this.pin = pin;
     }
 

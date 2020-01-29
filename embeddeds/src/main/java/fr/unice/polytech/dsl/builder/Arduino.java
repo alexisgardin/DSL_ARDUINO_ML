@@ -61,10 +61,6 @@ public class Arduino {
 
     }
 
-    public SetupAction.Bind createAction(String nameOfAction, int pin, SIGNAL signal) {
-        return SetupAction.createAction(nameOfAction, pin, signal);
-    }
-
 
     public void run(final String initialState) {
         // Building the App
