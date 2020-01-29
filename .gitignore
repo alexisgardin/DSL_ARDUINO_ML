@@ -77,3 +77,4 @@ nb-configuration.xml
 ##############################
 .DS_Store
 kernel/.idea/
+runtime-EclipseApplication
