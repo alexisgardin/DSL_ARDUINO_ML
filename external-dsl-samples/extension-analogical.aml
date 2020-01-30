@@ -1,0 +1,16 @@
+App 'Extension'
+	sensors :
+		binary :
+			'button' -> 15
+		analog :
+			'temp_captor' -> 12
+	actuators :
+		'led' -> 9
+	states :
+		'off':
+			led -> LOW
+			if button is HIGH and temp_captor > 35 -> 'on'
+		'on':
+			led -> HIGH
+			if button is LOW -> 'off'
+	initial off

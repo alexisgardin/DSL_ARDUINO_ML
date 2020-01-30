@@ -1,0 +1,14 @@
+App 'Extension'
+	sensors :
+		analog :
+			'temp_captor' -> 12
+	actuators :
+		'buzzer' -> 9
+	states :
+		'off':
+			buzzer -> LOW
+			if temp_captor > 57 -> 'on'
+		'on':
+			buzzer -> HIGH
+			if temp_captor < 57 -> 'off'
+	initial off

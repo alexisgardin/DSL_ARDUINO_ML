@@ -1,0 +1,14 @@
+App 'StateBasedAlarm'
+	sensors :
+		binary :
+			'button' -> 12
+	actuators :
+		'led' -> 9
+	states :
+		'off':
+			led -> LOW
+			if button is HIGH-> 'on'
+		'on':
+			led -> HIGH
+			if button is HIGH -> 'off'
+	initial off
