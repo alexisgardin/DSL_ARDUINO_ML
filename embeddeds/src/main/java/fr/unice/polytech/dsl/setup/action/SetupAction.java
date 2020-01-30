@@ -27,5 +27,16 @@ public class SetupAction {
             throw new BrickNotFoundException();
         }
     }
+    public static SetBindingAction createAction(String nameOfAction, String nameOfBrick, int value) {
+        Optional<Brick> first = Arduino.getInstance().bricks().stream().filter(v -> v.getName().equals(nameOfBrick)).findFirst();
+        if (first.isPresent()) {
+
+            Action action = action((Actuator) first.get(), value, nameOfAction);
+            Arduino.getInstance().actions().add(action);
+            return new SetBindingAction(action);
+        } else {
+            throw new BrickNotFoundException();
+        }
+    }
 
 }

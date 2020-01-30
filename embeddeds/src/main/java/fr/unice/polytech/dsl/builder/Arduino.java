@@ -66,6 +66,10 @@ public class Arduino {
         return SetupAction.createAction(nameOfAction, nameOfBrick, signal);
 
     }
+    public SetBindingAction createActionWithAnalogValue(String nameOfAction, String nameOfBrick, int value) {
+        return SetupAction.createAction(nameOfAction, nameOfBrick, value);
+
+    }
 
 
     public void run(final String initialState) {

@@ -1,17 +1,11 @@
 package fr.unice.polytech.dsl.kernel.samples;
 
 import fr.unice.polytech.dsl.kernel.App;
-import fr.unice.polytech.dsl.kernel.behavioral.Action;
-import fr.unice.polytech.dsl.kernel.behavioral.Operator;
-import fr.unice.polytech.dsl.kernel.behavioral.State;
-import fr.unice.polytech.dsl.kernel.behavioral.Transition;
+import fr.unice.polytech.dsl.kernel.behavioral.*;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.*;
 import fr.unice.polytech.dsl.kernel.generator.ToWiring;
 import fr.unice.polytech.dsl.kernel.generator.Visitor;
-import fr.unice.polytech.dsl.kernel.structural.Actuator;
-import fr.unice.polytech.dsl.kernel.structural.AnalogSensor;
-import fr.unice.polytech.dsl.kernel.structural.SIGNAL;
-import fr.unice.polytech.dsl.kernel.structural.DigitalSensor;
+import fr.unice.polytech.dsl.kernel.structural.*;
 
 import java.util.Arrays;
 
@@ -29,7 +23,7 @@ public class Switch {
         button.setName("button");
         button.setPin("9");
 
-        Actuator led = new Actuator();
+        Actuator led = new DigitalActuator();
         led.setName("LED");
         led.setPin("12");
 
@@ -41,11 +35,11 @@ public class Switch {
         off.setName("off");
 
         // Creating actions
-        Action switchTheLightOn = new Action();
+        DigitalAction switchTheLightOn = new DigitalAction();
         switchTheLightOn.setActuator(led);
         switchTheLightOn.setValue(SIGNAL.HIGH);
 
-        Action switchTheLightOff = new Action();
+        DigitalAction switchTheLightOff = new DigitalAction();
         switchTheLightOff.setActuator(led);
         switchTheLightOff.setValue(SIGNAL.LOW);
 
@@ -104,7 +98,7 @@ public class Switch {
         temp.setName("temp");
         temp.setPin("15");
 
-        Actuator led = new Actuator();
+        Actuator led = new DigitalActuator();
         led.setName("LED");
         led.setPin("12");
 
@@ -116,11 +110,11 @@ public class Switch {
         off.setName("off");
 
         // Creating actions
-        Action switchTheLightOn = new Action();
+        DigitalAction switchTheLightOn = new DigitalAction();
         switchTheLightOn.setActuator(led);
         switchTheLightOn.setValue(SIGNAL.HIGH);
 
-        Action switchTheLightOff = new Action();
+        DigitalAction switchTheLightOff = new DigitalAction();
         switchTheLightOff.setActuator(led);
         switchTheLightOff.setValue(SIGNAL.LOW);
 

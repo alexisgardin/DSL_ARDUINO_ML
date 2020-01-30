@@ -1,8 +1,6 @@
 package fr.unice.polytech.dsl.builder.factory;
 
-import fr.unice.polytech.dsl.kernel.structural.Actuator;
-import fr.unice.polytech.dsl.kernel.structural.AnalogSensor;
-import fr.unice.polytech.dsl.kernel.structural.DigitalSensor;
+import fr.unice.polytech.dsl.kernel.structural.*;
 
 public class BrickFactory {
     public static DigitalSensor digitalSensor(String name, int pin){
@@ -47,10 +45,31 @@ public class BrickFactory {
         return analogSensor;
     }
 
-    public static Actuator actuator(String name, int pin){
-        Actuator actuator = new Actuator();
+    public static DigitalActuator digitalActuator(String name, int pin){
+        DigitalActuator actuator = new DigitalActuator();
         actuator.setName(name);
         actuator.setPin(Integer.toString(pin));
+        return actuator;
+    }
+
+    public static AnalogActuator analogActuator(String name, int pin){
+        AnalogActuator actuator = new AnalogActuator();
+        actuator.setName(name);
+        actuator.setPin(Integer.toString(pin));
+        return actuator;
+    }
+
+    public static DigitalActuator digitalActuator(String name, String pin){
+        DigitalActuator actuator = new DigitalActuator();
+        actuator.setName(name);
+        actuator.setPin(pin);
+        return actuator;
+    }
+
+    public static AnalogActuator analogActuator(String name, String pin){
+        AnalogActuator actuator = new AnalogActuator();
+        actuator.setName(name);
+        actuator.setPin(pin);
         return actuator;
     }
 }

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>fr.unice.polytech.dsl.kernel</OriginalElement>
+  <nodes>
+    <node x="312.0" y="341.0">fr.unice.polytech.dsl.kernel.behavioral.Operator</node>
+    <node x="368.54166666666663" y="188.0">fr.unice.polytech.dsl.kernel.structural.Actuator</node>
+    <node x="756.5416666666666" y="109.0">fr.unice.polytech.dsl.kernel.behavioral.condition.Condition</node>
+    <node x="149.0" y="341.0">fr.unice.polytech.dsl.kernel.behavioral.condition.Comparator</node>
+    <node x="461.0" y="341.0">fr.unice.polytech.dsl.kernel.structural.SIGNAL</node>
+    <node x="109.75" y="109.0">fr.unice.polytech.dsl.kernel.behavioral.Action</node>
+    <node x="0.0" y="109.0">fr.unice.polytech.dsl.kernel.behavioral.State</node>
+    <node x="277.54166666666663" y="0.0">fr.unice.polytech.dsl.kernel.generator.Visitable</node>
+    <node x="224.49999999999997" y="109.0">fr.unice.polytech.dsl.kernel.App</node>
+    <node x="159.79166666666663" y="267.0">fr.unice.polytech.dsl.kernel.structural.AnalogSensor</node>
+    <node x="714.5416666666666" y="188.0">fr.unice.polytech.dsl.kernel.behavioral.condition.ValueElementCondition</node>
+    <node x="929.5416666666666" y="188.0">fr.unice.polytech.dsl.kernel.behavioral.condition.MultipleElementCondition</node>
+    <node x="118.25" y="0.0">fr.unice.polytech.dsl.kernel.NamedElement</node>
+    <node x="492.54166666666663" y="188.0">fr.unice.polytech.dsl.kernel.behavioral.condition.SingleElementCondition</node>
+    <node x="311.79166666666663" y="267.0">fr.unice.polytech.dsl.kernel.structural.DigitalSensor</node>
+    <node x="313.5" y="109.0">fr.unice.polytech.dsl.kernel.structural.Brick</node>
+    <node x="258.54166666666663" y="188.0">fr.unice.polytech.dsl.kernel.structural.Sensor</node>
+    <node x="-9.01861572265625" y="184.51730346679688">fr.unice.polytech.dsl.kernel.generator.Visitor</node>
+    <node x="-12.51861572265625" y="263.5173034667969">fr.unice.polytech.dsl.kernel.generator.ToWiring</node>
+    <node x="887.5416666666666" y="109.0">fr.unice.polytech.dsl.kernel.behavioral.Transition</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="fr.unice.polytech.dsl.kernel.App" target="fr.unice.polytech.dsl.kernel.generator.Visitable">
+      <point x="17.25" y="-14.5" />
+      <point x="276.25" y="89.0" />
+      <point x="323.79166666666663" y="89.0" />
+      <point x="-9.25" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.structural.Sensor" target="fr.unice.polytech.dsl.kernel.structural.Brick">
+      <point x="0.0" y="-14.5" />
+      <point x="303.54166666666663" y="163.0" />
+      <point x="334.25" y="163.0" />
+      <point x="-20.75" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.structural.Actuator" target="fr.unice.polytech.dsl.kernel.structural.Brick">
+      <point x="0.0" y="-14.5" />
+      <point x="420.54166666666663" y="163.0" />
+      <point x="375.75" y="163.0" />
+      <point x="20.75" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.behavioral.State" target="fr.unice.polytech.dsl.kernel.generator.Visitable">
+      <point x="20.75" y="-14.5" />
+      <point x="62.25" y="69.0" />
+      <point x="286.79166666666663" y="69.0" />
+      <point x="-46.25" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.behavioral.condition.SingleElementCondition" target="fr.unice.polytech.dsl.kernel.behavioral.condition.Condition">
+      <point x="0.0" y="-14.5" />
+      <point x="593.5416666666666" y="163.0" />
+      <point x="775.0416666666666" y="163.0" />
+      <point x="-37.0" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.behavioral.State" target="fr.unice.polytech.dsl.kernel.NamedElement">
+      <point x="-20.75" y="-14.5" />
+      <point x="20.75" y="49.0" />
+      <point x="134.75" y="49.0" />
+      <point x="-49.5" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.structural.DigitalSensor" target="fr.unice.polytech.dsl.kernel.structural.Sensor">
+      <point x="0.0" y="-14.5" />
+      <point x="381.29166666666663" y="242.0" />
+      <point x="326.04166666666663" y="242.0" />
+      <point x="22.5" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.behavioral.Action" target="fr.unice.polytech.dsl.kernel.generator.Visitable">
+      <point x="22.5" y="-14.5" />
+      <point x="177.25" y="79.0" />
+      <point x="305.29166666666663" y="79.0" />
+      <point x="-27.75" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.App" target="fr.unice.polytech.dsl.kernel.NamedElement">
+      <point x="-17.25" y="-14.5" />
+      <point x="241.74999999999997" y="59.0" />
+      <point x="200.75" y="59.0" />
+      <point x="16.5" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.structural.Brick" target="fr.unice.polytech.dsl.kernel.generator.Visitable">
+      <point x="20.75" y="-14.5" />
+      <point x="375.75" y="89.0" />
+      <point x="342.29166666666663" y="89.0" />
+      <point x="9.25" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.generator.ToWiring" target="fr.unice.polytech.dsl.kernel.generator.Visitor">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.structural.AnalogSensor" target="fr.unice.polytech.dsl.kernel.structural.Sensor">
+      <point x="0.0" y="-14.5" />
+      <point x="225.79166666666663" y="242.0" />
+      <point x="281.04166666666663" y="242.0" />
+      <point x="-22.5" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.behavioral.condition.Condition" target="fr.unice.polytech.dsl.kernel.generator.Visitable">
+      <point x="0.0" y="-14.5" />
+      <point x="812.0416666666666" y="79.0" />
+      <point x="360.79166666666663" y="79.0" />
+      <point x="27.75" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.behavioral.condition.MultipleElementCondition" target="fr.unice.polytech.dsl.kernel.behavioral.condition.Condition">
+      <point x="0.0" y="-14.5" />
+      <point x="1037.5416666666665" y="163.0" />
+      <point x="849.0416666666666" y="163.0" />
+      <point x="37.0" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.behavioral.Action" target="fr.unice.polytech.dsl.kernel.NamedElement">
+      <point x="-22.5" y="-14.5" />
+      <point x="132.25" y="59.0" />
+      <point x="167.75" y="59.0" />
+      <point x="-16.5" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.behavioral.Transition" target="fr.unice.polytech.dsl.kernel.generator.Visitable">
+      <point x="0.0" y="-14.5" />
+      <point x="946.5416666666666" y="69.0" />
+      <point x="379.29166666666663" y="69.0" />
+      <point x="46.25" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.structural.Brick" target="fr.unice.polytech.dsl.kernel.NamedElement">
+      <point x="-20.75" y="-14.5" />
+      <point x="334.25" y="49.0" />
+      <point x="233.75" y="49.0" />
+      <point x="49.5" y="14.5" />
+    </edge>
+    <edge source="fr.unice.polytech.dsl.kernel.behavioral.condition.ValueElementCondition" target="fr.unice.polytech.dsl.kernel.behavioral.condition.Condition">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7988103654225884" x="585.3858947753906" y="140.3567657470703" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

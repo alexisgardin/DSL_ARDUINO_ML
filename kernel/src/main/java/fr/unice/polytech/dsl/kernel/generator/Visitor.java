@@ -5,10 +5,7 @@ import fr.unice.polytech.dsl.kernel.behavioral.*;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.MultipleElementCondition;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.SingleElementCondition;
 import fr.unice.polytech.dsl.kernel.behavioral.condition.ValueElementCondition;
-import fr.unice.polytech.dsl.kernel.structural.Actuator;
-import fr.unice.polytech.dsl.kernel.structural.AnalogSensor;
-import fr.unice.polytech.dsl.kernel.structural.DigitalSensor;
-import fr.unice.polytech.dsl.kernel.structural.Sensor;
+import fr.unice.polytech.dsl.kernel.structural.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +25,8 @@ public abstract class Visitor<T> {
 
     public abstract void visit(Transition transition);
 
-    public abstract void visit(Action action);
+    public abstract void visit(DigitalAction action);
+    public abstract void visit(AnalogAction action);
 
     public abstract void visit(Actuator actuator);
 
