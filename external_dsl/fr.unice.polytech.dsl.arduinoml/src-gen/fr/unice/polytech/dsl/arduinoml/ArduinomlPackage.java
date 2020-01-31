@@ -270,22 +270,13 @@ public interface ArduinomlPackage extends EPackage {
 	int ACTION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__VALUE = 0;
-
-	/**
 	 * The feature id for the '<em><b>Actuator</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION__ACTUATOR = 1;
+	int ACTION__ACTUATOR = 0;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -294,7 +285,7 @@ public interface ArduinomlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 2;
+	int ACTION_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Action</em>' class.
@@ -711,6 +702,190 @@ public interface ArduinomlPackage extends EPackage {
 	int ANALOG_SENSOR_OPERATION_COUNT = SENSOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.impl.AnalogActuatorImpl <em>Analog Actuator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.AnalogActuatorImpl
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getAnalogActuator()
+	 * @generated
+	 */
+	int ANALOG_ACTUATOR = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG_ACTUATOR__NAME = ACTUATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Pin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG_ACTUATOR__PIN = ACTUATOR__PIN;
+
+	/**
+	 * The number of structural features of the '<em>Analog Actuator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG_ACTUATOR_FEATURE_COUNT = ACTUATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Analog Actuator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG_ACTUATOR_OPERATION_COUNT = ACTUATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.impl.BinaryActuatorImpl <em>Binary Actuator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.BinaryActuatorImpl
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getBinaryActuator()
+	 * @generated
+	 */
+	int BINARY_ACTUATOR = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_ACTUATOR__NAME = ACTUATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Pin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_ACTUATOR__PIN = ACTUATOR__PIN;
+
+	/**
+	 * The number of structural features of the '<em>Binary Actuator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_ACTUATOR_FEATURE_COUNT = ACTUATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Binary Actuator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_ACTUATOR_OPERATION_COUNT = ACTUATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.impl.AnalogActionImpl <em>Analog Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.AnalogActionImpl
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getAnalogAction()
+	 * @generated
+	 */
+	int ANALOG_ACTION = 16;
+
+	/**
+	 * The feature id for the '<em><b>Actuator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG_ACTION__ACTUATOR = ACTION__ACTUATOR;
+
+	/**
+	 * The feature id for the '<em><b>Action Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG_ACTION__ACTION_VALUE = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Analog Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG_ACTION_FEATURE_COUNT = ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Analog Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALOG_ACTION_OPERATION_COUNT = ACTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.impl.BinaryActionImpl <em>Binary Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.BinaryActionImpl
+	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getBinaryAction()
+	 * @generated
+	 */
+	int BINARY_ACTION = 17;
+
+	/**
+	 * The feature id for the '<em><b>Actuator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_ACTION__ACTUATOR = ACTION__ACTUATOR;
+
+	/**
+	 * The feature id for the '<em><b>Action Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_ACTION__ACTION_VALUE = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Binary Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_ACTION_FEATURE_COUNT = ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Binary Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_ACTION_OPERATION_COUNT = ACTION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.SIGNAL <em>SIGNAL</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -718,7 +893,7 @@ public interface ArduinomlPackage extends EPackage {
 	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getSIGNAL()
 	 * @generated
 	 */
-	int SIGNAL = 14;
+	int SIGNAL = 18;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.OPERATOR <em>OPERATOR</em>}' enum.
@@ -728,7 +903,7 @@ public interface ArduinomlPackage extends EPackage {
 	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getOPERATOR()
 	 * @generated
 	 */
-	int OPERATOR = 15;
+	int OPERATOR = 19;
 
 	/**
 	 * The meta object id for the '{@link fr.unice.polytech.dsl.arduinoml.COMPARATOR <em>COMPARATOR</em>}' enum.
@@ -738,7 +913,7 @@ public interface ArduinomlPackage extends EPackage {
 	 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getCOMPARATOR()
 	 * @generated
 	 */
-	int COMPARATOR = 16;
+	int COMPARATOR = 20;
 
 	/**
 	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.NamedElement <em>Named Element</em>}'.
@@ -866,17 +1041,6 @@ public interface ArduinomlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAction();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.unice.polytech.dsl.arduinoml.Action#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see fr.unice.polytech.dsl.arduinoml.Action#getValue()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_Value();
 
 	/**
 	 * Returns the meta object for the reference '{@link fr.unice.polytech.dsl.arduinoml.Action#getActuator <em>Actuator</em>}'.
@@ -1079,6 +1243,68 @@ public interface ArduinomlPackage extends EPackage {
 	EClass getAnalogSensor();
 
 	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.AnalogActuator <em>Analog Actuator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Analog Actuator</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.AnalogActuator
+	 * @generated
+	 */
+	EClass getAnalogActuator();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.BinaryActuator <em>Binary Actuator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binary Actuator</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.BinaryActuator
+	 * @generated
+	 */
+	EClass getBinaryActuator();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.AnalogAction <em>Analog Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Analog Action</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.AnalogAction
+	 * @generated
+	 */
+	EClass getAnalogAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.dsl.arduinoml.AnalogAction#getActionValue <em>Action Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Action Value</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.AnalogAction#getActionValue()
+	 * @see #getAnalogAction()
+	 * @generated
+	 */
+	EAttribute getAnalogAction_ActionValue();
+
+	/**
+	 * Returns the meta object for class '{@link fr.unice.polytech.dsl.arduinoml.BinaryAction <em>Binary Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binary Action</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.BinaryAction
+	 * @generated
+	 */
+	EClass getBinaryAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.unice.polytech.dsl.arduinoml.BinaryAction#getActionValue <em>Action Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Action Value</em>'.
+	 * @see fr.unice.polytech.dsl.arduinoml.BinaryAction#getActionValue()
+	 * @see #getBinaryAction()
+	 * @generated
+	 */
+	EAttribute getBinaryAction_ActionValue();
+
+	/**
 	 * Returns the meta object for enum '{@link fr.unice.polytech.dsl.arduinoml.SIGNAL <em>SIGNAL</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1236,14 +1462,6 @@ public interface ArduinomlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ACTION = eINSTANCE.getAction();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__VALUE = eINSTANCE.getAction_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Actuator</b></em>' reference feature.
@@ -1414,6 +1632,62 @@ public interface ArduinomlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ANALOG_SENSOR = eINSTANCE.getAnalogSensor();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.impl.AnalogActuatorImpl <em>Analog Actuator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.AnalogActuatorImpl
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getAnalogActuator()
+		 * @generated
+		 */
+		EClass ANALOG_ACTUATOR = eINSTANCE.getAnalogActuator();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.impl.BinaryActuatorImpl <em>Binary Actuator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.BinaryActuatorImpl
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getBinaryActuator()
+		 * @generated
+		 */
+		EClass BINARY_ACTUATOR = eINSTANCE.getBinaryActuator();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.impl.AnalogActionImpl <em>Analog Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.AnalogActionImpl
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getAnalogAction()
+		 * @generated
+		 */
+		EClass ANALOG_ACTION = eINSTANCE.getAnalogAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Action Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALOG_ACTION__ACTION_VALUE = eINSTANCE.getAnalogAction_ActionValue();
+
+		/**
+		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.impl.BinaryActionImpl <em>Binary Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.BinaryActionImpl
+		 * @see fr.unice.polytech.dsl.arduinoml.impl.ArduinomlPackageImpl#getBinaryAction()
+		 * @generated
+		 */
+		EClass BINARY_ACTION = eINSTANCE.getBinaryAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Action Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINARY_ACTION__ACTION_VALUE = eINSTANCE.getBinaryAction_ActionValue();
 
 		/**
 		 * The meta object literal for the '{@link fr.unice.polytech.dsl.arduinoml.SIGNAL <em>SIGNAL</em>}' enum.

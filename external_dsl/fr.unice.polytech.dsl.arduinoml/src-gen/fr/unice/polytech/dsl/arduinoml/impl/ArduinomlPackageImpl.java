@@ -4,10 +4,14 @@ package fr.unice.polytech.dsl.arduinoml.impl;
 
 import fr.unice.polytech.dsl.arduinoml.Action;
 import fr.unice.polytech.dsl.arduinoml.Actuator;
+import fr.unice.polytech.dsl.arduinoml.AnalogAction;
+import fr.unice.polytech.dsl.arduinoml.AnalogActuator;
 import fr.unice.polytech.dsl.arduinoml.AnalogSensor;
 import fr.unice.polytech.dsl.arduinoml.App;
 import fr.unice.polytech.dsl.arduinoml.ArduinomlFactory;
 import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
+import fr.unice.polytech.dsl.arduinoml.BinaryAction;
+import fr.unice.polytech.dsl.arduinoml.BinaryActuator;
 import fr.unice.polytech.dsl.arduinoml.BinarySensor;
 import fr.unice.polytech.dsl.arduinoml.Brick;
 import fr.unice.polytech.dsl.arduinoml.Condition;
@@ -131,6 +135,34 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 	 * @generated
 	 */
 	private EClass analogSensorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass analogActuatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass binaryActuatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass analogActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass binaryActionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -330,17 +362,8 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAction_Value() {
-		return (EAttribute) actionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getAction_Actuator() {
-		return (EReference) actionEClass.getEStructuralFeatures().get(1);
+		return (EReference) actionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -510,6 +533,60 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAnalogActuator() {
+		return analogActuatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBinaryActuator() {
+		return binaryActuatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnalogAction() {
+		return analogActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnalogAction_ActionValue() {
+		return (EAttribute) analogActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBinaryAction() {
+		return binaryActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBinaryAction_ActionValue() {
+		return (EAttribute) binaryActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getSIGNAL() {
 		return signalEEnum;
 	}
@@ -577,7 +654,6 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 		createEAttribute(brickEClass, BRICK__PIN);
 
 		actionEClass = createEClass(ACTION);
-		createEAttribute(actionEClass, ACTION__VALUE);
 		createEReference(actionEClass, ACTION__ACTUATOR);
 
 		transitionEClass = createEClass(TRANSITION);
@@ -606,6 +682,16 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 		binarySensorEClass = createEClass(BINARY_SENSOR);
 
 		analogSensorEClass = createEClass(ANALOG_SENSOR);
+
+		analogActuatorEClass = createEClass(ANALOG_ACTUATOR);
+
+		binaryActuatorEClass = createEClass(BINARY_ACTUATOR);
+
+		analogActionEClass = createEClass(ANALOG_ACTION);
+		createEAttribute(analogActionEClass, ANALOG_ACTION__ACTION_VALUE);
+
+		binaryActionEClass = createEClass(BINARY_ACTION);
+		createEAttribute(binaryActionEClass, BINARY_ACTION__ACTION_VALUE);
 
 		// Create enums
 		signalEEnum = createEEnum(SIGNAL);
@@ -652,6 +738,10 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 		valueElementConditionEClass.getESuperTypes().add(this.getCondition());
 		binarySensorEClass.getESuperTypes().add(this.getSensor());
 		analogSensorEClass.getESuperTypes().add(this.getSensor());
+		analogActuatorEClass.getESuperTypes().add(this.getActuator());
+		binaryActuatorEClass.getESuperTypes().add(this.getActuator());
+		analogActionEClass.getESuperTypes().add(this.getAction());
+		binaryActionEClass.getESuperTypes().add(this.getAction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
@@ -679,12 +769,10 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(brickEClass, Brick.class, "Brick", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBrick_Pin(), ecorePackage.getEInt(), "pin", null, 0, 1, Brick.class, !IS_TRANSIENT,
+		initEAttribute(getBrick_Pin(), ecorePackage.getEString(), "pin", null, 0, 1, Brick.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAction_Value(), this.getSIGNAL(), "value", null, 0, 1, Action.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAction_Actuator(), this.getActuator(), null, "actuator", null, 1, 1, Action.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -700,8 +788,7 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 
 		initEClass(sensorEClass, Sensor.class, "Sensor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(actuatorEClass, Actuator.class, "Actuator", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(actuatorEClass, Actuator.class, "Actuator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -741,6 +828,23 @@ public class ArduinomlPackageImpl extends EPackageImpl implements ArduinomlPacka
 
 		initEClass(analogSensorEClass, AnalogSensor.class, "AnalogSensor", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(analogActuatorEClass, AnalogActuator.class, "AnalogActuator", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(binaryActuatorEClass, BinaryActuator.class, "BinaryActuator", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(analogActionEClass, AnalogAction.class, "AnalogAction", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnalogAction_ActionValue(), ecorePackage.getEInt(), "actionValue", null, 0, 1,
+				AnalogAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(binaryActionEClass, BinaryAction.class, "BinaryAction", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBinaryAction_ActionValue(), this.getSIGNAL(), "actionValue", null, 0, 1, BinaryAction.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(signalEEnum, fr.unice.polytech.dsl.arduinoml.SIGNAL.class, "SIGNAL");

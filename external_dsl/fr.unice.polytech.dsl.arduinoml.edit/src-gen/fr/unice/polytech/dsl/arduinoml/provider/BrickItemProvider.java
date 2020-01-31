@@ -61,7 +61,7 @@ public class BrickItemProvider extends NamedElementItemProvider {
 						getResourceLocator(), getString("_UI_Brick_pin_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Brick_pin_feature", "_UI_Brick_type"),
 						ArduinomlPackage.Literals.BRICK__PIN, true, false, false,
-						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

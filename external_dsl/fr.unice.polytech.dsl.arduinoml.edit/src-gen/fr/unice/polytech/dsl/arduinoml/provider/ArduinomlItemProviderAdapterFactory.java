@@ -142,29 +142,6 @@ public class ArduinomlItemProviderAdapterFactory extends ArduinomlAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.Action} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ActionItemProvider actionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.unice.polytech.dsl.arduinoml.Action}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createActionAdapter() {
-		if (actionItemProvider == null) {
-			actionItemProvider = new ActionItemProvider(this);
-		}
-
-		return actionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.Transition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,29 +162,6 @@ public class ArduinomlItemProviderAdapterFactory extends ArduinomlAdapterFactory
 		}
 
 		return transitionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.Actuator} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ActuatorItemProvider actuatorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.unice.polytech.dsl.arduinoml.Actuator}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createActuatorAdapter() {
-		if (actuatorItemProvider == null) {
-			actuatorItemProvider = new ActuatorItemProvider(this);
-		}
-
-		return actuatorItemProvider;
 	}
 
 	/**
@@ -326,6 +280,98 @@ public class ArduinomlItemProviderAdapterFactory extends ArduinomlAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.AnalogActuator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnalogActuatorItemProvider analogActuatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.dsl.arduinoml.AnalogActuator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnalogActuatorAdapter() {
+		if (analogActuatorItemProvider == null) {
+			analogActuatorItemProvider = new AnalogActuatorItemProvider(this);
+		}
+
+		return analogActuatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.BinaryActuator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BinaryActuatorItemProvider binaryActuatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.dsl.arduinoml.BinaryActuator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBinaryActuatorAdapter() {
+		if (binaryActuatorItemProvider == null) {
+			binaryActuatorItemProvider = new BinaryActuatorItemProvider(this);
+		}
+
+		return binaryActuatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.AnalogAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnalogActionItemProvider analogActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.dsl.arduinoml.AnalogAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnalogActionAdapter() {
+		if (analogActionItemProvider == null) {
+			analogActionItemProvider = new AnalogActionItemProvider(this);
+		}
+
+		return analogActionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.unice.polytech.dsl.arduinoml.BinaryAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BinaryActionItemProvider binaryActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.unice.polytech.dsl.arduinoml.BinaryAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBinaryActionAdapter() {
+		if (binaryActionItemProvider == null) {
+			binaryActionItemProvider = new BinaryActionItemProvider(this);
+		}
+
+		return binaryActionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -430,12 +476,8 @@ public class ArduinomlItemProviderAdapterFactory extends ArduinomlAdapterFactory
 			stateItemProvider.dispose();
 		if (brickItemProvider != null)
 			brickItemProvider.dispose();
-		if (actionItemProvider != null)
-			actionItemProvider.dispose();
 		if (transitionItemProvider != null)
 			transitionItemProvider.dispose();
-		if (actuatorItemProvider != null)
-			actuatorItemProvider.dispose();
 		if (singleElementConditionItemProvider != null)
 			singleElementConditionItemProvider.dispose();
 		if (multipleElementConditionItemProvider != null)
@@ -446,6 +488,14 @@ public class ArduinomlItemProviderAdapterFactory extends ArduinomlAdapterFactory
 			binarySensorItemProvider.dispose();
 		if (analogSensorItemProvider != null)
 			analogSensorItemProvider.dispose();
+		if (analogActuatorItemProvider != null)
+			analogActuatorItemProvider.dispose();
+		if (binaryActuatorItemProvider != null)
+			binaryActuatorItemProvider.dispose();
+		if (analogActionItemProvider != null)
+			analogActionItemProvider.dispose();
+		if (binaryActionItemProvider != null)
+			binaryActionItemProvider.dispose();
 	}
 
 }

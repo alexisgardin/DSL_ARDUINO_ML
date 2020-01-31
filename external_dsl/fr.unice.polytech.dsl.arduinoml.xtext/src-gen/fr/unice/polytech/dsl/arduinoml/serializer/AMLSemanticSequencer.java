@@ -4,10 +4,13 @@
 package fr.unice.polytech.dsl.arduinoml.serializer;
 
 import com.google.inject.Inject;
-import fr.unice.polytech.dsl.arduinoml.Actuator;
+import fr.unice.polytech.dsl.arduinoml.AnalogAction;
+import fr.unice.polytech.dsl.arduinoml.AnalogActuator;
 import fr.unice.polytech.dsl.arduinoml.AnalogSensor;
 import fr.unice.polytech.dsl.arduinoml.App;
 import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
+import fr.unice.polytech.dsl.arduinoml.BinaryAction;
+import fr.unice.polytech.dsl.arduinoml.BinaryActuator;
 import fr.unice.polytech.dsl.arduinoml.BinarySensor;
 import fr.unice.polytech.dsl.arduinoml.MultipleElementCondition;
 import fr.unice.polytech.dsl.arduinoml.SingleElementCondition;
@@ -40,17 +43,23 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == ArduinomlPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case ArduinomlPackage.ACTION:
-				sequence_Action(context, (fr.unice.polytech.dsl.arduinoml.Action) semanticObject); 
+			case ArduinomlPackage.ANALOG_ACTION:
+				sequence_AnalogAction(context, (AnalogAction) semanticObject); 
 				return; 
-			case ArduinomlPackage.ACTUATOR:
-				sequence_Actuator(context, (Actuator) semanticObject); 
+			case ArduinomlPackage.ANALOG_ACTUATOR:
+				sequence_AnalogActuator(context, (AnalogActuator) semanticObject); 
 				return; 
 			case ArduinomlPackage.ANALOG_SENSOR:
 				sequence_AnalogSensor(context, (AnalogSensor) semanticObject); 
 				return; 
 			case ArduinomlPackage.APP:
 				sequence_App(context, (App) semanticObject); 
+				return; 
+			case ArduinomlPackage.BINARY_ACTION:
+				sequence_BinaryAction(context, (BinaryAction) semanticObject); 
+				return; 
+			case ArduinomlPackage.BINARY_ACTUATOR:
+				sequence_BinaryActuator(context, (BinaryActuator) semanticObject); 
 				return; 
 			case ArduinomlPackage.BINARY_SENSOR:
 				sequence_BinarySensor(context, (BinarySensor) semanticObject); 
@@ -77,33 +86,33 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Action returns Action
+	 *     AnalogAction returns AnalogAction
 	 *
 	 * Constraint:
-	 *     (actuator=[Actuator|EString] value=SIGNAL)
+	 *     (actuator=[Actuator|EString] actionValue=EInt)
 	 */
-	protected void sequence_Action(ISerializationContext context, fr.unice.polytech.dsl.arduinoml.Action semanticObject) {
+	protected void sequence_AnalogAction(ISerializationContext context, AnalogAction semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.ACTION__ACTUATOR) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.ACTION__ACTUATOR));
-			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.ACTION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.ACTION__VALUE));
+			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.ANALOG_ACTION__ACTION_VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.ANALOG_ACTION__ACTION_VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getActionAccess().getActuatorActuatorEStringParserRuleCall_1_0_0_1(), semanticObject.eGet(ArduinomlPackage.Literals.ACTION__ACTUATOR, false));
-		feeder.accept(grammarAccess.getActionAccess().getValueSIGNALEnumRuleCall_1_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getAnalogActionAccess().getActuatorActuatorEStringParserRuleCall_1_0_0_1(), semanticObject.eGet(ArduinomlPackage.Literals.ACTION__ACTUATOR, false));
+		feeder.accept(grammarAccess.getAnalogActionAccess().getActionValueEIntParserRuleCall_1_2_0(), semanticObject.getActionValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Actuator returns Actuator
+	 *     AnalogActuator returns AnalogActuator
 	 *
 	 * Constraint:
-	 *     (name=EString pin=EInt)
+	 *     (name=EString pin=EString)
 	 */
-	protected void sequence_Actuator(ISerializationContext context, Actuator semanticObject) {
+	protected void sequence_AnalogActuator(ISerializationContext context, AnalogActuator semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.NAMED_ELEMENT__NAME));
@@ -111,8 +120,8 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.BRICK__PIN));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getActuatorAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getActuatorAccess().getPinEIntParserRuleCall_3_0(), semanticObject.getPin());
+		feeder.accept(grammarAccess.getAnalogActuatorAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getAnalogActuatorAccess().getPinEStringParserRuleCall_3_0(), semanticObject.getPin());
 		feeder.finish();
 	}
 	
@@ -122,7 +131,7 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     AnalogSensor returns AnalogSensor
 	 *
 	 * Constraint:
-	 *     (name=EString pin=EInt)
+	 *     (name=EString pin=EString)
 	 */
 	protected void sequence_AnalogSensor(ISerializationContext context, AnalogSensor semanticObject) {
 		if (errorAcceptor != null) {
@@ -133,7 +142,7 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAnalogSensorAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getAnalogSensorAccess().getPinEIntParserRuleCall_3_0(), semanticObject.getPin());
+		feeder.accept(grammarAccess.getAnalogSensorAccess().getPinEStringParserRuleCall_3_0(), semanticObject.getPin());
 		feeder.finish();
 	}
 	
@@ -147,8 +156,8 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         name=EString 
 	 *         (bricks+=BinarySensor bricks+=BinarySensor*)? 
 	 *         (bricks+=AnalogSensor bricks+=AnalogSensor*)? 
-	 *         bricks+=Actuator 
-	 *         bricks+=Actuator* 
+	 *         (bricks+=BinaryActuator bricks+=BinaryActuator*)? 
+	 *         (bricks+=AnalogActuator bricks+=AnalogActuator*)? 
 	 *         states+=State 
 	 *         states+=State* 
 	 *         initial=[State|EString]
@@ -161,10 +170,52 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     BinaryAction returns BinaryAction
+	 *
+	 * Constraint:
+	 *     (actuator=[Actuator|EString] actionValue=SIGNAL)
+	 */
+	protected void sequence_BinaryAction(ISerializationContext context, BinaryAction semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.ACTION__ACTUATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.ACTION__ACTUATOR));
+			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.BINARY_ACTION__ACTION_VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.BINARY_ACTION__ACTION_VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBinaryActionAccess().getActuatorActuatorEStringParserRuleCall_1_0_0_1(), semanticObject.eGet(ArduinomlPackage.Literals.ACTION__ACTUATOR, false));
+		feeder.accept(grammarAccess.getBinaryActionAccess().getActionValueSIGNALEnumRuleCall_1_2_0(), semanticObject.getActionValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     BinaryActuator returns BinaryActuator
+	 *
+	 * Constraint:
+	 *     (name=EString pin=EString)
+	 */
+	protected void sequence_BinaryActuator(ISerializationContext context, BinaryActuator semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.NAMED_ELEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, ArduinomlPackage.Literals.BRICK__PIN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinomlPackage.Literals.BRICK__PIN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBinaryActuatorAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBinaryActuatorAccess().getPinEStringParserRuleCall_3_0(), semanticObject.getPin());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     BinarySensor returns BinarySensor
 	 *
 	 * Constraint:
-	 *     (name=EString pin=EInt)
+	 *     (name=EString pin=EString)
 	 */
 	protected void sequence_BinarySensor(ISerializationContext context, BinarySensor semanticObject) {
 		if (errorAcceptor != null) {
@@ -175,7 +226,7 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBinarySensorAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getBinarySensorAccess().getPinEIntParserRuleCall_3_0(), semanticObject.getPin());
+		feeder.accept(grammarAccess.getBinarySensorAccess().getPinEStringParserRuleCall_3_0(), semanticObject.getPin());
 		feeder.finish();
 	}
 	
@@ -221,7 +272,13 @@ public class AMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     State returns State
 	 *
 	 * Constraint:
-	 *     (name=EString actions+=Action actions+=Action* transition=Transition)
+	 *     (
+	 *         name=EString 
+	 *         (actions+=BinaryAction | actions+=AnalogAction) 
+	 *         actions+=BinaryAction? 
+	 *         (actions+=AnalogAction? actions+=BinaryAction?)* 
+	 *         transition=Transition
+	 *     )
 	 */
 	protected void sequence_State(ISerializationContext context, State semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -213,57 +213,115 @@ ruleApp returns [EObject current=null]
 			newLeafNode(otherlv_13, grammarAccess.getAppAccess().getColonKeyword_7());
 		}
 		(
+			otherlv_14='binary'
+			{
+				newLeafNode(otherlv_14, grammarAccess.getAppAccess().getBinaryKeyword_8_0());
+			}
+			otherlv_15=':'
+			{
+				newLeafNode(otherlv_15, grammarAccess.getAppAccess().getColonKeyword_8_1());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getAppAccess().getBricksActuatorParserRuleCall_8_0());
-				}
-				lv_bricks_14_0=ruleActuator
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAppRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getAppAccess().getBricksBinaryActuatorParserRuleCall_8_2_0());
 					}
-					add(
-						$current,
-						"bricks",
-						lv_bricks_14_0,
-						"fr.unice.polytech.dsl.arduinoml.AML.Actuator");
-					afterParserOrEnumRuleCall();
-				}
+					lv_bricks_16_0=ruleBinaryActuator
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAppRule());
+						}
+						add(
+							$current,
+							"bricks",
+							lv_bricks_16_0,
+							"fr.unice.polytech.dsl.arduinoml.AML.BinaryActuator");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAppAccess().getBricksBinaryActuatorParserRuleCall_8_3_0());
+					}
+					lv_bricks_17_0=ruleBinaryActuator
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAppRule());
+						}
+						add(
+							$current,
+							"bricks",
+							lv_bricks_17_0,
+							"fr.unice.polytech.dsl.arduinoml.AML.BinaryActuator");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)?
 		(
+			otherlv_18='analog'
+			{
+				newLeafNode(otherlv_18, grammarAccess.getAppAccess().getAnalogKeyword_9_0());
+			}
+			otherlv_19=':'
+			{
+				newLeafNode(otherlv_19, grammarAccess.getAppAccess().getColonKeyword_9_1());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getAppAccess().getBricksActuatorParserRuleCall_9_0());
-				}
-				lv_bricks_15_0=ruleActuator
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAppRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getAppAccess().getBricksAnalogActuatorParserRuleCall_9_2_0());
 					}
-					add(
-						$current,
-						"bricks",
-						lv_bricks_15_0,
-						"fr.unice.polytech.dsl.arduinoml.AML.Actuator");
-					afterParserOrEnumRuleCall();
-				}
+					lv_bricks_20_0=ruleAnalogActuator
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAppRule());
+						}
+						add(
+							$current,
+							"bricks",
+							lv_bricks_20_0,
+							"fr.unice.polytech.dsl.arduinoml.AML.AnalogActuator");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)*
-		otherlv_16='states'
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAppAccess().getBricksAnalogActuatorParserRuleCall_9_3_0());
+					}
+					lv_bricks_21_0=ruleAnalogActuator
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAppRule());
+						}
+						add(
+							$current,
+							"bricks",
+							lv_bricks_21_0,
+							"fr.unice.polytech.dsl.arduinoml.AML.AnalogActuator");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)?
+		otherlv_22='states'
 		{
-			newLeafNode(otherlv_16, grammarAccess.getAppAccess().getStatesKeyword_10());
+			newLeafNode(otherlv_22, grammarAccess.getAppAccess().getStatesKeyword_10());
 		}
-		otherlv_17=':'
+		otherlv_23=':'
 		{
-			newLeafNode(otherlv_17, grammarAccess.getAppAccess().getColonKeyword_11());
+			newLeafNode(otherlv_23, grammarAccess.getAppAccess().getColonKeyword_11());
 		}
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getAppAccess().getStatesStateParserRuleCall_12_0());
 				}
-				lv_states_18_0=ruleState
+				lv_states_24_0=ruleState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAppRule());
@@ -271,7 +329,7 @@ ruleApp returns [EObject current=null]
 					add(
 						$current,
 						"states",
-						lv_states_18_0,
+						lv_states_24_0,
 						"fr.unice.polytech.dsl.arduinoml.AML.State");
 					afterParserOrEnumRuleCall();
 				}
@@ -282,7 +340,7 @@ ruleApp returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getAppAccess().getStatesStateParserRuleCall_13_0());
 				}
-				lv_states_19_0=ruleState
+				lv_states_25_0=ruleState
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAppRule());
@@ -290,15 +348,15 @@ ruleApp returns [EObject current=null]
 					add(
 						$current,
 						"states",
-						lv_states_19_0,
+						lv_states_25_0,
 						"fr.unice.polytech.dsl.arduinoml.AML.State");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_20='initial'
+		otherlv_26='initial'
 		{
-			newLeafNode(otherlv_20, grammarAccess.getAppAccess().getInitialKeyword_14());
+			newLeafNode(otherlv_26, grammarAccess.getAppAccess().getInitialKeyword_14());
 		}
 		(
 			(
@@ -360,40 +418,76 @@ ruleState returns [EObject current=null]
 		}
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_2_0());
-				}
-				lv_actions_2_0=ruleAction
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getStateRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getStateAccess().getActionsBinaryActionParserRuleCall_2_0_0());
 					}
-					add(
-						$current,
-						"actions",
-						lv_actions_2_0,
-						"fr.unice.polytech.dsl.arduinoml.AML.Action");
-					afterParserOrEnumRuleCall();
-				}
+					lv_actions_2_1=ruleBinaryAction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStateRule());
+						}
+						add(
+							$current,
+							"actions",
+							lv_actions_2_1,
+							"fr.unice.polytech.dsl.arduinoml.AML.BinaryAction");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getStateAccess().getActionsAnalogActionParserRuleCall_2_0_1());
+					}
+					lv_actions_2_2=ruleAnalogAction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStateRule());
+						}
+						add(
+							$current,
+							"actions",
+							lv_actions_2_2,
+							"fr.unice.polytech.dsl.arduinoml.AML.AnalogAction");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_3_0());
-				}
-				lv_actions_3_0=ruleAction
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getStateRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getStateAccess().getActionsBinaryActionParserRuleCall_3_0_0());
 					}
-					add(
-						$current,
-						"actions",
-						lv_actions_3_0,
-						"fr.unice.polytech.dsl.arduinoml.AML.Action");
-					afterParserOrEnumRuleCall();
-				}
+					lv_actions_3_1=ruleBinaryAction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStateRule());
+						}
+						add(
+							$current,
+							"actions",
+							lv_actions_3_1,
+							"fr.unice.polytech.dsl.arduinoml.AML.BinaryAction");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getStateAccess().getActionsAnalogActionParserRuleCall_3_0_1());
+					}
+					lv_actions_3_2=ruleAnalogAction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStateRule());
+						}
+						add(
+							$current,
+							"actions",
+							lv_actions_3_2,
+							"fr.unice.polytech.dsl.arduinoml.AML.AnalogAction");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)*
 		(
@@ -418,15 +512,15 @@ ruleState returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleAction
-entryRuleAction returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getActionRule()); }
-	iv_ruleAction=ruleAction
-	{ $current=$iv_ruleAction.current; }
+// Entry rule entryRuleBinaryAction
+entryRuleBinaryAction returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBinaryActionRule()); }
+	iv_ruleBinaryAction=ruleBinaryAction
+	{ $current=$iv_ruleBinaryAction.current; }
 	EOF;
 
-// Rule Action
-ruleAction returns [EObject current=null]
+// Rule BinaryAction
+ruleBinaryAction returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -437,7 +531,7 @@ ruleAction returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getActionAccess().getActionAction_0(),
+					grammarAccess.getBinaryActionAccess().getBinaryActionAction_0(),
 					$current);
 			}
 		)
@@ -446,11 +540,11 @@ ruleAction returns [EObject current=null]
 				(
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getActionRule());
+							$current = createModelElement(grammarAccess.getBinaryActionRule());
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getActionAccess().getActuatorActuatorCrossReference_1_0_0());
+						newCompositeNode(grammarAccess.getBinaryActionAccess().getActuatorActuatorCrossReference_1_0_0());
 					}
 					ruleEString
 					{
@@ -460,23 +554,90 @@ ruleAction returns [EObject current=null]
 			)
 			otherlv_2='->'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getActionAccess().getHyphenMinusGreaterThanSignKeyword_1_1());
+				newLeafNode(otherlv_2, grammarAccess.getBinaryActionAccess().getHyphenMinusGreaterThanSignKeyword_1_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getActionAccess().getValueSIGNALEnumRuleCall_1_2_0());
+						newCompositeNode(grammarAccess.getBinaryActionAccess().getActionValueSIGNALEnumRuleCall_1_2_0());
 					}
-					lv_value_3_0=ruleSIGNAL
+					lv_actionValue_3_0=ruleSIGNAL
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getActionRule());
+							$current = createModelElementForParent(grammarAccess.getBinaryActionRule());
 						}
 						set(
 							$current,
-							"value",
-							lv_value_3_0,
+							"actionValue",
+							lv_actionValue_3_0,
 							"fr.unice.polytech.dsl.arduinoml.AML.SIGNAL");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleAnalogAction
+entryRuleAnalogAction returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAnalogActionRule()); }
+	iv_ruleAnalogAction=ruleAnalogAction
+	{ $current=$iv_ruleAnalogAction.current; }
+	EOF;
+
+// Rule AnalogAction
+ruleAnalogAction returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getAnalogActionAccess().getAnalogActionAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAnalogActionRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getAnalogActionAccess().getActuatorActuatorCrossReference_1_0_0());
+					}
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_2='->'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getAnalogActionAccess().getHyphenMinusGreaterThanSignKeyword_1_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAnalogActionAccess().getActionValueEIntParserRuleCall_1_2_0());
+					}
+					lv_actionValue_3_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAnalogActionRule());
+						}
+						set(
+							$current,
+							"actionValue",
+							lv_actionValue_3_0,
+							"fr.unice.polytech.dsl.arduinoml.AML.EInt");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -869,9 +1030,9 @@ ruleBinarySensor returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getBinarySensorAccess().getPinEIntParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getBinarySensorAccess().getPinEStringParserRuleCall_3_0());
 				}
-				lv_pin_3_0=ruleEInt
+				lv_pin_3_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getBinarySensorRule());
@@ -880,7 +1041,7 @@ ruleBinarySensor returns [EObject current=null]
 						$current,
 						"pin",
 						lv_pin_3_0,
-						"fr.unice.polytech.dsl.arduinoml.AML.EInt");
+						"fr.unice.polytech.dsl.arduinoml.AML.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -937,9 +1098,9 @@ ruleAnalogSensor returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAnalogSensorAccess().getPinEIntParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getAnalogSensorAccess().getPinEStringParserRuleCall_3_0());
 				}
-				lv_pin_3_0=ruleEInt
+				lv_pin_3_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAnalogSensorRule());
@@ -948,7 +1109,7 @@ ruleAnalogSensor returns [EObject current=null]
 						$current,
 						"pin",
 						lv_pin_3_0,
-						"fr.unice.polytech.dsl.arduinoml.AML.EInt");
+						"fr.unice.polytech.dsl.arduinoml.AML.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -956,15 +1117,15 @@ ruleAnalogSensor returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleActuator
-entryRuleActuator returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getActuatorRule()); }
-	iv_ruleActuator=ruleActuator
-	{ $current=$iv_ruleActuator.current; }
+// Entry rule entryRuleAnalogActuator
+entryRuleAnalogActuator returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAnalogActuatorRule()); }
+	iv_ruleAnalogActuator=ruleAnalogActuator
+	{ $current=$iv_ruleAnalogActuator.current; }
 	EOF;
 
-// Rule Actuator
-ruleActuator returns [EObject current=null]
+// Rule AnalogActuator
+ruleAnalogActuator returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -975,19 +1136,19 @@ ruleActuator returns [EObject current=null]
 		(
 			{
 				$current = forceCreateModelElement(
-					grammarAccess.getActuatorAccess().getActuatorAction_0(),
+					grammarAccess.getAnalogActuatorAccess().getAnalogActuatorAction_0(),
 					$current);
 			}
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getActuatorAccess().getNameEStringParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getAnalogActuatorAccess().getNameEStringParserRuleCall_1_0());
 				}
 				lv_name_1_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getActuatorRule());
+						$current = createModelElementForParent(grammarAccess.getAnalogActuatorRule());
 					}
 					set(
 						$current,
@@ -1000,23 +1161,91 @@ ruleActuator returns [EObject current=null]
 		)
 		otherlv_2='->'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getActuatorAccess().getHyphenMinusGreaterThanSignKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getAnalogActuatorAccess().getHyphenMinusGreaterThanSignKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getActuatorAccess().getPinEIntParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getAnalogActuatorAccess().getPinEStringParserRuleCall_3_0());
 				}
-				lv_pin_3_0=ruleEInt
+				lv_pin_3_0=ruleEString
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getActuatorRule());
+						$current = createModelElementForParent(grammarAccess.getAnalogActuatorRule());
 					}
 					set(
 						$current,
 						"pin",
 						lv_pin_3_0,
-						"fr.unice.polytech.dsl.arduinoml.AML.EInt");
+						"fr.unice.polytech.dsl.arduinoml.AML.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleBinaryActuator
+entryRuleBinaryActuator returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBinaryActuatorRule()); }
+	iv_ruleBinaryActuator=ruleBinaryActuator
+	{ $current=$iv_ruleBinaryActuator.current; }
+	EOF;
+
+// Rule BinaryActuator
+ruleBinaryActuator returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getBinaryActuatorAccess().getBinaryActuatorAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBinaryActuatorAccess().getNameEStringParserRuleCall_1_0());
+				}
+				lv_name_1_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBinaryActuatorRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_1_0,
+						"fr.unice.polytech.dsl.arduinoml.AML.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='->'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getBinaryActuatorAccess().getHyphenMinusGreaterThanSignKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBinaryActuatorAccess().getPinEStringParserRuleCall_3_0());
+				}
+				lv_pin_3_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBinaryActuatorRule());
+					}
+					set(
+						$current,
+						"pin",
+						lv_pin_3_0,
+						"fr.unice.polytech.dsl.arduinoml.AML.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)

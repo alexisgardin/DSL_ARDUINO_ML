@@ -196,6 +196,50 @@ public class ArduinomlSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ArduinomlPackage.ANALOG_ACTUATOR: {
+			AnalogActuator analogActuator = (AnalogActuator) theEObject;
+			T result = caseAnalogActuator(analogActuator);
+			if (result == null)
+				result = caseActuator(analogActuator);
+			if (result == null)
+				result = caseBrick(analogActuator);
+			if (result == null)
+				result = caseNamedElement(analogActuator);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ArduinomlPackage.BINARY_ACTUATOR: {
+			BinaryActuator binaryActuator = (BinaryActuator) theEObject;
+			T result = caseBinaryActuator(binaryActuator);
+			if (result == null)
+				result = caseActuator(binaryActuator);
+			if (result == null)
+				result = caseBrick(binaryActuator);
+			if (result == null)
+				result = caseNamedElement(binaryActuator);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ArduinomlPackage.ANALOG_ACTION: {
+			AnalogAction analogAction = (AnalogAction) theEObject;
+			T result = caseAnalogAction(analogAction);
+			if (result == null)
+				result = caseAction(analogAction);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ArduinomlPackage.BINARY_ACTION: {
+			BinaryAction binaryAction = (BinaryAction) theEObject;
+			T result = caseBinaryAction(binaryAction);
+			if (result == null)
+				result = caseAction(binaryAction);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -408,6 +452,66 @@ public class ArduinomlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAnalogSensor(AnalogSensor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Analog Actuator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Analog Actuator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnalogActuator(AnalogActuator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Binary Actuator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Binary Actuator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBinaryActuator(BinaryActuator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Analog Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Analog Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnalogAction(AnalogAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Binary Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Binary Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBinaryAction(BinaryAction object) {
 		return null;
 	}
 

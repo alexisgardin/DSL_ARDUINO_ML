@@ -28,12 +28,12 @@ public interface Brick extends NamedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pin</em>' attribute.
-	 * @see #setPin(int)
+	 * @see #setPin(String)
 	 * @see fr.unice.polytech.dsl.arduinoml.ArduinomlPackage#getBrick_Pin()
 	 * @model
 	 * @generated
 	 */
-	int getPin();
+	String getPin();
 
 	/**
 	 * Sets the value of the '{@link fr.unice.polytech.dsl.arduinoml.Brick#getPin <em>Pin</em>}' attribute.
@@ -43,6 +43,6 @@ public interface Brick extends NamedElement {
 	 * @see #getPin()
 	 * @generated
 	 */
-	void setPin(int value);
+	void setPin(String value);
 
 } // Brick

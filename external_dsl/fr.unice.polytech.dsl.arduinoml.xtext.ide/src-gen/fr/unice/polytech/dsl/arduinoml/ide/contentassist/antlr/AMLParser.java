@@ -31,6 +31,8 @@ public class AMLParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, AMLGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getStateAccess().getActionsAlternatives_2_0(), "rule__State__ActionsAlternatives_2_0");
+			builder.put(grammarAccess.getStateAccess().getActionsAlternatives_3_0(), "rule__State__ActionsAlternatives_3_0");
 			builder.put(grammarAccess.getMultipleElementConditionAccess().getConditionsAlternatives_1_0(), "rule__MultipleElementCondition__ConditionsAlternatives_1_0");
 			builder.put(grammarAccess.getMultipleElementConditionAccess().getConditionsAlternatives_2_1_0(), "rule__MultipleElementCondition__ConditionsAlternatives_2_1_0");
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
@@ -40,9 +42,13 @@ public class AMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAppAccess().getGroup(), "rule__App__Group__0");
 			builder.put(grammarAccess.getAppAccess().getGroup_4(), "rule__App__Group_4__0");
 			builder.put(grammarAccess.getAppAccess().getGroup_5(), "rule__App__Group_5__0");
+			builder.put(grammarAccess.getAppAccess().getGroup_8(), "rule__App__Group_8__0");
+			builder.put(grammarAccess.getAppAccess().getGroup_9(), "rule__App__Group_9__0");
 			builder.put(grammarAccess.getStateAccess().getGroup(), "rule__State__Group__0");
-			builder.put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
-			builder.put(grammarAccess.getActionAccess().getGroup_1(), "rule__Action__Group_1__0");
+			builder.put(grammarAccess.getBinaryActionAccess().getGroup(), "rule__BinaryAction__Group__0");
+			builder.put(grammarAccess.getBinaryActionAccess().getGroup_1(), "rule__BinaryAction__Group_1__0");
+			builder.put(grammarAccess.getAnalogActionAccess().getGroup(), "rule__AnalogAction__Group__0");
+			builder.put(grammarAccess.getAnalogActionAccess().getGroup_1(), "rule__AnalogAction__Group_1__0");
 			builder.put(grammarAccess.getTransitionAccess().getGroup(), "rule__Transition__Group__0");
 			builder.put(grammarAccess.getMultipleElementConditionAccess().getGroup(), "rule__MultipleElementCondition__Group__0");
 			builder.put(grammarAccess.getMultipleElementConditionAccess().getGroup_2(), "rule__MultipleElementCondition__Group_2__0");
@@ -50,7 +56,8 @@ public class AMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getValueElementConditionAccess().getGroup(), "rule__ValueElementCondition__Group__0");
 			builder.put(grammarAccess.getBinarySensorAccess().getGroup(), "rule__BinarySensor__Group__0");
 			builder.put(grammarAccess.getAnalogSensorAccess().getGroup(), "rule__AnalogSensor__Group__0");
-			builder.put(grammarAccess.getActuatorAccess().getGroup(), "rule__Actuator__Group__0");
+			builder.put(grammarAccess.getAnalogActuatorAccess().getGroup(), "rule__AnalogActuator__Group__0");
+			builder.put(grammarAccess.getBinaryActuatorAccess().getGroup(), "rule__BinaryActuator__Group__0");
 			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 			builder.put(grammarAccess.getEFloatAccess().getGroup(), "rule__EFloat__Group__0");
 			builder.put(grammarAccess.getEFloatAccess().getGroup_1(), "rule__EFloat__Group_1__0");
@@ -59,8 +66,10 @@ public class AMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAppAccess().getBricksAssignment_4_3(), "rule__App__BricksAssignment_4_3");
 			builder.put(grammarAccess.getAppAccess().getBricksAssignment_5_2(), "rule__App__BricksAssignment_5_2");
 			builder.put(grammarAccess.getAppAccess().getBricksAssignment_5_3(), "rule__App__BricksAssignment_5_3");
-			builder.put(grammarAccess.getAppAccess().getBricksAssignment_8(), "rule__App__BricksAssignment_8");
-			builder.put(grammarAccess.getAppAccess().getBricksAssignment_9(), "rule__App__BricksAssignment_9");
+			builder.put(grammarAccess.getAppAccess().getBricksAssignment_8_2(), "rule__App__BricksAssignment_8_2");
+			builder.put(grammarAccess.getAppAccess().getBricksAssignment_8_3(), "rule__App__BricksAssignment_8_3");
+			builder.put(grammarAccess.getAppAccess().getBricksAssignment_9_2(), "rule__App__BricksAssignment_9_2");
+			builder.put(grammarAccess.getAppAccess().getBricksAssignment_9_3(), "rule__App__BricksAssignment_9_3");
 			builder.put(grammarAccess.getAppAccess().getStatesAssignment_12(), "rule__App__StatesAssignment_12");
 			builder.put(grammarAccess.getAppAccess().getStatesAssignment_13(), "rule__App__StatesAssignment_13");
 			builder.put(grammarAccess.getAppAccess().getInitialAssignment_15(), "rule__App__InitialAssignment_15");
@@ -68,8 +77,10 @@ public class AMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getStateAccess().getActionsAssignment_2(), "rule__State__ActionsAssignment_2");
 			builder.put(grammarAccess.getStateAccess().getActionsAssignment_3(), "rule__State__ActionsAssignment_3");
 			builder.put(grammarAccess.getStateAccess().getTransitionAssignment_4(), "rule__State__TransitionAssignment_4");
-			builder.put(grammarAccess.getActionAccess().getActuatorAssignment_1_0(), "rule__Action__ActuatorAssignment_1_0");
-			builder.put(grammarAccess.getActionAccess().getValueAssignment_1_2(), "rule__Action__ValueAssignment_1_2");
+			builder.put(grammarAccess.getBinaryActionAccess().getActuatorAssignment_1_0(), "rule__BinaryAction__ActuatorAssignment_1_0");
+			builder.put(grammarAccess.getBinaryActionAccess().getActionValueAssignment_1_2(), "rule__BinaryAction__ActionValueAssignment_1_2");
+			builder.put(grammarAccess.getAnalogActionAccess().getActuatorAssignment_1_0(), "rule__AnalogAction__ActuatorAssignment_1_0");
+			builder.put(grammarAccess.getAnalogActionAccess().getActionValueAssignment_1_2(), "rule__AnalogAction__ActionValueAssignment_1_2");
 			builder.put(grammarAccess.getTransitionAccess().getConditionAssignment_2(), "rule__Transition__ConditionAssignment_2");
 			builder.put(grammarAccess.getTransitionAccess().getNextAssignment_4(), "rule__Transition__NextAssignment_4");
 			builder.put(grammarAccess.getMultipleElementConditionAccess().getConditionsAssignment_1(), "rule__MultipleElementCondition__ConditionsAssignment_1");
@@ -84,8 +95,10 @@ public class AMLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBinarySensorAccess().getPinAssignment_3(), "rule__BinarySensor__PinAssignment_3");
 			builder.put(grammarAccess.getAnalogSensorAccess().getNameAssignment_1(), "rule__AnalogSensor__NameAssignment_1");
 			builder.put(grammarAccess.getAnalogSensorAccess().getPinAssignment_3(), "rule__AnalogSensor__PinAssignment_3");
-			builder.put(grammarAccess.getActuatorAccess().getNameAssignment_1(), "rule__Actuator__NameAssignment_1");
-			builder.put(grammarAccess.getActuatorAccess().getPinAssignment_3(), "rule__Actuator__PinAssignment_3");
+			builder.put(grammarAccess.getAnalogActuatorAccess().getNameAssignment_1(), "rule__AnalogActuator__NameAssignment_1");
+			builder.put(grammarAccess.getAnalogActuatorAccess().getPinAssignment_3(), "rule__AnalogActuator__PinAssignment_3");
+			builder.put(grammarAccess.getBinaryActuatorAccess().getNameAssignment_1(), "rule__BinaryActuator__NameAssignment_1");
+			builder.put(grammarAccess.getBinaryActuatorAccess().getPinAssignment_3(), "rule__BinaryActuator__PinAssignment_3");
 		}
 	}
 	

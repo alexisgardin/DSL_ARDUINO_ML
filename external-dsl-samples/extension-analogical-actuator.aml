@@ -1,0 +1,21 @@
+App 'Extension With Analog'
+	sensors :
+		binary :
+			'button' -> '12'
+	actuators :
+		analog :
+		    'led' -> '9'
+	states :
+		'off':
+			led -> LOW
+			if button is HIGH -> 'first'
+		'first':
+			led -> 125
+			if button is HIGH -> 'two'
+		'two':
+			led -> 200
+			if button is HIGH -> 'three'
+		'three':
+			led -> HIGH
+			if button is HIGH -> 'off'
+	initial off

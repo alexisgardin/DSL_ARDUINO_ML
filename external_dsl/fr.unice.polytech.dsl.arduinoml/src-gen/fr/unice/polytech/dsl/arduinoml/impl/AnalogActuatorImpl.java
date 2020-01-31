@@ -2,25 +2,24 @@
  */
 package fr.unice.polytech.dsl.arduinoml.impl;
 
-import fr.unice.polytech.dsl.arduinoml.Actuator;
+import fr.unice.polytech.dsl.arduinoml.AnalogActuator;
 import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Actuator</b></em>'.
+ * An implementation of the model object '<em><b>Analog Actuator</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public abstract class ActuatorImpl extends BrickImpl implements Actuator {
+public class AnalogActuatorImpl extends ActuatorImpl implements AnalogActuator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ActuatorImpl() {
+	protected AnalogActuatorImpl() {
 		super();
 	}
 
@@ -31,7 +30,7 @@ public abstract class ActuatorImpl extends BrickImpl implements Actuator {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ArduinomlPackage.Literals.ACTUATOR;
+		return ArduinomlPackage.Literals.ANALOG_ACTUATOR;
 	}
 
-} //ActuatorImpl
+} //AnalogActuatorImpl

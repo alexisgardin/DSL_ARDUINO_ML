@@ -473,10 +473,10 @@ public class InternalAMLLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAML.g:2954:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalAML.g:2954:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalAML.g:3599:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalAML.g:3599:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalAML.g:2954:11: ( '^' )?
+            // InternalAML.g:3599:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -485,7 +485,7 @@ public class InternalAMLLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalAML.g:2954:11: '^'
+                    // InternalAML.g:3599:11: '^'
                     {
                     match('^'); 
 
@@ -503,7 +503,7 @@ public class InternalAMLLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalAML.g:2954:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalAML.g:3599:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -552,10 +552,10 @@ public class InternalAMLLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAML.g:2956:10: ( ( '0' .. '9' )+ )
-            // InternalAML.g:2956:12: ( '0' .. '9' )+
+            // InternalAML.g:3601:10: ( ( '0' .. '9' )+ )
+            // InternalAML.g:3601:12: ( '0' .. '9' )+
             {
-            // InternalAML.g:2956:12: ( '0' .. '9' )+
+            // InternalAML.g:3601:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -569,7 +569,7 @@ public class InternalAMLLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalAML.g:2956:13: '0' .. '9'
+            	    // InternalAML.g:3601:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -601,10 +601,10 @@ public class InternalAMLLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAML.g:2958:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalAML.g:2958:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalAML.g:3603:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalAML.g:3603:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalAML.g:2958:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalAML.g:3603:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -622,10 +622,10 @@ public class InternalAMLLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalAML.g:2958:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalAML.g:3603:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalAML.g:2958:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalAML.g:3603:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -641,7 +641,7 @@ public class InternalAMLLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalAML.g:2958:21: '\\\\' .
+                    	    // InternalAML.g:3603:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -649,7 +649,7 @@ public class InternalAMLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalAML.g:2958:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalAML.g:3603:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -674,10 +674,10 @@ public class InternalAMLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalAML.g:2958:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalAML.g:3603:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalAML.g:2958:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalAML.g:3603:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -693,7 +693,7 @@ public class InternalAMLLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalAML.g:2958:54: '\\\\' .
+                    	    // InternalAML.g:3603:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -701,7 +701,7 @@ public class InternalAMLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalAML.g:2958:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalAML.g:3603:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -744,12 +744,12 @@ public class InternalAMLLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAML.g:2960:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalAML.g:2960:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalAML.g:3605:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalAML.g:3605:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalAML.g:2960:24: ( options {greedy=false; } : . )*
+            // InternalAML.g:3605:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -774,7 +774,7 @@ public class InternalAMLLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalAML.g:2960:52: .
+            	    // InternalAML.g:3605:52: .
             	    {
             	    matchAny(); 
 
@@ -804,12 +804,12 @@ public class InternalAMLLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAML.g:2962:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalAML.g:2962:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalAML.g:3607:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalAML.g:3607:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalAML.g:2962:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalAML.g:3607:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -822,7 +822,7 @@ public class InternalAMLLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalAML.g:2962:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalAML.g:3607:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -842,7 +842,7 @@ public class InternalAMLLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalAML.g:2962:40: ( ( '\\r' )? '\\n' )?
+            // InternalAML.g:3607:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -851,9 +851,9 @@ public class InternalAMLLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalAML.g:2962:41: ( '\\r' )? '\\n'
+                    // InternalAML.g:3607:41: ( '\\r' )? '\\n'
                     {
-                    // InternalAML.g:2962:41: ( '\\r' )?
+                    // InternalAML.g:3607:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -862,7 +862,7 @@ public class InternalAMLLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalAML.g:2962:41: '\\r'
+                            // InternalAML.g:3607:41: '\\r'
                             {
                             match('\r'); 
 
@@ -894,10 +894,10 @@ public class InternalAMLLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAML.g:2964:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalAML.g:2964:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAML.g:3609:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalAML.g:3609:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalAML.g:2964:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAML.g:3609:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -951,8 +951,8 @@ public class InternalAMLLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAML.g:2966:16: ( . )
-            // InternalAML.g:2966:18: .
+            // InternalAML.g:3611:16: ( . )
+            // InternalAML.g:3611:18: .
             {
             matchAny(); 
 

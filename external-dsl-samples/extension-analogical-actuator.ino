@@ -1,5 +1,5 @@
 // Wiring code generated from an ArduinoML model
-// Application name: StateBasedAlarm
+// Application name: Extension With Analog
 
 void setup(){
   pinMode(12, INPUT);  // button [Sensor]
@@ -13,20 +13,42 @@ void state_off() {
   boolean guard = millis() - time > debounce;
   if( guard && digitalRead(12) == HIGH ) {
     time = millis();
-    state_on();
+    state_first();
   } else {
     state_off();
   }
 }
 
-void state_on() {
+void state_first() {
+  analogWrite(9,125);
+  boolean guard = millis() - time > debounce;
+  if( guard && digitalRead(12) == HIGH ) {
+    time = millis();
+    state_two();
+  } else {
+    state_first();
+  }
+}
+
+void state_two() {
+  analogWrite(9,200);
+  boolean guard = millis() - time > debounce;
+  if( guard && digitalRead(12) == HIGH ) {
+    time = millis();
+    state_three();
+  } else {
+    state_two();
+  }
+}
+
+void state_three() {
   digitalWrite(9,HIGH);
   boolean guard = millis() - time > debounce;
   if( guard && digitalRead(12) == HIGH ) {
     time = millis();
     state_off();
   } else {
-    state_on();
+    state_three();
   }
 }
 

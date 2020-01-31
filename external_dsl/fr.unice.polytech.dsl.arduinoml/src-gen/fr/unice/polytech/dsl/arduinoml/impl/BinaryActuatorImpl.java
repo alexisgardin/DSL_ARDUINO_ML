@@ -2,25 +2,25 @@
  */
 package fr.unice.polytech.dsl.arduinoml.impl;
 
-import fr.unice.polytech.dsl.arduinoml.Actuator;
 import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
+import fr.unice.polytech.dsl.arduinoml.BinaryActuator;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Actuator</b></em>'.
+ * An implementation of the model object '<em><b>Binary Actuator</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public abstract class ActuatorImpl extends BrickImpl implements Actuator {
+public class BinaryActuatorImpl extends ActuatorImpl implements BinaryActuator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ActuatorImpl() {
+	protected BinaryActuatorImpl() {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public abstract class ActuatorImpl extends BrickImpl implements Actuator {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ArduinomlPackage.Literals.ACTUATOR;
+		return ArduinomlPackage.Literals.BINARY_ACTUATOR;
 	}
 
-} //ActuatorImpl
+} //BinaryActuatorImpl

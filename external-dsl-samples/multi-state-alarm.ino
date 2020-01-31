@@ -1,4 +1,3 @@
-The app name is : MultiStateAlarm
 // Wiring code generated from an ArduinoML model
 // Application name: MultiStateAlarm
 
@@ -14,7 +13,7 @@ void state_off() {
   digitalWrite(9,LOW);
   digitalWrite(10,LOW);
   boolean guard = millis() - time > debounce;
-  if( digitalRead(12) == HIGH ) {
+  if( guard && digitalRead(12) == HIGH ) {
     time = millis();
     state_buzzer_on();
   } else {
@@ -26,7 +25,7 @@ void state_buzzer_on() {
   digitalWrite(10,HIGH);
   digitalWrite(9,LOW);
   boolean guard = millis() - time > debounce;
-  if( digitalRead(12) == HIGH ) {
+  if( guard && digitalRead(12) == HIGH ) {
     time = millis();
     state_led_on();
   } else {
@@ -38,7 +37,7 @@ void state_led_on() {
   digitalWrite(10,LOW);
   digitalWrite(9,HIGH);
   boolean guard = millis() - time > debounce;
-  if( digitalRead(12) == HIGH ) {
+  if( guard && digitalRead(12) == HIGH ) {
     time = millis();
     state_off();
   } else {

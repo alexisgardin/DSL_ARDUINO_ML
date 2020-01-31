@@ -1,10 +1,11 @@
 App 'MultiStateAlarm'
 	sensors :
 		binary :
-			'button' -> 12
+			'button' -> '12'
 	actuators :
-		'led' -> 9
-		'buzzer' -> 10
+	    binary :
+		    'led' -> '9'
+		    'buzzer' -> '10'
 	states :
 		'off':
 			led -> LOW

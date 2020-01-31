@@ -63,12 +63,8 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 			return createState();
 		case ArduinomlPackage.BRICK:
 			return createBrick();
-		case ArduinomlPackage.ACTION:
-			return createAction();
 		case ArduinomlPackage.TRANSITION:
 			return createTransition();
-		case ArduinomlPackage.ACTUATOR:
-			return createActuator();
 		case ArduinomlPackage.SINGLE_ELEMENT_CONDITION:
 			return createSingleElementCondition();
 		case ArduinomlPackage.MULTIPLE_ELEMENT_CONDITION:
@@ -79,6 +75,14 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 			return createBinarySensor();
 		case ArduinomlPackage.ANALOG_SENSOR:
 			return createAnalogSensor();
+		case ArduinomlPackage.ANALOG_ACTUATOR:
+			return createAnalogActuator();
+		case ArduinomlPackage.BINARY_ACTUATOR:
+			return createBinaryActuator();
+		case ArduinomlPackage.ANALOG_ACTION:
+			return createAnalogAction();
+		case ArduinomlPackage.BINARY_ACTION:
+			return createBinaryAction();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -157,29 +161,9 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Action createAction() {
-		ActionImpl action = new ActionImpl();
-		return action;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Transition createTransition() {
 		TransitionImpl transition = new TransitionImpl();
 		return transition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Actuator createActuator() {
-		ActuatorImpl actuator = new ActuatorImpl();
-		return actuator;
 	}
 
 	/**
@@ -230,6 +214,46 @@ public class ArduinomlFactoryImpl extends EFactoryImpl implements ArduinomlFacto
 	public AnalogSensor createAnalogSensor() {
 		AnalogSensorImpl analogSensor = new AnalogSensorImpl();
 		return analogSensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnalogActuator createAnalogActuator() {
+		AnalogActuatorImpl analogActuator = new AnalogActuatorImpl();
+		return analogActuator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BinaryActuator createBinaryActuator() {
+		BinaryActuatorImpl binaryActuator = new BinaryActuatorImpl();
+		return binaryActuator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnalogAction createAnalogAction() {
+		AnalogActionImpl analogAction = new AnalogActionImpl();
+		return analogAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BinaryAction createBinaryAction() {
+		BinaryActionImpl binaryAction = new BinaryActionImpl();
+		return binaryAction;
 	}
 
 	/**

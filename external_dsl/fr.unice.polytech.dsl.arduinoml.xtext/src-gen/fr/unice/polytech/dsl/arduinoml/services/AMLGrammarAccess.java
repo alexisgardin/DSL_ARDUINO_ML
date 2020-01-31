@@ -51,10 +51,20 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBricksAnalogSensorParserRuleCall_5_3_0 = (RuleCall)cBricksAssignment_5_3.eContents().get(0);
 		private final Keyword cActuatorsKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cBricksAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cBricksActuatorParserRuleCall_8_0 = (RuleCall)cBricksAssignment_8.eContents().get(0);
-		private final Assignment cBricksAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cBricksActuatorParserRuleCall_9_0 = (RuleCall)cBricksAssignment_9.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cBinaryKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cColonKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Assignment cBricksAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cBricksBinaryActuatorParserRuleCall_8_2_0 = (RuleCall)cBricksAssignment_8_2.eContents().get(0);
+		private final Assignment cBricksAssignment_8_3 = (Assignment)cGroup_8.eContents().get(3);
+		private final RuleCall cBricksBinaryActuatorParserRuleCall_8_3_0 = (RuleCall)cBricksAssignment_8_3.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cAnalogKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Keyword cColonKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
+		private final Assignment cBricksAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
+		private final RuleCall cBricksAnalogActuatorParserRuleCall_9_2_0 = (RuleCall)cBricksAssignment_9_2.eContents().get(0);
+		private final Assignment cBricksAssignment_9_3 = (Assignment)cGroup_9.eContents().get(3);
+		private final RuleCall cBricksAnalogActuatorParserRuleCall_9_3_0 = (RuleCall)cBricksAssignment_9_3.eContents().get(0);
 		private final Keyword cStatesKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		private final Keyword cColonKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		private final Assignment cStatesAssignment_12 = (Assignment)cGroup.eContents().get(12);
@@ -74,9 +84,11 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//	bricks+=BinarySensor*)? ('analog' ':'
 		//	bricks+=AnalogSensor
 		//	bricks+=AnalogSensor*)?
-		//	'actuators' ':'
-		//	bricks+=Actuator
-		//	bricks+=Actuator*
+		//	'actuators' ':' ('binary' ':'
+		//	bricks+=BinaryActuator
+		//	bricks+=BinaryActuator*)? ('analog' ':'
+		//	bricks+=AnalogActuator
+		//	bricks+=AnalogActuator*)?
 		//	'states' ':'
 		//	states+=State
 		//	states+=State*
@@ -84,8 +96,9 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'App' name=EString 'sensors' ':' ('binary' ':' bricks+=BinarySensor bricks+=BinarySensor*)? ('analog' ':'
-		//bricks+=AnalogSensor bricks+=AnalogSensor*)? 'actuators' ':' bricks+=Actuator bricks+=Actuator* 'states' ':'
-		//states+=State states+=State* 'initial' initial=[State|EString]
+		//bricks+=AnalogSensor bricks+=AnalogSensor*)? 'actuators' ':' ('binary' ':' bricks+=BinaryActuator
+		//bricks+=BinaryActuator*)? ('analog' ':' bricks+=AnalogActuator bricks+=AnalogActuator*)? 'states' ':' states+=State
+		//states+=State* 'initial' initial=[State|EString]
 		public Group getGroup() { return cGroup; }
 		
 		//'App'
@@ -151,17 +164,47 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
 		
-		//bricks+=Actuator
-		public Assignment getBricksAssignment_8() { return cBricksAssignment_8; }
+		//('binary' ':' bricks+=BinaryActuator bricks+=BinaryActuator*)?
+		public Group getGroup_8() { return cGroup_8; }
 		
-		//Actuator
-		public RuleCall getBricksActuatorParserRuleCall_8_0() { return cBricksActuatorParserRuleCall_8_0; }
+		//'binary'
+		public Keyword getBinaryKeyword_8_0() { return cBinaryKeyword_8_0; }
 		
-		//bricks+=Actuator*
-		public Assignment getBricksAssignment_9() { return cBricksAssignment_9; }
+		//':'
+		public Keyword getColonKeyword_8_1() { return cColonKeyword_8_1; }
 		
-		//Actuator
-		public RuleCall getBricksActuatorParserRuleCall_9_0() { return cBricksActuatorParserRuleCall_9_0; }
+		//bricks+=BinaryActuator
+		public Assignment getBricksAssignment_8_2() { return cBricksAssignment_8_2; }
+		
+		//BinaryActuator
+		public RuleCall getBricksBinaryActuatorParserRuleCall_8_2_0() { return cBricksBinaryActuatorParserRuleCall_8_2_0; }
+		
+		//bricks+=BinaryActuator*
+		public Assignment getBricksAssignment_8_3() { return cBricksAssignment_8_3; }
+		
+		//BinaryActuator
+		public RuleCall getBricksBinaryActuatorParserRuleCall_8_3_0() { return cBricksBinaryActuatorParserRuleCall_8_3_0; }
+		
+		//('analog' ':' bricks+=AnalogActuator bricks+=AnalogActuator*)?
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//'analog'
+		public Keyword getAnalogKeyword_9_0() { return cAnalogKeyword_9_0; }
+		
+		//':'
+		public Keyword getColonKeyword_9_1() { return cColonKeyword_9_1; }
+		
+		//bricks+=AnalogActuator
+		public Assignment getBricksAssignment_9_2() { return cBricksAssignment_9_2; }
+		
+		//AnalogActuator
+		public RuleCall getBricksAnalogActuatorParserRuleCall_9_2_0() { return cBricksAnalogActuatorParserRuleCall_9_2_0; }
+		
+		//bricks+=AnalogActuator*
+		public Assignment getBricksAssignment_9_3() { return cBricksAssignment_9_3; }
+		
+		//AnalogActuator
+		public RuleCall getBricksAnalogActuatorParserRuleCall_9_3_0() { return cBricksAnalogActuatorParserRuleCall_9_3_0; }
 		
 		//'states'
 		public Keyword getStatesKeyword_10() { return cStatesKeyword_10; }
@@ -200,20 +243,23 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cActionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cActionsActionParserRuleCall_2_0 = (RuleCall)cActionsAssignment_2.eContents().get(0);
+		private final Alternatives cActionsAlternatives_2_0 = (Alternatives)cActionsAssignment_2.eContents().get(0);
+		private final RuleCall cActionsBinaryActionParserRuleCall_2_0_0 = (RuleCall)cActionsAlternatives_2_0.eContents().get(0);
+		private final RuleCall cActionsAnalogActionParserRuleCall_2_0_1 = (RuleCall)cActionsAlternatives_2_0.eContents().get(1);
 		private final Assignment cActionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cActionsActionParserRuleCall_3_0 = (RuleCall)cActionsAssignment_3.eContents().get(0);
+		private final Alternatives cActionsAlternatives_3_0 = (Alternatives)cActionsAssignment_3.eContents().get(0);
+		private final RuleCall cActionsBinaryActionParserRuleCall_3_0_0 = (RuleCall)cActionsAlternatives_3_0.eContents().get(0);
+		private final RuleCall cActionsAnalogActionParserRuleCall_3_0_1 = (RuleCall)cActionsAlternatives_3_0.eContents().get(1);
 		private final Assignment cTransitionAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cTransitionTransitionParserRuleCall_4_0 = (RuleCall)cTransitionAssignment_4.eContents().get(0);
 		
 		//State:
 		//	name=EString ':'
-		//	actions+=Action
-		//	actions+=Action*
+		//	actions+=(BinaryAction | AnalogAction) actions+=(BinaryAction | AnalogAction)*
 		//	transition=Transition;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=EString ':' actions+=Action actions+=Action* transition=Transition
+		//name=EString ':' actions+=(BinaryAction | AnalogAction) actions+=(BinaryAction | AnalogAction)* transition=Transition
 		public Group getGroup() { return cGroup; }
 		
 		//name=EString
@@ -225,17 +271,29 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 		
-		//actions+=Action
+		//actions+=(BinaryAction | AnalogAction)
 		public Assignment getActionsAssignment_2() { return cActionsAssignment_2; }
 		
-		//Action
-		public RuleCall getActionsActionParserRuleCall_2_0() { return cActionsActionParserRuleCall_2_0; }
+		//(BinaryAction | AnalogAction)
+		public Alternatives getActionsAlternatives_2_0() { return cActionsAlternatives_2_0; }
 		
-		//actions+=Action*
+		//BinaryAction
+		public RuleCall getActionsBinaryActionParserRuleCall_2_0_0() { return cActionsBinaryActionParserRuleCall_2_0_0; }
+		
+		//AnalogAction
+		public RuleCall getActionsAnalogActionParserRuleCall_2_0_1() { return cActionsAnalogActionParserRuleCall_2_0_1; }
+		
+		//actions+=(BinaryAction | AnalogAction)*
 		public Assignment getActionsAssignment_3() { return cActionsAssignment_3; }
 		
-		//Action
-		public RuleCall getActionsActionParserRuleCall_3_0() { return cActionsActionParserRuleCall_3_0; }
+		//(BinaryAction | AnalogAction)
+		public Alternatives getActionsAlternatives_3_0() { return cActionsAlternatives_3_0; }
+		
+		//BinaryAction
+		public RuleCall getActionsBinaryActionParserRuleCall_3_0_0() { return cActionsBinaryActionParserRuleCall_3_0_0; }
+		
+		//AnalogAction
+		public RuleCall getActionsAnalogActionParserRuleCall_3_0_1() { return cActionsAnalogActionParserRuleCall_3_0_1; }
 		
 		//transition=Transition
 		public Assignment getTransitionAssignment_4() { return cTransitionAssignment_4; }
@@ -243,29 +301,29 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//Transition
 		public RuleCall getTransitionTransitionParserRuleCall_4_0() { return cTransitionTransitionParserRuleCall_4_0; }
 	}
-	public class ActionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.Action");
+	public class BinaryActionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.BinaryAction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cActionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cBinaryActionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Assignment cActuatorAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final CrossReference cActuatorActuatorCrossReference_1_0_0 = (CrossReference)cActuatorAssignment_1_0.eContents().get(0);
 		private final RuleCall cActuatorActuatorEStringParserRuleCall_1_0_0_1 = (RuleCall)cActuatorActuatorCrossReference_1_0_0.eContents().get(1);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cValueAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cValueSIGNALEnumRuleCall_1_2_0 = (RuleCall)cValueAssignment_1_2.eContents().get(0);
+		private final Assignment cActionValueAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cActionValueSIGNALEnumRuleCall_1_2_0 = (RuleCall)cActionValueAssignment_1_2.eContents().get(0);
 		
-		//Action:
-		//	{Action} (actuator=[Actuator|EString] '->' value=SIGNAL);
+		//BinaryAction:
+		//	{BinaryAction} (actuator=[Actuator|EString] '->' actionValue=SIGNAL);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Action} (actuator=[Actuator|EString] '->' value=SIGNAL)
+		//{BinaryAction} (actuator=[Actuator|EString] '->' actionValue=SIGNAL)
 		public Group getGroup() { return cGroup; }
 		
-		//{Action}
-		public Action getActionAction_0() { return cActionAction_0; }
+		//{BinaryAction}
+		public Action getBinaryActionAction_0() { return cBinaryActionAction_0; }
 		
-		//actuator=[Actuator|EString] '->' value=SIGNAL
+		//actuator=[Actuator|EString] '->' actionValue=SIGNAL
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//actuator=[Actuator|EString]
@@ -280,11 +338,54 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//'->'
 		public Keyword getHyphenMinusGreaterThanSignKeyword_1_1() { return cHyphenMinusGreaterThanSignKeyword_1_1; }
 		
-		//value=SIGNAL
-		public Assignment getValueAssignment_1_2() { return cValueAssignment_1_2; }
+		//actionValue=SIGNAL
+		public Assignment getActionValueAssignment_1_2() { return cActionValueAssignment_1_2; }
 		
 		//SIGNAL
-		public RuleCall getValueSIGNALEnumRuleCall_1_2_0() { return cValueSIGNALEnumRuleCall_1_2_0; }
+		public RuleCall getActionValueSIGNALEnumRuleCall_1_2_0() { return cActionValueSIGNALEnumRuleCall_1_2_0; }
+	}
+	public class AnalogActionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.AnalogAction");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cAnalogActionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cActuatorAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final CrossReference cActuatorActuatorCrossReference_1_0_0 = (CrossReference)cActuatorAssignment_1_0.eContents().get(0);
+		private final RuleCall cActuatorActuatorEStringParserRuleCall_1_0_0_1 = (RuleCall)cActuatorActuatorCrossReference_1_0_0.eContents().get(1);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cActionValueAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cActionValueEIntParserRuleCall_1_2_0 = (RuleCall)cActionValueAssignment_1_2.eContents().get(0);
+		
+		//AnalogAction:
+		//	{AnalogAction} (actuator=[Actuator|EString] '->' actionValue=EInt);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{AnalogAction} (actuator=[Actuator|EString] '->' actionValue=EInt)
+		public Group getGroup() { return cGroup; }
+		
+		//{AnalogAction}
+		public Action getAnalogActionAction_0() { return cAnalogActionAction_0; }
+		
+		//actuator=[Actuator|EString] '->' actionValue=EInt
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//actuator=[Actuator|EString]
+		public Assignment getActuatorAssignment_1_0() { return cActuatorAssignment_1_0; }
+		
+		//[Actuator|EString]
+		public CrossReference getActuatorActuatorCrossReference_1_0_0() { return cActuatorActuatorCrossReference_1_0_0; }
+		
+		//EString
+		public RuleCall getActuatorActuatorEStringParserRuleCall_1_0_0_1() { return cActuatorActuatorEStringParserRuleCall_1_0_0_1; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_1_1() { return cHyphenMinusGreaterThanSignKeyword_1_1; }
+		
+		//actionValue=EInt
+		public Assignment getActionValueAssignment_1_2() { return cActionValueAssignment_1_2; }
+		
+		//EInt
+		public RuleCall getActionValueEIntParserRuleCall_1_2_0() { return cActionValueEIntParserRuleCall_1_2_0; }
 	}
 	public class TransitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.Transition");
@@ -481,13 +582,13 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cPinAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPinEIntParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
+		private final RuleCall cPinEStringParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
 		
 		//BinarySensor:
-		//	{BinarySensor} name=EString '->' pin=EInt;
+		//	{BinarySensor} name=EString '->' pin=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{BinarySensor} name=EString '->' pin=EInt
+		//{BinarySensor} name=EString '->' pin=EString
 		public Group getGroup() { return cGroup; }
 		
 		//{BinarySensor}
@@ -502,11 +603,11 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//'->'
 		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
 		
-		//pin=EInt
+		//pin=EString
 		public Assignment getPinAssignment_3() { return cPinAssignment_3; }
 		
-		//EInt
-		public RuleCall getPinEIntParserRuleCall_3_0() { return cPinEIntParserRuleCall_3_0; }
+		//EString
+		public RuleCall getPinEStringParserRuleCall_3_0() { return cPinEStringParserRuleCall_3_0; }
 	}
 	public class AnalogSensorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.AnalogSensor");
@@ -516,13 +617,13 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cPinAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPinEIntParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
+		private final RuleCall cPinEStringParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
 		
 		//AnalogSensor:
-		//	{AnalogSensor} name=EString '->' pin=EInt;
+		//	{AnalogSensor} name=EString '->' pin=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{AnalogSensor} name=EString '->' pin=EInt
+		//{AnalogSensor} name=EString '->' pin=EString
 		public Group getGroup() { return cGroup; }
 		
 		//{AnalogSensor}
@@ -537,31 +638,31 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//'->'
 		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
 		
-		//pin=EInt
+		//pin=EString
 		public Assignment getPinAssignment_3() { return cPinAssignment_3; }
 		
-		//EInt
-		public RuleCall getPinEIntParserRuleCall_3_0() { return cPinEIntParserRuleCall_3_0; }
+		//EString
+		public RuleCall getPinEStringParserRuleCall_3_0() { return cPinEStringParserRuleCall_3_0; }
 	}
-	public class ActuatorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.Actuator");
+	public class AnalogActuatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.AnalogActuator");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cActuatorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cAnalogActuatorAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cPinAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPinEIntParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
+		private final RuleCall cPinEStringParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
 		
-		//Actuator:
-		//	{Actuator} name=EString '->' pin=EInt;
+		//AnalogActuator:
+		//	{AnalogActuator} name=EString '->' pin=EString;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Actuator} name=EString '->' pin=EInt
+		//{AnalogActuator} name=EString '->' pin=EString
 		public Group getGroup() { return cGroup; }
 		
-		//{Actuator}
-		public Action getActuatorAction_0() { return cActuatorAction_0; }
+		//{AnalogActuator}
+		public Action getAnalogActuatorAction_0() { return cAnalogActuatorAction_0; }
 		
 		//name=EString
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -572,11 +673,46 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		//'->'
 		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
 		
-		//pin=EInt
+		//pin=EString
 		public Assignment getPinAssignment_3() { return cPinAssignment_3; }
 		
-		//EInt
-		public RuleCall getPinEIntParserRuleCall_3_0() { return cPinEIntParserRuleCall_3_0; }
+		//EString
+		public RuleCall getPinEStringParserRuleCall_3_0() { return cPinEStringParserRuleCall_3_0; }
+	}
+	public class BinaryActuatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.BinaryActuator");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBinaryActuatorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPinAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPinEStringParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
+		
+		//BinaryActuator:
+		//	{BinaryActuator} name=EString '->' pin=EString;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{BinaryActuator} name=EString '->' pin=EString
+		public Group getGroup() { return cGroup; }
+		
+		//{BinaryActuator}
+		public Action getBinaryActuatorAction_0() { return cBinaryActuatorAction_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
+		
+		//pin=EString
+		public Assignment getPinAssignment_3() { return cPinAssignment_3; }
+		
+		//EString
+		public RuleCall getPinEStringParserRuleCall_3_0() { return cPinEStringParserRuleCall_3_0; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.polytech.dsl.arduinoml.AML.EString");
@@ -736,7 +872,8 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private final AppElements pApp;
 	private final StateElements pState;
-	private final ActionElements pAction;
+	private final BinaryActionElements pBinaryAction;
+	private final AnalogActionElements pAnalogAction;
 	private final SIGNALElements eSIGNAL;
 	private final OPERATORElements eOPERATOR;
 	private final COMPARATORElements eCOMPARATOR;
@@ -746,7 +883,8 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	private final ValueElementConditionElements pValueElementCondition;
 	private final BinarySensorElements pBinarySensor;
 	private final AnalogSensorElements pAnalogSensor;
-	private final ActuatorElements pActuator;
+	private final AnalogActuatorElements pAnalogActuator;
+	private final BinaryActuatorElements pBinaryActuator;
 	private final EStringElements pEString;
 	private final EIntElements pEInt;
 	private final EFloatElements pEFloat;
@@ -762,7 +900,8 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pApp = new AppElements();
 		this.pState = new StateElements();
-		this.pAction = new ActionElements();
+		this.pBinaryAction = new BinaryActionElements();
+		this.pAnalogAction = new AnalogActionElements();
 		this.eSIGNAL = new SIGNALElements();
 		this.eOPERATOR = new OPERATORElements();
 		this.eCOMPARATOR = new COMPARATORElements();
@@ -772,7 +911,8 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pValueElementCondition = new ValueElementConditionElements();
 		this.pBinarySensor = new BinarySensorElements();
 		this.pAnalogSensor = new AnalogSensorElements();
-		this.pActuator = new ActuatorElements();
+		this.pAnalogActuator = new AnalogActuatorElements();
+		this.pBinaryActuator = new BinaryActuatorElements();
 		this.pEString = new EStringElements();
 		this.pEInt = new EIntElements();
 		this.pEFloat = new EFloatElements();
@@ -813,9 +953,11 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	//	bricks+=BinarySensor*)? ('analog' ':'
 	//	bricks+=AnalogSensor
 	//	bricks+=AnalogSensor*)?
-	//	'actuators' ':'
-	//	bricks+=Actuator
-	//	bricks+=Actuator*
+	//	'actuators' ':' ('binary' ':'
+	//	bricks+=BinaryActuator
+	//	bricks+=BinaryActuator*)? ('analog' ':'
+	//	bricks+=AnalogActuator
+	//	bricks+=AnalogActuator*)?
 	//	'states' ':'
 	//	states+=State
 	//	states+=State*
@@ -830,8 +972,7 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//State:
 	//	name=EString ':'
-	//	actions+=Action
-	//	actions+=Action*
+	//	actions+=(BinaryAction | AnalogAction) actions+=(BinaryAction | AnalogAction)*
 	//	transition=Transition;
 	public StateElements getStateAccess() {
 		return pState;
@@ -841,14 +982,24 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		return getStateAccess().getRule();
 	}
 	
-	//Action:
-	//	{Action} (actuator=[Actuator|EString] '->' value=SIGNAL);
-	public ActionElements getActionAccess() {
-		return pAction;
+	//BinaryAction:
+	//	{BinaryAction} (actuator=[Actuator|EString] '->' actionValue=SIGNAL);
+	public BinaryActionElements getBinaryActionAccess() {
+		return pBinaryAction;
 	}
 	
-	public ParserRule getActionRule() {
-		return getActionAccess().getRule();
+	public ParserRule getBinaryActionRule() {
+		return getBinaryActionAccess().getRule();
+	}
+	
+	//AnalogAction:
+	//	{AnalogAction} (actuator=[Actuator|EString] '->' actionValue=EInt);
+	public AnalogActionElements getAnalogActionAccess() {
+		return pAnalogAction;
+	}
+	
+	public ParserRule getAnalogActionRule() {
+		return getAnalogActionAccess().getRule();
 	}
 	
 	//enum SIGNAL:
@@ -924,7 +1075,7 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//BinarySensor:
-	//	{BinarySensor} name=EString '->' pin=EInt;
+	//	{BinarySensor} name=EString '->' pin=EString;
 	public BinarySensorElements getBinarySensorAccess() {
 		return pBinarySensor;
 	}
@@ -934,7 +1085,7 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AnalogSensor:
-	//	{AnalogSensor} name=EString '->' pin=EInt;
+	//	{AnalogSensor} name=EString '->' pin=EString;
 	public AnalogSensorElements getAnalogSensorAccess() {
 		return pAnalogSensor;
 	}
@@ -943,14 +1094,24 @@ public class AMLGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnalogSensorAccess().getRule();
 	}
 	
-	//Actuator:
-	//	{Actuator} name=EString '->' pin=EInt;
-	public ActuatorElements getActuatorAccess() {
-		return pActuator;
+	//AnalogActuator:
+	//	{AnalogActuator} name=EString '->' pin=EString;
+	public AnalogActuatorElements getAnalogActuatorAccess() {
+		return pAnalogActuator;
 	}
 	
-	public ParserRule getActuatorRule() {
-		return getActuatorAccess().getRule();
+	public ParserRule getAnalogActuatorRule() {
+		return getAnalogActuatorAccess().getRule();
+	}
+	
+	//BinaryActuator:
+	//	{BinaryActuator} name=EString '->' pin=EString;
+	public BinaryActuatorElements getBinaryActuatorAccess() {
+		return pBinaryActuator;
+	}
+	
+	public ParserRule getBinaryActuatorRule() {
+		return getBinaryActuatorAccess().getRule();
 	}
 	
 	//EString:

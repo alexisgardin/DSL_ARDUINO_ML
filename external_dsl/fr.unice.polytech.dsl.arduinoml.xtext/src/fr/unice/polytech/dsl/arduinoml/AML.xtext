@@ -15,8 +15,12 @@ App returns App:
 	 		bricks+=AnalogSensor
 	    	(bricks+=AnalogSensor)*)?
 	'actuators' ':'
-		bricks+=Actuator
-		(bricks+=Actuator)*
+		('binary' ':'
+	 		bricks+=BinaryActuator
+	    	(bricks+=BinaryActuator)*)?
+	    ('analog' ':'
+	 		bricks+=AnalogActuator
+	    	(bricks+=AnalogActuator)*)?
 	'states' ':' 
 		states+=State 
 		(states+=State)*
@@ -25,14 +29,18 @@ App returns App:
 
 State returns State:
 	name=EString ':'
-		actions+=Action
-		(actions+=Action)*
+		actions+=(BinaryAction|AnalogAction)
+		(actions+=(BinaryAction|AnalogAction))*
 		transition=Transition
 ;
 
-Action returns Action:
-	{Action}
-	(actuator=[Actuator|EString] '->' value=SIGNAL);
+BinaryAction returns BinaryAction:
+	{BinaryAction}
+	(actuator=[Actuator|EString] '->' actionValue=SIGNAL);
+
+AnalogAction returns AnalogAction:
+	{AnalogAction}
+	(actuator=[Actuator|EString] '->' actionValue=EInt);
 
 
 enum SIGNAL returns SIGNAL:
@@ -66,16 +74,20 @@ ValueElementCondition returns ValueElementCondition:
 	
 BinarySensor returns BinarySensor:
 	{BinarySensor}
-	name=EString '->' pin=EInt;
+	name=EString '->' pin=EString;
 	
 AnalogSensor returns AnalogSensor:
 	{AnalogSensor}
-	name=EString '->' pin=EInt;
+	name=EString '->' pin=EString;
 
 
-Actuator returns Actuator:
-	{Actuator}
-	name=EString '->' pin=EInt;
+AnalogActuator returns AnalogActuator:
+	{AnalogActuator}
+	name=EString '->' pin=EString;
+
+BinaryActuator returns BinaryActuator:
+	{BinaryActuator}
+	name=EString '->' pin=EString;
 
 EString returns ecore::EString:
 	STRING | ID;

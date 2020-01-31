@@ -1,10 +1,11 @@
 App 'DualCheckAlarm'
 	sensors :
 		binary :
-			'button' -> 12
-			'button1' -> 13
+			'button' -> '12'
+			'button1' -> '13'
 	actuators :
-		'buzzer' -> 9
+		binary :
+		    'buzzer' -> '9'
 	states :
 		'off':
 			buzzer -> LOW

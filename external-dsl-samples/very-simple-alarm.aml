@@ -1,10 +1,11 @@
 App 'VerySimpleAlarm'
 	sensors :
 		binary :
-			'button' -> 12
+			'button' -> '12'
 	actuators :
-		'buzzer' -> 9
-		'led' -> 8
+        binary :
+            'buzzer' -> '9'
+            'led' -> '8'
 	states :
 		'off':
 			buzzer -> LOW

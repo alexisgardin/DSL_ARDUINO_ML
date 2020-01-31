@@ -2,39 +2,28 @@
  */
 package fr.unice.polytech.dsl.arduinoml.provider;
 
-import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
+import fr.unice.polytech.dsl.arduinoml.AnalogActuator;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link fr.unice.polytech.dsl.arduinoml.Action} object.
+ * This is the item provider adapter for a {@link fr.unice.polytech.dsl.arduinoml.AnalogActuator} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class AnalogActuatorItemProvider extends ActuatorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActionItemProvider(AdapterFactory adapterFactory) {
+	public AnalogActuatorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -49,35 +38,19 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addActuatorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Actuator feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addActuatorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Action_actuator_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Action_actuator_feature",
-								"_UI_Action_type"),
-						ArduinomlPackage.Literals.ACTION__ACTUATOR, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This returns Action.gif.
+	 * This returns AnalogActuator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Action"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnalogActuator"));
 	}
 
 	/**
@@ -98,7 +71,9 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Action_type");
+		String label = ((AnalogActuator) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_AnalogActuator_type")
+				: getString("_UI_AnalogActuator_type") + " " + label;
 	}
 
 	/**
@@ -124,17 +99,6 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ArduinomlEditPlugin.INSTANCE;
 	}
 
 }

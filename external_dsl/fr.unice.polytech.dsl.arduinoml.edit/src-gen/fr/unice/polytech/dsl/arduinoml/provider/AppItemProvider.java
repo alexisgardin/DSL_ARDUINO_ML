@@ -168,13 +168,16 @@ public class AppItemProvider extends NamedElementItemProvider {
 				createChildParameter(ArduinomlPackage.Literals.APP__BRICKS, ArduinomlFactory.eINSTANCE.createBrick()));
 
 		newChildDescriptors.add(createChildParameter(ArduinomlPackage.Literals.APP__BRICKS,
-				ArduinomlFactory.eINSTANCE.createActuator()));
-
-		newChildDescriptors.add(createChildParameter(ArduinomlPackage.Literals.APP__BRICKS,
 				ArduinomlFactory.eINSTANCE.createBinarySensor()));
 
 		newChildDescriptors.add(createChildParameter(ArduinomlPackage.Literals.APP__BRICKS,
 				ArduinomlFactory.eINSTANCE.createAnalogSensor()));
+
+		newChildDescriptors.add(createChildParameter(ArduinomlPackage.Literals.APP__BRICKS,
+				ArduinomlFactory.eINSTANCE.createAnalogActuator()));
+
+		newChildDescriptors.add(createChildParameter(ArduinomlPackage.Literals.APP__BRICKS,
+				ArduinomlFactory.eINSTANCE.createBinaryActuator()));
 	}
 
 }

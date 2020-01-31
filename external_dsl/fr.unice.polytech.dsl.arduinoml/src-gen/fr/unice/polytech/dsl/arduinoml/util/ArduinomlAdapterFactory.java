@@ -137,6 +137,26 @@ public class ArduinomlAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseAnalogActuator(AnalogActuator object) {
+			return createAnalogActuatorAdapter();
+		}
+
+		@Override
+		public Adapter caseBinaryActuator(BinaryActuator object) {
+			return createBinaryActuatorAdapter();
+		}
+
+		@Override
+		public Adapter caseAnalogAction(AnalogAction object) {
+			return createAnalogActionAdapter();
+		}
+
+		@Override
+		public Adapter caseBinaryAction(BinaryAction object) {
+			return createBinaryActionAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -348,6 +368,62 @@ public class ArduinomlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAnalogSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.dsl.arduinoml.AnalogActuator <em>Analog Actuator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.dsl.arduinoml.AnalogActuator
+	 * @generated
+	 */
+	public Adapter createAnalogActuatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.dsl.arduinoml.BinaryActuator <em>Binary Actuator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.dsl.arduinoml.BinaryActuator
+	 * @generated
+	 */
+	public Adapter createBinaryActuatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.dsl.arduinoml.AnalogAction <em>Analog Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.dsl.arduinoml.AnalogAction
+	 * @generated
+	 */
+	public Adapter createAnalogActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.unice.polytech.dsl.arduinoml.BinaryAction <em>Binary Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.unice.polytech.dsl.arduinoml.BinaryAction
+	 * @generated
+	 */
+	public Adapter createBinaryActionAdapter() {
 		return null;
 	}
 

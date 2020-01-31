@@ -1,9 +1,10 @@
 App 'Extension'
 	sensors :
 		analog :
-			'temp_captor' -> 12
+			'temp_captor' -> '12'
 	actuators :
-		'buzzer' -> 9
+		binary :
+		    'buzzer' -> '9'
 	states :
 		'off':
 			buzzer -> LOW

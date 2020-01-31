@@ -11,7 +11,10 @@ import org.eclipse.emf.common.util.EList;
 
 import fr.unice.polytech.dsl.arduinoml.Action;
 import fr.unice.polytech.dsl.arduinoml.Actuator;
+import fr.unice.polytech.dsl.arduinoml.AnalogAction;
+import fr.unice.polytech.dsl.arduinoml.AnalogActuator;
 import fr.unice.polytech.dsl.arduinoml.AnalogSensor;
+import fr.unice.polytech.dsl.arduinoml.BinaryAction;
 import fr.unice.polytech.dsl.arduinoml.Brick;
 import fr.unice.polytech.dsl.arduinoml.Condition;
 import fr.unice.polytech.dsl.arduinoml.MultipleElementCondition;
@@ -62,7 +65,14 @@ public class KernelAdapter {
 	}
 
 	public fr.unice.polytech.dsl.kernel.structural.Actuator mapActuator(Actuator actuatorToConvert) {
-		fr.unice.polytech.dsl.kernel.structural.Actuator actuator = new fr.unice.polytech.dsl.kernel.structural.Actuator();
+		fr.unice.polytech.dsl.kernel.structural.Actuator actuator;
+		
+		if (actuatorToConvert instanceof AnalogActuator) {
+			actuator = new fr.unice.polytech.dsl.kernel.structural.AnalogActuator();
+		} else {
+			actuator = new fr.unice.polytech.dsl.kernel.structural.DigitalActuator();
+		}
+		
 		actuator.setName(actuatorToConvert.getName());
 		actuator.setPin(actuatorToConvert.getPin());
 		actuators.add(actuator);
@@ -80,8 +90,15 @@ public class KernelAdapter {
 	}
 
 	public fr.unice.polytech.dsl.kernel.behavioral.Action mapAction(Action actionToConvert) {
-		fr.unice.polytech.dsl.kernel.behavioral.Action action = new fr.unice.polytech.dsl.kernel.behavioral.Action();
-		action.setValue(SIGNAL.valueOf(actionToConvert.getValue().toString()));
+		fr.unice.polytech.dsl.kernel.behavioral.Action action;
+		if (actionToConvert instanceof AnalogAction) {
+			action = new fr.unice.polytech.dsl.kernel.behavioral.AnalogAction();
+			((fr.unice.polytech.dsl.kernel.behavioral.AnalogAction) action).setValue(((AnalogAction) actionToConvert).getActionValue());
+		} else {
+			action = new fr.unice.polytech.dsl.kernel.behavioral.DigitalAction();
+			((fr.unice.polytech.dsl.kernel.behavioral.DigitalAction) action).setValue(SIGNAL.valueOf(((BinaryAction) actionToConvert).getActionValue().toString()));
+		}
+		
 		action.setActuator(mapActuator(actionToConvert.getActuator()));
 		return action;
 	}

@@ -9,7 +9,7 @@ package fr.unice.polytech.dsl.arduinoml;
  *
  *
  * @see fr.unice.polytech.dsl.arduinoml.ArduinomlPackage#getActuator()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Actuator extends Brick {

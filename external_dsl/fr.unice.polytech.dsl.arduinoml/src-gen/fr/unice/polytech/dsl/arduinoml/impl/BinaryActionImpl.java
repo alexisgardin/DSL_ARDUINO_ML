@@ -3,7 +3,8 @@
 package fr.unice.polytech.dsl.arduinoml.impl;
 
 import fr.unice.polytech.dsl.arduinoml.ArduinomlPackage;
-import fr.unice.polytech.dsl.arduinoml.Brick;
+import fr.unice.polytech.dsl.arduinoml.BinaryAction;
+import fr.unice.polytech.dsl.arduinoml.SIGNAL;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -13,44 +14,44 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Brick</b></em>'.
+ * An implementation of the model object '<em><b>Binary Action</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.unice.polytech.dsl.arduinoml.impl.BrickImpl#getPin <em>Pin</em>}</li>
+ *   <li>{@link fr.unice.polytech.dsl.arduinoml.impl.BinaryActionImpl#getActionValue <em>Action Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BrickImpl extends NamedElementImpl implements Brick {
+public class BinaryActionImpl extends ActionImpl implements BinaryAction {
 	/**
-	 * The default value of the '{@link #getPin() <em>Pin</em>}' attribute.
+	 * The default value of the '{@link #getActionValue() <em>Action Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPin()
+	 * @see #getActionValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PIN_EDEFAULT = null;
+	protected static final SIGNAL ACTION_VALUE_EDEFAULT = SIGNAL.HIGH;
 
 	/**
-	 * The cached value of the '{@link #getPin() <em>Pin</em>}' attribute.
+	 * The cached value of the '{@link #getActionValue() <em>Action Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPin()
+	 * @see #getActionValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected String pin = PIN_EDEFAULT;
+	protected SIGNAL actionValue = ACTION_VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BrickImpl() {
+	protected BinaryActionImpl() {
 		super();
 	}
 
@@ -61,7 +62,7 @@ public class BrickImpl extends NamedElementImpl implements Brick {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ArduinomlPackage.Literals.BRICK;
+		return ArduinomlPackage.Literals.BINARY_ACTION;
 	}
 
 	/**
@@ -69,8 +70,8 @@ public class BrickImpl extends NamedElementImpl implements Brick {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPin() {
-		return pin;
+	public SIGNAL getActionValue() {
+		return actionValue;
 	}
 
 	/**
@@ -78,11 +79,12 @@ public class BrickImpl extends NamedElementImpl implements Brick {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPin(String newPin) {
-		String oldPin = pin;
-		pin = newPin;
+	public void setActionValue(SIGNAL newActionValue) {
+		SIGNAL oldActionValue = actionValue;
+		actionValue = newActionValue == null ? ACTION_VALUE_EDEFAULT : newActionValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArduinomlPackage.BRICK__PIN, oldPin, pin));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinomlPackage.BINARY_ACTION__ACTION_VALUE,
+					oldActionValue, actionValue));
 	}
 
 	/**
@@ -93,8 +95,8 @@ public class BrickImpl extends NamedElementImpl implements Brick {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ArduinomlPackage.BRICK__PIN:
-			return getPin();
+		case ArduinomlPackage.BINARY_ACTION__ACTION_VALUE:
+			return getActionValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,8 +109,8 @@ public class BrickImpl extends NamedElementImpl implements Brick {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ArduinomlPackage.BRICK__PIN:
-			setPin((String) newValue);
+		case ArduinomlPackage.BINARY_ACTION__ACTION_VALUE:
+			setActionValue((SIGNAL) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,8 +124,8 @@ public class BrickImpl extends NamedElementImpl implements Brick {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ArduinomlPackage.BRICK__PIN:
-			setPin(PIN_EDEFAULT);
+		case ArduinomlPackage.BINARY_ACTION__ACTION_VALUE:
+			setActionValue(ACTION_VALUE_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -137,8 +139,8 @@ public class BrickImpl extends NamedElementImpl implements Brick {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ArduinomlPackage.BRICK__PIN:
-			return PIN_EDEFAULT == null ? pin != null : !PIN_EDEFAULT.equals(pin);
+		case ArduinomlPackage.BINARY_ACTION__ACTION_VALUE:
+			return actionValue != ACTION_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,10 +156,10 @@ public class BrickImpl extends NamedElementImpl implements Brick {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (pin: ");
-		result.append(pin);
+		result.append(" (actionValue: ");
+		result.append(actionValue);
 		result.append(')');
 		return result.toString();
 	}
 
-} //BrickImpl
+} //BinaryActionImpl

@@ -49,15 +49,6 @@ public interface ArduinomlFactory extends EFactory {
 	Brick createBrick();
 
 	/**
-	 * Returns a new object of class '<em>Action</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Action</em>'.
-	 * @generated
-	 */
-	Action createAction();
-
-	/**
 	 * Returns a new object of class '<em>Transition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,15 +56,6 @@ public interface ArduinomlFactory extends EFactory {
 	 * @generated
 	 */
 	Transition createTransition();
-
-	/**
-	 * Returns a new object of class '<em>Actuator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Actuator</em>'.
-	 * @generated
-	 */
-	Actuator createActuator();
 
 	/**
 	 * Returns a new object of class '<em>Single Element Condition</em>'.
@@ -119,6 +101,42 @@ public interface ArduinomlFactory extends EFactory {
 	 * @generated
 	 */
 	AnalogSensor createAnalogSensor();
+
+	/**
+	 * Returns a new object of class '<em>Analog Actuator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Analog Actuator</em>'.
+	 * @generated
+	 */
+	AnalogActuator createAnalogActuator();
+
+	/**
+	 * Returns a new object of class '<em>Binary Actuator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binary Actuator</em>'.
+	 * @generated
+	 */
+	BinaryActuator createBinaryActuator();
+
+	/**
+	 * Returns a new object of class '<em>Analog Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Analog Action</em>'.
+	 * @generated
+	 */
+	AnalogAction createAnalogAction();
+
+	/**
+	 * Returns a new object of class '<em>Binary Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binary Action</em>'.
+	 * @generated
+	 */
+	BinaryAction createBinaryAction();
 
 	/**
 	 * Returns the package supported by this factory.

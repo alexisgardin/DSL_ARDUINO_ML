@@ -118,7 +118,7 @@ public class ToWiring extends Visitor<StringBuffer> {
 
     @Override
     public void visit(Transition transition) {
-        ws(String.format("  if( "));
+        ws(String.format("  if( guard && "));
         transition.getCondition().accept(this);
 
         transition.getCondition().reset();
